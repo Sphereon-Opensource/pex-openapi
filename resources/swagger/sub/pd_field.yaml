@@ -1,0 +1,39 @@
+field:
+  title: Field
+  type: object
+  oneOf:
+    - properties:
+        id:
+          type: string
+        path:
+          type: array
+          items:
+            type: string
+        purpose:
+          type: string
+        filter:
+          $ref: './pd_filter.yaml#/filter'
+      required:
+        - path
+      additionalProperties: false
+    - properties:
+        id:
+          type: string
+        path:
+          type: array
+          items:
+            type: string
+        purpose:
+          type: string
+        filter:
+          $ref: './pd_filter.yaml#/filter'
+        predicate:
+          type: string
+          enum:
+            - required
+            - preferred
+      required:
+        - path
+        - filter
+        - predicate
+      additionalProperties: false

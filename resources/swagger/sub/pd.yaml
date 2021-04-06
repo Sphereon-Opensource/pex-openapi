@@ -1,0 +1,24 @@
+presentation_definition:
+  title: Presentation Definition
+  type: object
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    purpose:
+      type: string
+    format:
+      $ref: './pd_format.yaml#/format'
+    submission_requirements:
+      type: array
+      items:
+        $ref: './pd_submission_requirements.yaml#/submission_requirements'
+    input_descriptors:
+      type: array
+      items:
+        $ref: './pd_input_descriptors.yaml#/input_descriptors'
+  required:
+    - id
+    - input_descriptors
+  additionalProperties: false

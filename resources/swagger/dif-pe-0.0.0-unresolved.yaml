@@ -1,0 +1,87 @@
+openapi: 3.1.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/abc6423/DIF/1.0.0
+info:
+  description: Decentralized Identity Foundation Presentation Exchange API
+  version: "1.0.0"
+  title: DIF PE API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: admins
+    description: Secured Admin-only calls
+  - name: developers
+    description: Operations available to regular developers
+paths:
+  /input_discriptor:
+    get:
+      tags:
+        - developers
+      summary: searches PE Input Descriptor
+      operationId: searchPEInputDescriptor
+      description: |
+        By passing in the appropriate options, you can search for
+        available Input Descriptor in the system
+      parameters:
+        - in: query
+          name: searchString
+          description: pass an optional search string for looking up PE Input Descriptor
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: skip
+          description: number of records to skip for pagination
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: limit
+          description: maximum number of records to return
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 50
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/presentation_definition'
+        '400':
+          description: bad input parameter
+    post:
+      tags:
+        - admins
+      summary: adds an PE Input Descriptor item
+      operationId: addPEInputDescriptor
+      description: Adds an item to the system
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/presentation_definition'
+        description: input descriptor to add
+components:
+  schemas:
+    presentation_definition:
+      $ref: './resources/swagger/sub/pd.yaml#/presentation_definition'
+    presentation_submission:
+      $ref: './resources/swagger/sub/ps.yaml#/presentation_submission'

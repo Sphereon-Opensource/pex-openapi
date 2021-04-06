@@ -1,0 +1,106 @@
+input_descriptors:
+  title: Input Descriptor
+  type: object
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    purpose:
+      type: string
+    group:
+      type: array
+      items:
+        type: string
+    schema:
+      type: array
+      items:
+        $ref: './pd_schema.yaml#/schema'
+    constraints:
+      type: object
+      properties:
+        limit_disclosure:
+          type: string
+          enum:
+            - required
+            - preferred
+        statuses:
+          type: object
+          properties:
+            active:
+              type: object
+              properties:
+                directive:
+                  type: string
+                  enum:
+                    - required
+                    - allowed
+                    - disallowed
+            suspended:
+              type: object
+              properties:
+                directive:
+                  type: string
+                  enum:
+                    - required
+                    - allowed
+                    - disallowed
+            revoked:
+              type: object
+              properties:
+                directive:
+                  type: string
+                  enum:
+                    - required
+                    - allowed
+                    - disallowed
+        fields:
+          type: array
+          items:
+            $ref: './pd_field.yaml#/field'
+        subject_is_issuer:
+          type: string
+          enum:
+            - required
+            - preferred
+        is_holder:
+          type: array
+          items:
+            type: object
+            properties:
+              field_id:
+                type: array
+                items:
+                  type: string
+              directive:
+                type: string
+                enum:
+                  - required
+                  - preferred
+            required:
+              - field_id
+              - directive
+            additionalProperties: false
+        same_subject:
+          type: array
+          items:
+            type: object
+            properties:
+              field_id:
+                type: array
+                items:
+                  type: string
+              directive:
+                type: string
+                enum:
+                  - required
+                  - preferred
+            required:
+              - field_id
+              - directive
+            additionalProperties: false
+      additionalProperties: false
+  required:
+    - id
+    - schema
+  additionalProperties: false

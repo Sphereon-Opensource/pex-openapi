@@ -1,0 +1,9 @@
+presentation_submission:
+  title: Presentation Submission
+  type: object
+  properties:
+    submission_requirements:
+      $ref: './pd_submission_requirements.yaml#/submission_requirements'
+  required:
+    - submission_requirements
+  additionalProperties: false
