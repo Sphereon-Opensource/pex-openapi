@@ -1,5 +1,6 @@
 field:
   title: Field
+  description: Fields required by Verifier to be submitted by Holder.
   type: object
   oneOf:
     - properties:

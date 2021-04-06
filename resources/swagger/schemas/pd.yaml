@@ -1,5 +1,6 @@
 presentation_definition:
   title: Presentation Definition
+  description: Presentation Definitions are objects that articulate what proofs a Verifier requires.
   type: object
   properties:
     id:
@@ -8,6 +9,7 @@ presentation_definition:
       type: string
     purpose:
       type: string
+      description: It describes the purpose for which the Presentation Definition's inputs are being requested.
     format:
       $ref: './pd_format.yaml#/format'
     submission_requirements:

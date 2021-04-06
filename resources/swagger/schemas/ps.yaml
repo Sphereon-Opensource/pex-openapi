@@ -1,5 +1,6 @@
 presentation_submission:
   title: Presentation Submission
+  description: It express how the inputs presented as proofs to a Verifier.
   type: object
   properties:
     submission_requirements:

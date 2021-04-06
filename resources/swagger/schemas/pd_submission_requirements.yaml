@@ -1,5 +1,6 @@
 submission_requirements:
   title: Submission Requirements
+  description: It defines what combinations of inputs a processing entity must submit to comply with the requirements of a Verifier.
   type: object
   oneOf:
     - properties:
