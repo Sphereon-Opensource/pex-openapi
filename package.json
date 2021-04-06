@@ -1,5 +1,5 @@
 {
-  "name": "@zorion/dif-pe-models",
+  "name": "pe-api",
   "version": "1.0.0",
   "description": "Decentralized Identity Foundation Presentation Exchange API",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/hrehman-sphereon/dif-pe-models.git"
+    "url": "git+ssh://git@github.com:Sphereon-Opensource/pe-api.git"
   },
   "keywords": [
     "Verifiable",
