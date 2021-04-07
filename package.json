@@ -2,9 +2,10 @@
   "name": "pe-api",
   "version": "1.0.0",
   "description": "Decentralized Identity Foundation Presentation Exchange API",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "json_ref_resolve": "ts-node scripts/json_ref_resolver.ts",
+    "oapi2ts": "openapi-generator-cli generate -i target/pe-api-combined-0.0.0.yaml -g typescript-angular -o target/generated-sources/openapi --additional-properties=ngVersion=6.1.7,npmName=restClient,supportsES6=true,npmVersion=6.9.0,withInterfaces=true",
+    "build": "npm run json_ref_resolve && npm run oapi2ts"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,15 @@
   "author": "hafeez",
   "license": "Apache-2.0",
   "dependencies": {
+    "@types/node": "^14.14.37",
+    "json-to-pretty-yaml": "^1.2.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.2.5",
+    "@types/yamljs": "^0.2.31",
+    "json-refs": "^3.0.15",
+    "yamljs": "^0.3.0"
   }
 }

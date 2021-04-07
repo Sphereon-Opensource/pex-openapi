@@ -3,6 +3,7 @@ field:
   description: Fields required by Verifier to be submitted by Holder.
   type: object
   properties:
+    # [path, filter and predicate] is one set that can be filled. Or only 'path can be filled.'
     id:
       type: string
     path:
@@ -12,13 +13,10 @@ field:
     purpose:
       type: string
     filter:
-      $ref: 'pd_filter.yaml#/filter'
+      $ref: './pd_filter.yaml#/filter'
     predicate:
       type: string
       enum:
         - required
         - preferred
-  oneOf:
-    - required: [path]
-    - required: [path, filter, predicate]
   additionalProperties: false
