@@ -3,8 +3,6 @@ info:
   description: Decentralized Identity Foundation Presentation Exchange API
   version: "1.0.0"
   title: DIF PE API
-  contact:
-    email: you@your-company.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'

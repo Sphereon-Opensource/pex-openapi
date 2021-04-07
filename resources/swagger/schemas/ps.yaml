@@ -4,7 +4,9 @@ presentation_submission:
   type: object
   properties:
     submission_requirements:
-      $ref: './pd_submission_requirements.yaml#/submission_requirements'
+      type: array
+      items:
+        $ref: './schemas/pd_submission_requirement.yaml#/submission_requirement'
   required:
     - submission_requirements
   additionalProperties: false

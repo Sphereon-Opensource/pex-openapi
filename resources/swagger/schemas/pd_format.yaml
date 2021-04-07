@@ -3,16 +3,22 @@ format:
   description: What claim variants Verifiers and Holders support.
   type: object
   oneOf:
-    - jwt:
-      $ref: './jwt_object.yaml#/jwt_object'
-    - jwt_vc:
-      $ref: './jwt_object.yaml#/jwt_object'
-    - jwt_vp:
-      $ref: './jwt_object.yaml#/jwt_object'
-    - ldp:
-      $ref: './ldp_object.yaml#/ldp_object'
-    - ldp_vc:
-      $ref: './ldp_object.yaml#/ldp_object'
-    - ldp_vp:
-      $ref: './ldp_object.yaml#/ldp_object'
+    - properties:
+      jwt:
+        $ref: './jwt_object.yaml#/jwt_object'
+    - properties:
+      jwt_vc:
+        $ref: './jwt_object.yaml#/jwt_object'
+    - properties:
+      jwt_vp:
+        $ref: './jwt_object.yaml#/jwt_object'
+    - properties:
+      ldp:
+        $ref: './ldp_object.yaml#/ldp_object'
+    - properties:
+      ldp_vc:
+        $ref: './ldp_object.yaml#/ldp_object'
+    - properties:
+      ldp_vp:
+        $ref: './ldp_object.yaml#/ldp_object'
   additionalProperties: false
