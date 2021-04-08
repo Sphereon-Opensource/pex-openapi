@@ -1,0 +1,29 @@
+openapi: 3.0.3
+info:
+  description: Decentralized Identity Foundation Presentation Exchange API
+  version: "1.0.0"
+  title: DIF PE API
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /presentation_definition:
+    get:
+      summary: gets presentation definition
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/presentation_definition'
+        '400':
+          description: bad input parameter
+components:
+  schemas:
+    presentation_definition:
+      $ref: './resources/swagger/schemas/pd.yaml#/presentation_definition'
+    presentation_submission:
+      $ref: './resources/swagger/schemas/ps.yaml#/presentation_submission'

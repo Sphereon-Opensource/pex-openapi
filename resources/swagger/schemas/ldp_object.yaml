@@ -1,0 +1,11 @@
+ldp_object:
+  type: object
+  properties:
+    proof_type:
+      type: array
+      minItems: 1
+      items:
+        type: string
+  required:
+    - proof_type
+  additionalProperties: false

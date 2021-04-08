@@ -1,0 +1,11 @@
+schema:
+  title: Schema
+  type: object
+  properties:
+    uri:
+      type: string
+    required:
+      type: boolean
+  required:
+    - uri
+  additionalProperties: false

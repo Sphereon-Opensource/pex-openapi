@@ -1,0 +1,26 @@
+presentation_definition:
+  title: Presentation Definition
+  description: Presentation Definitions are objects that articulate what proofs a Verifier requires.
+  type: object
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    purpose:
+      type: string
+      description: It describes the purpose for which the Presentation Definition's inputs are being requested.
+    format:
+      $ref: './pd_format.yaml#/format'
+    submission_requirements:
+      type: array
+      items:
+        $ref: './pd_submission_requirement.yaml#/submission_requirement'
+    input_descriptors:
+      type: array
+      items:
+        $ref: './pd_input_descriptors.yaml#/input_descriptors'
+  required:
+    - id
+    - input_descriptors
+  additionalProperties: false

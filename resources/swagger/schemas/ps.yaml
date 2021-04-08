@@ -1,0 +1,12 @@
+presentation_submission:
+  title: Presentation Submission
+  description: It express how the inputs presented as proofs to a Verifier.
+  type: object
+  properties:
+    submission_requirements:
+      type: array
+      items:
+        $ref: './schemas/pd_submission_requirement.yaml#/submission_requirement'
+  required:
+    - submission_requirements
+  additionalProperties: false

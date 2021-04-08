@@ -1,0 +1,11 @@
+jwt_object:
+  type: object
+  properties:
+    alg:
+      type: array
+      minItems: 1
+      items:
+        type: string
+  required:
+    - alg
+  additionalProperties: false
