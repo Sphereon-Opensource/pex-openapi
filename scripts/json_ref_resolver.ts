@@ -24,13 +24,13 @@ const multiFileSwagger = (root: object) => {
 
 multiFileSwagger(YAML.load('./resources/swagger/pe-api-0.0.0.yaml'))
     .then(result => {
-        var dir = './target/';
+        var targetDir = './target/generated-sources/';
 
-        if (!fs.existsSync(dir)){
-            fs.mkdirSync(dir);
+        if (!fs.existsSync(targetDir)){
+            fs.mkdirSync(targetDir, { recursive: true });
         }
 
-        const combinedFilePath = dir + 'pe-api-combined-0.0.0.yaml';
+        const combinedFilePath = targetDir + 'pe-api-combined-0.0.0.yaml';
         const prettifiedContent = prettier.stringify(result);
         fs.writeFile(combinedFilePath, prettifiedContent, function (err) {
             if (err) {

@@ -4,7 +4,7 @@
   "description": "Decentralized Identity Foundation Presentation Exchange API",
   "scripts": {
     "json_ref_resolve": "ts-node scripts/json_ref_resolver.ts",
-    "oapi2ts": "openapi-generator-cli generate -i target/pe-api-combined-0.0.0.yaml -g typescript-angular -o target/generated-sources/openapi --additional-properties=ngVersion=6.1.7,npmName=restClient,supportsES6=true,npmVersion=6.9.0,withInterfaces=true",
+    "oapi2ts": "openapi-generator-cli generate",
     "build": "npm run json_ref_resolve && npm run oapi2ts"
   },
   "repository": {
