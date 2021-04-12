@@ -4,7 +4,7 @@ constraints:
   type: object
   properties:
     limit_disclosure:
-      description: Allowes the Verifier to convey to Holder to see which properties are required and what optional credentials can be ommitted if desired by Holder.
+      description: Allows the Verifier to convey to Holder to see which properties are required and what optional credentials can be ommitted if desired by Holder.
       type: string
       enum:
         - required
