@@ -1,0 +1,32 @@
+statuses:
+  title: Statuses
+  description: statueses which are acceptable
+  type: object
+  properties:
+    active:
+      type: object
+      properties:
+        directive:
+          type: string
+          enum:
+            - required
+            - allowed
+            - disallowed
+    suspended:
+      type: object
+      properties:
+        directive:
+          type: string
+          enum:
+            - required
+            - allowed
+            - disallowed
+    revoked:
+      type: object
+      properties:
+        directive:
+          type: string
+          enum:
+            - required
+            - allowed
+            - disallowed

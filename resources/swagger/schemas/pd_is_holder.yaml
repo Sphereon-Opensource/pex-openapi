@@ -1,0 +1,20 @@
+is_holder:
+  title: Is holder
+  description: The is_holder property would be used by a Verifier to require that certain inputs be provided by a certain Subject.
+  type: array
+  items:
+    type: object
+    properties:
+      field_id:
+        type: array
+        items:
+          type: string
+      directive:
+        type: string
+        enum:
+          - required
+          - preferred
+    required:
+      - field_id
+      - directive
+    additionalProperties: false
