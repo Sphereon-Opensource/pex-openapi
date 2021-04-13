@@ -21,7 +21,7 @@ constraints:
         - required
         - preferred
     is_holder:
-      $ref: './pd_is_holder.yaml#/is_holder'
+      $ref: './holder_subject.yaml#/holder_subject'
     same_subject:
-      $ref: './pd_same_subject.yaml#/same_subject'
+      $ref: './holder_subject.yaml#/holder_subject'
   additionalProperties: false

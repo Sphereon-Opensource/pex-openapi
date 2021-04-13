@@ -1,6 +1,6 @@
-is_holder:
-  title: Is holder
-  description: The is_holder property would be used by a Verifier to require that certain inputs be provided by a certain Subject.
+holder_subject:
+  title: Holder Subject
+  description: The is_holder/same_subject property would be used by a Verifier to require that certain inputs be provided by a certain subject or are about a certain subject.
   type: array
   items:
     type: object

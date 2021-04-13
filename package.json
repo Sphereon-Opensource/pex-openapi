@@ -4,10 +4,15 @@
   "description": "Decentralized Identity Foundation Presentation Exchange API",
   "scripts": {
     "clean": "npx rimraf target",
+
     "json_ref_resolve": "ts-node scripts/json_ref_resolver.ts",
     "oapi2ts": "openapi-generator-cli generate",
+
     "build": "npm run json_ref_resolve && npm run oapi2ts",
-    "clean_build": "npm run clean && npm run build"
+    "clean_build": "npm run clean && npm run build",
+
+    "dist": "(cd target/generated-sources/sdk/ && npm install); && (cd ../../../); && ts-node scripts/dist.ts",
+    "clean_dist": "npm run clean_build && npm run dist"
   },
   "repository": {
     "type": "git",
