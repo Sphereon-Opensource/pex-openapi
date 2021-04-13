@@ -6,7 +6,7 @@ presentation_submission:
     submission_requirements:
       type: array
       items:
-        $ref: '#/components/schemas/submission_requirement'
+        $ref: './submission_requirement.yaml#/submission_requirement'
   required:
     - submission_requirements
   additionalProperties: false

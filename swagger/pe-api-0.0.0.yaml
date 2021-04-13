@@ -25,8 +25,6 @@ paths:
 components:
   schemas:
     presentation_definition:
-      $ref: './resources/swagger/schemas/pd.yaml#/presentation_definition'
+      $ref: './schemas/pd.yaml#/presentation_definition'
     presentation_submission:
-      $ref: './resources/swagger/schemas/ps.yaml#/presentation_submission'
-    submission_requirement:
-      $ref: './resources/swagger/schemas/submission_requirement.yaml#/submission_requirement'
+      $ref: './schemas/ps.yaml#/presentation_submission'
