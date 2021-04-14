@@ -28,7 +28,7 @@ It allows you to generate objects consistently while remaining compliant and con
 
 ## Install
 
-- Node.js 14+ recommended.
+- Node.js 12+ recommended.
 
 To install locally (for development):
 

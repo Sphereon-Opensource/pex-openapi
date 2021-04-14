@@ -36,7 +36,7 @@
 
     <profiles>
         <profile>
-            <id>typescript</id>
+            <id>typescript-models-only</id>
             <build>
                 <plugins>
                     <plugin>
@@ -62,7 +62,7 @@
 
                                     <configOptions>
                                         <dateLibrary>java8</dateLibrary>
-                                        <npmName>pe-api-model-ts</npmName>
+                                        <npmName>pe-models</npmName>
                                         <npmVersion>0.0.1</npmVersion>
                                     </configOptions>
 
