@@ -14,7 +14,7 @@
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
         <openapi-generator-version>5.1.0</openapi-generator-version>
-        <swagger-coden-verbose>false</swagger-coden-verbose>
+        <swagger-codgen-verbose>false</swagger-codgen-verbose>
     </properties>
 
     <distributionManagement>
@@ -61,15 +61,15 @@
                                     <configOptions>
                                         <dateLibrary>java8</dateLibrary>
                                     </configOptions>
-                                    <verbose>${swagger-coden-verbose}</verbose>
+                                    <verbose>${swagger-codgen-verbose}</verbose>
                                     <output>${project.basedir}/target/typescript/sdk</output>
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
                                     <generateModels>true</generateModels>
                                     <generateApis>false</generateApis>
-                                    <apisToGenerate/>
-                                    <generateSupportingFiles>false</generateSupportingFiles>
-                                    <supportingFilesToGenerate/>
+                                    <generateSupportingFiles>true</generateSupportingFiles>
+                                    <skipOverwrite>false</skipOverwrite>
+                                    <supportingFilesToGenerate>.gitignore,git_push.sh,index.ts,package.json,tsconfig.json,all.ts</supportingFilesToGenerate>
                                     <gitHost>github.com</gitHost>
                                     <gitUserId>hrehman@sphereon.com</gitUserId>
                                     <gitRepoId/>
