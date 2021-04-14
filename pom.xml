@@ -60,13 +60,19 @@
                                     <generatorName>typescript</generatorName>
                                     <configOptions>
                                         <dateLibrary>java8</dateLibrary>
-                                        <ngVersion>5.1.1</ngVersion>
                                     </configOptions>
                                     <verbose>${swagger-coden-verbose}</verbose>
                                     <output>${project.basedir}/target/typescript/sdk</output>
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
-                                    <modelPackage>model</modelPackage>
+                                    <generateModels>true</generateModels>
+                                    <generateApis>false</generateApis>
+                                    <apisToGenerate/>
+                                    <generateSupportingFiles>false</generateSupportingFiles>
+                                    <supportingFilesToGenerate/>
+                                    <gitHost>github.com</gitHost>
+                                    <gitUserId>hrehman@sphereon.com</gitUserId>
+                                    <gitRepoId/>
                                 </configuration>
                             </execution>
                         </executions>
