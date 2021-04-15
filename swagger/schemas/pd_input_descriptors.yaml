@@ -1,0 +1,27 @@
+input_descriptors:
+  title: Input Descriptor
+  description: Input Descriptors are used by a Verifier to describe the information required of a Holder before an interaction can proceed.
+  type: object
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    purpose:
+      type: string
+      description: It describes the purpose for which the Presentation Definition's inputs are being requested.
+    group:
+      type: array
+      description: A group from which the specific credential is required.
+      items:
+        type: string
+    schema:
+      type: array
+      items:
+        $ref: './pd_schema.yaml#/schema'
+    constraints:
+      $ref: './pd_constraints.yaml#/constraints'
+  required:
+    - id
+    - schema
+  additionalProperties: false

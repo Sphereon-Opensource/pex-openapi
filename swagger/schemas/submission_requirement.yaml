@@ -2,6 +2,7 @@ submission_requirement:
   title: Submission Requirement
   description: It defines what combinations of inputs a processing entity must submit to comply with the requirements of a Verifier.
   type: object
+  additionalProperties: false
   properties:
     name:
       type: string
@@ -21,6 +22,7 @@ submission_requirement:
     max:
       type: integer
       minimum: 0
+      # It is expected that 'from' or 'from_nested' will be populated
     from:
       type: string
     from_nested:
@@ -28,7 +30,3 @@ submission_requirement:
       minItems: 1
       items:
         $ref: '#/submission_requirement'
-    additionalProperties: false
-    oneOf:
-      - required: [ rule, from ]
-      - required: [ rule, from_nested ]

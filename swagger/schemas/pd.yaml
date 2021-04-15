@@ -15,7 +15,7 @@ presentation_definition:
     submission_requirements:
       type: array
       items:
-        $ref: './pd_submission_requirement.yaml#/submission_requirement'
+        $ref: './submission_requirement.yaml#/submission_requirement'
     input_descriptors:
       type: array
       items:

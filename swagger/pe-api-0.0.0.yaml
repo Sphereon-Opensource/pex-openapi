@@ -9,6 +9,7 @@ info:
 paths:
   /presentation_definition:
     get:
+      operationId: getPresentationDefinition
       summary: gets presentation definition
       responses:
         '200':
@@ -24,6 +25,6 @@ paths:
 components:
   schemas:
     presentation_definition:
-      $ref: './resources/swagger/schemas/pd.yaml#/presentation_definition'
+      $ref: './schemas/pd.yaml#/presentation_definition'
     presentation_submission:
-      $ref: './resources/swagger/schemas/ps.yaml#/presentation_submission'
+      $ref: './schemas/ps.yaml#/presentation_submission'

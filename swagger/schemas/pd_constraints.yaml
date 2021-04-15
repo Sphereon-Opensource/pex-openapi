@@ -1,0 +1,27 @@
+constraints:
+  title: Constraints
+  description: Describes the constraints from Verifier that should be followed by Holder.
+  type: object
+  properties:
+    limit_disclosure:
+      description: Allows the Verifier to convey to Holder to see which properties are required and what optional credentials can be ommitted if desired by Holder.
+      type: string
+      enum:
+        - required
+        - preferred
+    statuses:
+      $ref: './pd_statuses.yaml#/statuses'
+    fields:
+      type: array
+      items:
+        $ref: './pd_field.yaml#/field'
+    subject_is_issuer:
+      type: string
+      enum:
+        - required
+        - preferred
+    is_holder:
+      $ref: './holder_subject.yaml#/holder_subject'
+    same_subject:
+      $ref: './holder_subject.yaml#/holder_subject'
+  additionalProperties: false

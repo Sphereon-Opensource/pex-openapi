@@ -8,36 +8,24 @@ filter:
       type: string
     pattern:
       type: string
-    minimum:
-      type:
-        - number
-        - string
     minLength:
       type: integer
     maxLength:
       type: integer
+    minimum:
+      type: number
     exclusiveMinimum:
-      type:
-        - number
-        - string
+      type: number
     exclusiveMaximum:
-      type:
-        - number
-        - string
+      type: number
     maximum:
-      type:
-        - number
-        - string
+      type: number
     const:
-      type:
-        - number
-        - string
+      type: number
     enum:
       type: array
       items:
-        type:
-          - number
-          - string
+        type: number
     not:
       type: object
       minProperties: 1

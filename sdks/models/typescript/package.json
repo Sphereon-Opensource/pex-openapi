@@ -1,0 +1,21 @@
+{
+  "name": "pe-models",
+  "version": "0.0.1",
+  "description": "OpenAPI client for pe-models",
+  "author": "OpenAPI-Generator Contributors",
+  "keywords": [
+    "openapi-client",
+    "openapi-generator"
+  ],
+  "license": "Unlicense",
+  "main": "../dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+  },
+  "devDependencies": {
+    "typescript": "^3.9.3"
+  }}

@@ -1,0 +1,19 @@
+format:
+  title: Format
+  description: What claim variants Verifiers and Holders support.
+  type: object
+  additionalProperties: false
+  properties:
+    # All properties are not expected to be non-null filled.
+    jwt:
+      $ref: './jwt_object.yaml#/jwt_object'
+    jwt_vc:
+      $ref: './jwt_object.yaml#/jwt_object'
+    jwt_vp:
+      $ref: './jwt_object.yaml#/jwt_object'
+    ldp:
+      $ref: './ldp_object.yaml#/ldp_object'
+    ldp_vc:
+      $ref: './ldp_object.yaml#/ldp_object'
+    ldp_vp:
+      $ref: './ldp_object.yaml#/ldp_object'
