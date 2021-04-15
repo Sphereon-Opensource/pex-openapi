@@ -58,7 +58,7 @@
                                 <configuration>
                                     <inputSpec>swagger/pe-api-0.0.0.yaml</inputSpec>
 
-                                    <generatorName>typescript</generatorName>
+                                    <generatorName>typescript-angular</generatorName>
 
                                     <configOptions>
                                         <dateLibrary>java8</dateLibrary>
@@ -67,7 +67,7 @@
                                     </configOptions>
 
                                     <verbose>${swagger-codgen-verbose}</verbose>
-                                    <output>${project.basedir}/target/typescript/sdk</output>
+                                    <output>${project.basedir}/sdks/models</output>
 
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
@@ -78,7 +78,7 @@
                                     <skipOverwrite>false</skipOverwrite>
 
                                     <generateSupportingFiles>true</generateSupportingFiles>
-                                    <supportingFilesToGenerate>package.json,tsconfig.json,all.ts,index.ts</supportingFilesToGenerate>
+                                    <supportingFilesToGenerate>tsconfig.json,models.ts</supportingFilesToGenerate>
                                 </configuration>
                             </execution>
                         </executions>
