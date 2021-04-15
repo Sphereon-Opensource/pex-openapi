@@ -36,7 +36,7 @@
 
     <profiles>
         <profile>
-            <id>typescript-models-only</id>
+            <id>models-typescript</id>
             <build>
                 <plugins>
                     <plugin>
