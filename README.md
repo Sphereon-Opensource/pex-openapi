@@ -37,7 +37,7 @@ cd pe-api
 
 ## Usage
 
-### Step 0 : Check GIT branch. 
+### Step 0 : Check GIT branch.
 
 If confronted with errors in the following steps then please check if you have a right branch checkout.
 
@@ -46,24 +46,23 @@ git checkout <branch-name>
 ```
 
 ### Step 1 : Generate models
-The following command will generate the models in `<project-root>/sdks/models`
+The following command will generate the models in `<project-root>/sdks/models/typescript`
 ```
 mvn install -P typescript-models-only
 ```
 
-
 ### Step 2 : Package the models for publishing.
 
 ```
-cd sdks/models
+cd sdks/models/typescript
 npm pack
 ```
 
-Expected result is that a file `sdks/models/pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
+Expected result is that a file `sdks/models/typescript/pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
 
 ### Step 3 : Create Project to use generated models
 
-The models generated can be used in your project. This is an example where you create a new `NPM` project and import `JwtObject`. Similarly, you can import and use other objects. 
+The models generated can be used in your project. This is an example where you create a new `NPM` project to use `typescript` language and import `JwtObject`. Similarly, you can import and use other objects. 
 
 ```
 mkdir my-pe-models-consumer-prj
@@ -78,8 +77,8 @@ npm init
 To use the models generated as a result of above in `step 1`
 ```
 npm install
-npm install --save '<base>\pe-api\sdks\models\pe-models-0.0.1.tgz'
-npm instal --save ts-node
+npm install --save <base>\pe-api\sdks\models\typescript\pe-models-0.0.1.tgz
+npm instal ts-node
 ```
 
 create a folder named `scripts` and a file in it named `consumer-script.ts` with following contents

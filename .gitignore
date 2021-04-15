@@ -28,7 +28,6 @@ buildNumber.properties
 .mvn/timing.properties
 /sdks/models/.openapi-generator/
 /sdks/models/dist/
+/sdks/models/typescript/model/
 /sdks/models/pe-models-0.0.1.tgz
 /sdks/models/tsconfig.json
-/sdks/models/typescript/
-

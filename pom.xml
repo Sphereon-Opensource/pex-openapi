@@ -67,7 +67,7 @@
                                     </configOptions>
 
                                     <verbose>${swagger-codgen-verbose}</verbose>
-                                    <output>${project.basedir}/sdks/models</output>
+                                    <output>${project.basedir}/sdks/models/typescript</output>
 
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
@@ -75,7 +75,6 @@
                                     <generateModels>true</generateModels>
                                     <generateApis>false</generateApis>
 
-                                    <modelPackage>typescript</modelPackage>
                                     <skipOverwrite>false</skipOverwrite>
 
                                     <generateSupportingFiles>true</generateSupportingFiles>
