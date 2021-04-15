@@ -8,7 +8,7 @@
     "openapi-generator"
   ],
   "license": "Unlicense",
-  "main": "./dist/index.js",
+  "main": "../dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
