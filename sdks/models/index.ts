@@ -1,1 +1,1 @@
-export * from './model/models';
+export * from './typescript/models';

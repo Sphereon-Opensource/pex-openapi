@@ -75,6 +75,7 @@
                                     <generateModels>true</generateModels>
                                     <generateApis>false</generateApis>
 
+                                    <modelPackage>typescript</modelPackage>
                                     <skipOverwrite>false</skipOverwrite>
 
                                     <generateSupportingFiles>true</generateSupportingFiles>

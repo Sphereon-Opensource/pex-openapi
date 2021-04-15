@@ -41,6 +41,10 @@ cd pe-api
 
 If confronted with errors in the following steps then please check if you have a right branch checkout.
 
+```
+git checkout <branch-name>
+```
+
 ### Step 1 : Generate models
 The following command will generate the models in `<project-root>/sdks/models`
 ```
@@ -74,8 +78,8 @@ npm init
 To use the models generated as a result of above in `step 1`
 ```
 npm install
-npm install --save <base>\pe-api\sdks\models\pe-models-0.0.1.tgz
-npm instal ts-node
+npm install --save '<base>\pe-api\sdks\models\pe-models-0.0.1.tgz'
+npm instal --save ts-node
 ```
 
 create a folder named `scripts` and a file in it named `consumer-script.ts` with following contents
