@@ -37,6 +37,10 @@ cd pe-api
 
 ## Usage
 
+### Step 0 : Check GIT branch. 
+
+If confronted with errors in the following steps then please check if you have a right branch checkout.
+
 ### Step 1 : Generate models
 The following command will generate the models in `<project-root>/sdks/models`
 ```
@@ -86,7 +90,7 @@ var jwtObject : JwtObject = {
 console.log(jwtObject);
 ```
 
-In `package.json` add a script section. Resulting Package.json may look like following.
+In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts/consumer-script.ts"` in scripts section. Resulting Package.json may look like following.
 
 ```
 {
@@ -114,4 +118,8 @@ In terminal run following command from the `<base>/my-pe-models-consumer-prj`
 npm run my-pe-models-consumer-script
 ```
 
+You should expect this to be printed on console.
+```
+{ alg: [ 'someAlgorithm' ] }
+```
 ## Releasing
