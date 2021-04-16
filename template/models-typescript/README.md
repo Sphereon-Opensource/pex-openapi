@@ -89,7 +89,7 @@ In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts
 }
 ```
 
-### Step 5 : Check how it went
+### Step 3 : Check how it went
 
 In terminal run following command from the `<workspace>/my-pe-models-consumer-prj`
 
