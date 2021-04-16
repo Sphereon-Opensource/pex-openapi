@@ -36,9 +36,32 @@
 
     <profiles>
         <profile>
-            <id>models-typescript</id>
+            <id>pe-api-typescript</id>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>3.2.0</version>
+                        <executions>
+                            <execution>
+                                <id>process-resources</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>target/sdks/pe-api-ts</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>template/pe-api-typescript</directory>
+                                            <filtering>true</filtering>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
                     <plugin>
                         <groupId>org.openapitools</groupId>
                         <artifactId>openapi-generator-maven-plugin</artifactId>
@@ -55,6 +78,7 @@
                                 <goals>
                                     <goal>generate</goal>
                                 </goals>
+                                <phase>generate-sources</phase>
                                 <configuration>
                                     <inputSpec>swagger/pe-api-0.0.0.yaml</inputSpec>
 
@@ -67,7 +91,7 @@
                                     </configOptions>
 
                                     <verbose>${swagger-codgen-verbose}</verbose>
-                                    <output>${project.basedir}/sdks/models/typescript</output>
+                                    <output>${project.basedir}/target/sdks/pe-api-ts</output>
 
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
