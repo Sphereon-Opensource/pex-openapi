@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sphereon</groupId>
+    <groupId>com.sphereon.public</groupId>
     <artifactId>pe-api</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0-SNAPSHOT</version>
@@ -20,18 +20,18 @@
     <distributionManagement>
         <repository>
             <id>sphereon-sdk-releases</id>
-            <url>http://nexus.qa.sphereon.com/nexus/content/repositories/sphereon-sdk-releases</url>
+            <url>https://nexus.qa.sphereon.com/nexus/content/repositories/sphereon-opensource-releases</url>
         </repository>
         <snapshotRepository>
             <id>sphereon-sdk-snapshots</id>
-            <url>http://nexus.qa.sphereon.com/nexus/content/repositories/sphereon-sdk-snapshots</url>
+            <url>https://nexus.qa.sphereon.com/nexus/content/repositories/sphereon-opensource-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:git@github.com:Sphereon-SDK/pdf-stamper-sdk.git</connection>
-        <developerConnection>scm:git:git@github.com:Sphereon-SDK/pdf-stamper-sdk.git</developerConnection>
-        <url>https://github.com/Sphereon-SDK/pdf-stamper</url>
+        <connection>scm:git:git@github.com:Sphereon-Opensource/pe-api.git</connection>
+        <developerConnection>scm:git:git@github.com:Sphereon-Opensource/pe-api.git</developerConnection>
+        <url>https://github.com/Sphereon-Opensource/pe-api</url>
     </scm>
 
     <profiles>
