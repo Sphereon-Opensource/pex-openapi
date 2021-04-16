@@ -83,7 +83,7 @@ npm init
 
 `npm init` asks few questions. The default answer to those questions can be selected.
 
-### Step 4 : Import models
+### Step 4 : Add script & Import models
 
 To use the models generated as a result of above in `step 1`
 
@@ -132,11 +132,13 @@ In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts
 }
 ```
 
+### Step 5 : Check how it went
+
 In terminal run following command from the `<workspace>/my-pe-models-consumer-prj` 
 
 ```
 cd '<workspace>/my-pe-models-consumer-prj'
-npm run my-pe-api-consumer-script
+npm run my-pe-models-consumer-script
 ```
 
 You should expect this to be printed on console.
@@ -146,3 +148,9 @@ You should expect this to be printed on console.
 ```
 
 ## Releasing
+
+```
+cd '<workspace>/my-pe-models-consumer-prj'
+npm login
+npm publish
+```
