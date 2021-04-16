@@ -26,8 +26,4 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-/sdks/models/typescript/.openapi-generator/
-/sdks/models/typescript/dist/
-/sdks/models/typescript/model/
-/sdks/models/typescript/pe-models-0.0.1.tgz
-/sdks/models/typescript/tsconfig.json
+

@@ -11,7 +11,7 @@
 
 - [Security](#security)
 - [Background](#background)
-- [Install](#install)
+- [Development Setup](#Development Setup)
 - [Usage](#usage)
 
 ## Security
@@ -26,11 +26,12 @@ specification as OpenAPIs (YAMLs).
 
 It allows you to generate objects consistently while remaining compliant and consistent with the DIF specification.
 
-## Install
+## Development Setup
 
-This is a maven-based-project. To install locally (for development)
+This is a maven-based-project. To setup locally for development run following commands.
 
 ```
+cd '<workspace>'
 git clone git@github.com:Sphereon-Opensource/pe-api.git
 cd pe-api
 ```
@@ -39,49 +40,66 @@ cd pe-api
 
 ### Step 0 : Check GIT branch.
 
-If confronted with errors in the following steps then please check if you have a right branch checkout.
+`git branch` will list all the branches in local machine and also highlight the checked-out branch. Please check if you are on the right branch. Steps you are following should be from the same branch (e.g. in browser) as in your `cloned` git repo. 
+
+A most common indicator of being on wrong branch may be that you encounter problems following steps.
+
+```
+git branch
+```
+
+To switch the branch.
 
 ```
 git checkout <branch-name>
 ```
 
 ### Step 1 : Generate models
-The following command will generate the models in `<project-root>/sdks/models/typescript`
+
+The following command will generate the models in `<workspace>/pe-api/target/sdks/models/typescript`
 ```
-mvn install -P typescript-models-only
+mvn install -P models-typescript
 ```
 
 ### Step 2 : Package the models for publishing.
 
 ```
-cd sdks/models/typescript
+cd target/sdks/models/typescript
 npm pack
 ```
 
-Expected result is that a file `sdks/models/typescript/pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
+Expected result is that a file `/target/sdks/models/typescript/pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
 
 ### Step 3 : Create Project to use generated models
 
-The models generated can be used in your project. This is an example where you create a new `NPM` project to use `typescript` language and import `JwtObject`. Similarly, you can import and use other objects. 
+The models generated can be used in your project. This is an example where you create a new `NPM` project to use `typescript` language, import and use `JwtObject`. Similarly, you can import and use other objects. 
 
 ```
+cd '<workspace>'
 mkdir my-pe-models-consumer-prj
 cd my-pe-models-consumer-prj
 npm init
 ```
 
-`npm init` asks few questions the default answer to those questions can be selected.
+`npm init` asks few questions. The default answer to those questions can be selected.
 
 ### Step 4 : Import models
 
 To use the models generated as a result of above in `step 1`
+
 ```
 npm install
-npm install --save <base>\pe-api\sdks\models\typescript\pe-models-0.0.1.tgz
-npm instal ts-node
+npm install --save '<workspace>/pe-api/target/sdks/models/typescript/pe-models-0.0.1.tgz'
+npm instal --save ts-node
 ```
 
-create a folder named `scripts` and a file in it named `consumer-script.ts` with following contents
+Create a folder named `scripts`
+
+```
+mkdir scripts
+```
+
+Create a file in 'scripts' named `consumer-script.ts` with following contents
 
 ```
 import {JwtObject} from 'pe-models'
@@ -103,26 +121,28 @@ In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "my-pe-models-consumer-script": "ts-node scripts/consumer-script.ts"
+	"my-pe-models-consumer-script": "ts-node scripts/consumer-script.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pe-models": "file:../../pe-api/sdks/models/pe-models-0.0.1.tgz",
+    "pe-models": "file:../pe-api/target/sdks/models/typescript/pe-models-0.0.1.tgz",
     "ts-node": "^9.1.1"
   }
 }
-
 ```
 
-In terminal run following command from the `<base>/my-pe-models-consumer-prj` 
+In terminal run following command from the `<workspace>/my-pe-models-consumer-prj` 
 
 ```
+cd '<workspace>/my-pe-models-consumer-prj'
 npm run my-pe-models-consumer-script
 ```
 
 You should expect this to be printed on console.
+
 ```
 { alg: [ 'someAlgorithm' ] }
 ```
+
 ## Releasing

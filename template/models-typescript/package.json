@@ -2,13 +2,22 @@
   "name": "pe-models",
   "version": "0.0.1",
   "description": "OpenAPI client for pe-models",
-  "author": "OpenAPI-Generator Contributors",
+  "author": "Sphereon",
   "keywords": [
-    "openapi-client",
-    "openapi-generator"
+    "Verifiable",
+    "Credentials",
+    "Decentralized",
+    "Identity",
+    "Foundation",
+    "Presentation",
+    "Exchange",
+    "DIF",
+    "OpenAPI",
+    "model",
+    "models"
   ],
-  "license": "Unlicense",
-  "main": "../dist/index.js",
+  "license": "Apache 2",
+  "main": "../dist/index.ts",
   "typings": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
@@ -18,4 +27,5 @@
   },
   "devDependencies": {
     "typescript": "^3.9.3"
-  }}
+  }
+}
