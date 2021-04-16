@@ -136,7 +136,7 @@ In terminal run following command from the `<workspace>/my-pe-models-consumer-pr
 
 ```
 cd '<workspace>/my-pe-models-consumer-prj'
-npm run my-pe-api-consumer-script
+npm run my-pe-models-consumer-script
 ```
 
 You should expect this to be printed on console.
