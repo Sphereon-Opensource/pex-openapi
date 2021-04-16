@@ -19,11 +19,11 @@
 
     <distributionManagement>
         <repository>
-            <id>sphereon-sdk-releases</id>
+            <id>sphereon-opensource-releases</id>
             <url>https://nexus.qa.sphereon.com/nexus/content/repositories/sphereon-opensource-releases</url>
         </repository>
         <snapshotRepository>
-            <id>sphereon-sdk-snapshots</id>
+            <id>sphereon-opensource-snapshots</id>
             <url>https://nexus.qa.sphereon.com/nexus/content/repositories/sphereon-opensource-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
