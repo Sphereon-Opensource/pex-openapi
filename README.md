@@ -11,7 +11,7 @@
 
 - [Security](#security)
 - [Background](#background)
-- [Development Setup](#Development Setup)
+- [Setup](#Setup)
 - [Usage](#usage)
 
 ## Security
@@ -26,7 +26,7 @@ specification as OpenAPIs (YAMLs).
 
 It allows you to generate objects consistently while remaining compliant and consistent with the DIF specification.
 
-## Development Setup
+## Setup
 
 This is a maven-based-project. To setup locally for development run following commands.
 
