@@ -11,7 +11,6 @@
 
 - [Security](#security)
 - [Background](#background)
-- [Development Setup](#Development Setup)
 - [Usage](#usage)
 
 ## Security
@@ -22,57 +21,15 @@ As with most security- and cryptography-related tools, the overall security of y
 
 This is an interpretation of the
 [Presentation Exchange v1.0.0](https://identity.foundation/presentation-exchange/#submission-requirements)
-specification as OpenAPIs (YAMLs). 
+specification as models.
 
 It allows you to generate objects consistently while remaining compliant and consistent with the DIF specification.
 
-## Development Setup
-
-This is a maven-based-project. To setup locally for development run following commands.
-
-```
-cd '<workspace>'
-git clone git@github.com:Sphereon-Opensource/pe-api.git
-cd pe-api
-```
-
 ## Usage
 
-### Step 0 : Check GIT branch.
+### Step 1 : Create Project
 
-`git branch` will list all the branches in local machine and also highlight the checked-out branch. Please check if you are on the right branch. Steps you are following should be from the same branch (e.g. in browser) as in your `cloned` git repo. 
-
-A most common indicator of being on wrong branch may be that you encounter problems following steps.
-
-```
-git branch
-```
-
-To switch the branch.
-
-```
-git checkout <branch-name>
-```
-
-### Step 1 : Generate models
-
-The following command will generate the models in `<workspace>/pe-api/target/sdks/models/typescript`
-```
-mvn install -P models-typescript
-```
-
-### Step 2 : Package the models for publishing.
-
-```
-cd target/sdks/models/typescript
-npm pack
-```
-
-Expected result is that a file `/target/sdks/models/typescript/pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
-
-### Step 3 : Create Project to use generated models
-
-The models generated can be used in your project. This is an example where you create a new `NPM` project to use `typescript` language, import and use `JwtObject`. Similarly, you can import and use other objects. 
+The models generated can be used in your project. This is an example where you create a new `NPM` project to use `typescript` language, import and use `JwtObject`. Similarly, you can import and use other objects.
 
 ```
 cd '<workspace>'
@@ -83,7 +40,7 @@ npm init
 
 `npm init` asks few questions. The default answer to those questions can be selected.
 
-### Step 4 : Add script & Import models
+### Step 2 : Add script & Import models
 
 To use the models generated as a result of above in `step 1`
 
@@ -134,7 +91,7 @@ In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts
 
 ### Step 5 : Check how it went
 
-In terminal run following command from the `<workspace>/my-pe-models-consumer-prj` 
+In terminal run following command from the `<workspace>/my-pe-models-consumer-prj`
 
 ```
 cd '<workspace>/my-pe-models-consumer-prj'
@@ -146,38 +103,3 @@ You should expect this to be printed on console.
 ```
 { alg: [ 'someAlgorithm' ] }
 ```
-
-## Releasing
-
-#### Step A : Update values
-
-Update this README.md and Update SDK's README.md located at `template/models-typescript/README.md`
-
-Bump up the version of SDK in `pom.xml`
-
-```
-<npmVersion>M.m.p</npmVersion>
-```
-
-#### Step B : Recreate the SDK
-
-```
-mvn clean
-mvn install -P models-typescript
-cd target/sdks/models/typescript
-npm pack
-```
-
-#### Step C : Publish
-
-```
-cd '<workspace>/my-pe-models-consumer-prj'
-npm login
-npm publish `pe-models-M.m.p.tgz`
-```
-
-#### Step D : Check 
-
-Check on `npmjs.com`
-
-And by installing the module as per this `README.md`. 
