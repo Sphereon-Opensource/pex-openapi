@@ -46,7 +46,7 @@ To use the models generated as a result of above in `step 1`
 
 ```
 npm install
-npm install --save '<workspace>/pe-api/target/sdks/models/typescript/pe-models-0.0.1.tgz'
+npm install --save pe-models-0.0.1.tgz
 npm instal --save ts-node
 ```
 

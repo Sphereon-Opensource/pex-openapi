@@ -181,7 +181,7 @@ npm pack
 ```
 cd '<workspace>/my-pe-models-consumer-prj'
 npm login
-npm publish `pe-models-M.m.p.tgz`
+npm publish pe-models-M.m.p.tgz
 ```
 
 #### Step D : Check 
