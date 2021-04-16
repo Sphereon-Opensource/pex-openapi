@@ -11,7 +11,7 @@
 
 - [Security](#security)
 - [Background](#background)
-- [Development Setup](#Development Setup)
+- [Setup](#Setup)
 - [Usage](#usage)
 
 ## Security
@@ -26,7 +26,7 @@ specification as OpenAPIs (YAMLs).
 
 It allows you to generate objects consistently while remaining compliant and consistent with the DIF specification.
 
-## Development Setup
+## Setup
 
 This is a maven-based-project. To setup locally for development run following commands.
 
@@ -83,7 +83,7 @@ npm init
 
 `npm init` asks few questions. The default answer to those questions can be selected.
 
-### Step 4 : Import models
+### Step 4 : Add script & Import models
 
 To use the models generated as a result of above in `step 1`
 
@@ -132,6 +132,8 @@ In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts
 }
 ```
 
+### Step 5 : Check how it went
+
 In terminal run following command from the `<workspace>/my-pe-models-consumer-prj` 
 
 ```
@@ -146,3 +148,44 @@ You should expect this to be printed on console.
 ```
 
 ## Releasing
+
+#### Step A : Update values
+
+Update this README.md and Update SDK's README.md located at `template/models-typescript/README.md`
+
+Bump up the version of SDK in `pom.xml`
+
+```
+<npmVersion>M.m.p</npmVersion>
+```
+
+And in package.json `template/models-typescript/package.json`.
+
+```
+"version": "M.n.p",
+```
+
+Since `package.json` file is being copied from `template` directory instead of being created. The POM's version is not effective for now. Keeping it aligned may still be beneficial though.
+
+#### Step B : Recreate the SDK
+
+```
+mvn clean
+mvn install -P models-typescript
+cd target/sdks/models/typescript
+npm pack
+```
+
+#### Step C : Publish
+
+```
+cd '<workspace>/my-pe-models-consumer-prj'
+npm login
+npm publish pe-models-M.m.p.tgz
+```
+
+#### Step D : Check 
+
+Check on `npmjs.com`
+
+And by installing the module as per this `README.md`. 

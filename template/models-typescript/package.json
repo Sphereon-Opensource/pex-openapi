@@ -1,6 +1,6 @@
 {
   "name": "pe-models",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "OpenAPI client for pe-models",
   "author": "Sphereon",
   "keywords": [
@@ -17,7 +17,7 @@
     "models"
   ],
   "license": "Apache 2",
-  "main": "../dist/index.ts",
+  "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
