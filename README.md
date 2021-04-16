@@ -159,6 +159,14 @@ Bump up the version of SDK in `pom.xml`
 <npmVersion>M.m.p</npmVersion>
 ```
 
+And in package.json `template/models-typescript/package.json`.
+
+```
+"version": "M.n.p",
+```
+
+Since `package.json` file is being copied from `template` directory instead of being created. The POM's version is not effective for now. Keeping it aligned may still be beneficial though.
+
 #### Step B : Recreate the SDK
 
 ```
