@@ -28,7 +28,7 @@ It allows you to generate objects consistently while remaining compliant and con
 
 ## Development Setup
 
-This is a maven-based-project. To install locally (for development) run following commands.
+This is a maven-based-project. To setup locally for development run following commands.
 
 ```
 cd '<workspace>'
@@ -56,19 +56,19 @@ git checkout <branch-name>
 
 ### Step 1 : Generate models
 
-The following command will generate the models in `<workspace>/pe-api/target/sdks/pe-api-ts`
+The following command will generate the models in `<workspace>/pe-api/target/sdks/models/typescript`
 ```
-mvn install -P pe-api-typescript
+mvn install -P models-typescript
 ```
 
 ### Step 2 : Package the models for publishing.
 
 ```
-cd target/sdks/pe-api-ts
+cd target/sdks/models/typescript
 npm pack
 ```
 
-Expected result is that a file `/target/sdks/pe-api-ts/pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
+Expected result is that a file `/target/sdks/models/typescript/pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
 
 ### Step 3 : Create Project to use generated models
 
@@ -76,8 +76,8 @@ The models generated can be used in your project. This is an example where you c
 
 ```
 cd '<workspace>'
-mkdir my-pe-api-consumer-prj
-cd my-pe-api-consumer-prj
+mkdir my-pe-models-consumer-prj
+cd my-pe-models-consumer-prj
 npm init
 ```
 
@@ -89,7 +89,7 @@ To use the models generated as a result of above in `step 1`
 
 ```
 npm install
-npm install --save '<workspace>/pe-api/target/sdks/pe-api-ts/pe-models-0.0.1.tgz'
+npm install --save '<workspace>/pe-api/target/sdks/models/typescript/pe-models-0.0.1.tgz'
 npm instal --save ts-node
 ```
 
@@ -111,31 +111,31 @@ var jwtObject : JwtObject = {
 console.log(jwtObject);
 ```
 
-In `package.json` add a script `"my-pe-api-consumer-script": "ts-node scripts/consumer-script.ts"` in scripts section. Resulting Package.json may look like following.
+In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts/consumer-script.ts"` in scripts section. Resulting Package.json may look like following.
 
 ```
 {
-  "name": "my-pe-api-consumer-prj",
+  "name": "my-pe-models-consumer-prj",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"my-pe-api-consumer-script": "ts-node scripts/consumer-script.ts"
+	"my-pe-models-consumer-script": "ts-node scripts/consumer-script.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pe-models": "file:../pe-api/target/sdks/pe-api-ts/pe-models-0.0.1.tgz",
+    "pe-models": "file:../pe-api/target/sdks/models/typescript/pe-models-0.0.1.tgz",
     "ts-node": "^9.1.1"
   }
 }
 ```
 
-In terminal run following command from the `<workspace>/my-pe-api-consumer-prj` 
+In terminal run following command from the `<workspace>/my-pe-models-consumer-prj` 
 
 ```
-cd '<workspace>/my-pe-api-consumer-prj'
+cd '<workspace>/my-pe-models-consumer-prj'
 npm run my-pe-api-consumer-script
 ```
 

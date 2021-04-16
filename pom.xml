@@ -36,7 +36,7 @@
 
     <profiles>
         <profile>
-            <id>pe-api-typescript</id>
+            <id>models-typescript</id>
             <build>
                 <plugins>
                     <plugin>
@@ -51,10 +51,10 @@
                                     <goal>copy-resources</goal>
                                 </goals>
                                 <configuration>
-                                    <outputDirectory>target/sdks/pe-api-ts</outputDirectory>
+                                    <outputDirectory>target/sdks/models/typescript</outputDirectory>
                                     <resources>
                                         <resource>
-                                            <directory>template/pe-api-typescript</directory>
+                                            <directory>template/models-typescript</directory>
                                             <filtering>true</filtering>
                                         </resource>
                                     </resources>
@@ -91,7 +91,7 @@
                                     </configOptions>
 
                                     <verbose>${swagger-codgen-verbose}</verbose>
-                                    <output>${project.basedir}/target/sdks/pe-api-ts</output>
+                                    <output>${project.basedir}/target/sdks/models/typescript</output>
 
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
