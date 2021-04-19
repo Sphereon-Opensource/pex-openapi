@@ -1,0 +1,5 @@
+rule_enum:
+  type: string
+  enum:
+    - all
+    - pick

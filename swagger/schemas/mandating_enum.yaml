@@ -1,0 +1,5 @@
+mandating_enum:
+  type: string
+  enum:
+    - required
+    - preferred

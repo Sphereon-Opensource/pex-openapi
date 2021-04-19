@@ -9,10 +9,7 @@ submission_requirement:
     purpose:
       type: string
     rule:
-      type: string
-      enum:
-        - all
-        - pick
+      $ref: './rule_enum.yaml#/rule_enum'
     count:
       type: integer
       minimum: 1

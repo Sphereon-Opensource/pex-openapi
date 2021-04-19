@@ -1,0 +1,6 @@
+pd_status:
+  title: Presentation Definition Status
+  type: object
+  properties:
+    directive:
+      $ref: './allowing_enum.yaml#/allowing_enum'

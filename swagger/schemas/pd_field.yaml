@@ -15,8 +15,5 @@ field:
     filter:
       $ref: './pd_filter.yaml#/filter'
     predicate:
-      type: string
-      enum:
-        - required
-        - preferred
+      $ref: './mandating_enum.yaml#/mandating_enum'
   additionalProperties: false

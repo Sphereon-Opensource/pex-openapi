@@ -1,0 +1,6 @@
+allowing_enum:
+  type: string
+  enum:
+    - required
+    - allowed
+    - disallowed

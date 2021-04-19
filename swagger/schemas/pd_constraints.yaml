@@ -4,11 +4,8 @@ constraints:
   type: object
   properties:
     limit_disclosure:
-      description: Allows the Verifier to convey to Holder to see which properties are required and what optional credentials can be ommitted if desired by Holder.
-      type: string
-      enum:
-        - required
-        - preferred
+      # Allows the Verifier to convey to Holder to see which properties are required and what optional credentials can be ommitted if desired by Holder.
+      $ref: './mandating_enum.yaml#/mandating_enum'
     statuses:
       $ref: './pd_statuses.yaml#/statuses'
     fields:
@@ -16,12 +13,13 @@ constraints:
       items:
         $ref: './pd_field.yaml#/field'
     subject_is_issuer:
-      type: string
-      enum:
-        - required
-        - preferred
+      $ref: './mandating_enum.yaml#/mandating_enum'
     is_holder:
-      $ref: './holder_subject.yaml#/holder_subject'
+      type: array
+      items:
+        $ref: './holder_subject.yaml#/holder_subject'
     same_subject:
-      $ref: './holder_subject.yaml#/holder_subject'
+      type: array
+      items:
+        $ref: './holder_subject.yaml#/holder_subject'
   additionalProperties: false
