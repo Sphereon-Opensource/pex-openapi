@@ -1,4 +1,4 @@
-rule_enum:
+rules:
   type: string
   enum:
     - all

@@ -1,4 +1,4 @@
-mandating_enum:
+optionality:
   type: string
   enum:
     - required

@@ -8,7 +8,7 @@ holder_subject:
       items:
         type: string
     directive:
-      $ref: './mandating_enum.yaml#/mandating_enum'
+      $ref: './optionality.yaml#/mandating_enum'
   required:
     - field_id
     - directive

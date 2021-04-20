@@ -1,4 +1,4 @@
-allowing_enum:
+directives:
   type: string
   enum:
     - required
