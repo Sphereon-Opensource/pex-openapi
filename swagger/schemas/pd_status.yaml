@@ -3,4 +3,4 @@ pd_status:
   type: object
   properties:
     directive:
-      $ref: './directives.yaml#/allowing_enum'
+      $ref: './directives.yaml#/directives'

@@ -189,6 +189,10 @@ npm login
 npm publish pe-models-M.m.p.tgz
 ```
 
+```
+npm logout
+```
+
 #### Step D : Check 
 
 Check on `npmjs.com`

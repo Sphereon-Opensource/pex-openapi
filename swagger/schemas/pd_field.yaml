@@ -15,5 +15,5 @@ field:
     filter:
       $ref: './pd_filter.yaml#/filter'
     predicate:
-      $ref: './optionality.yaml#/mandating_enum'
+      $ref: './optionality.yaml#/optionality'
   additionalProperties: false
