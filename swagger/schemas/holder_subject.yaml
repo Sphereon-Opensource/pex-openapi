@@ -1,20 +1,15 @@
 holder_subject:
   title: Holder Subject
   description: The is_holder/same_subject property would be used by a Verifier to require that certain inputs be provided by a certain subject or are about a certain subject.
-  type: array
-  items:
-    type: object
-    properties:
-      field_id:
-        type: array
-        items:
-          type: string
-      directive:
+  type: object
+  properties:
+    field_id:
+      type: array
+      items:
         type: string
-        enum:
-          - required
-          - preferred
-    required:
-      - field_id
-      - directive
-    additionalProperties: false
+    directive:
+      $ref: './optionality.yaml#/mandating_enum'
+  required:
+    - field_id
+    - directive
+  additionalProperties: false

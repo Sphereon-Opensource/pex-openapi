@@ -4,29 +4,8 @@ statuses:
   type: object
   properties:
     active:
-      type: object
-      properties:
-        directive:
-          type: string
-          enum:
-            - required
-            - allowed
-            - disallowed
+      $ref: './pd_status.yaml#/pd_status'
     suspended:
-      type: object
-      properties:
-        directive:
-          type: string
-          enum:
-            - required
-            - allowed
-            - disallowed
+      $ref: './pd_status.yaml#/pd_status'
     revoked:
-      type: object
-      properties:
-        directive:
-          type: string
-          enum:
-            - required
-            - allowed
-            - disallowed
+      $ref: './pd_status.yaml#/pd_status'

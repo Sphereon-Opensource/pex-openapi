@@ -179,8 +179,13 @@ npm pack
 #### Step C : Publish
 
 ```
-cd '<workspace>/my-pe-models-consumer-prj'
+cd '<workspace>/models-typescript'
 npm login
+```
+
+`npm login` may need to ask multiple questions.
+
+```
 npm publish pe-models-M.m.p.tgz
 ```
 
