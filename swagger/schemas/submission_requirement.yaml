@@ -27,3 +27,5 @@ submission_requirement:
       minItems: 1
       items:
         $ref: '#/submission_requirement'
+  required:
+    - rule
