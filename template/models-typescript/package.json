@@ -1,7 +1,7 @@
 {
-  "name": "pe-models",
-  "version": "0.0.7",
-  "description": "OpenAPI client for pe-models",
+  "name": "@sphereon/pe-models",
+  "version": "0.0.1",
+  "description": "OpenAPI client for pe-models by Sphereon",
   "author": "Sphereon",
   "keywords": [
     "Verifiable",
