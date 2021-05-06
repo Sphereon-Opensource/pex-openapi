@@ -186,7 +186,7 @@ npm login
 `npm login` may need to ask multiple questions.
 
 ```
-npm publish sphereon-pe-models-M.m.p.tgz
+npm publish --access public
 ```
 
 ```
