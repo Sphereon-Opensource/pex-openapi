@@ -1,6 +1,6 @@
-input_descriptors:
+input_descriptor:
   title: Input Descriptor
-  description: Input Descriptors are used by a Verifier to describe the information required of a Holder before an interaction can proceed.
+  description: Input Descriptor are used by a Verifier to describe the information required of a Holder before an interaction can proceed.
   type: object
   properties:
     id:
