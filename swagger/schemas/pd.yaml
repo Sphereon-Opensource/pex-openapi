@@ -19,7 +19,7 @@ presentation_definition:
     input_descriptors:
       type: array
       items:
-        $ref: './pd_input_descriptors.yaml#/input_descriptors'
+        $ref: './pd_input_descriptor.yaml#/input_descriptor'
   required:
     - id
     - input_descriptors
