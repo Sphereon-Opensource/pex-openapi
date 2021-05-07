@@ -126,7 +126,7 @@ In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sphereon/pe-models": "file:../pe-api/target/sdks/models/typescript/@sphereon/pe-models-0.0.1.tgz",
+    "@sphereon/pe-models": "file:../pe-api/target/sdks/models/typescript/sphereon-pe-models-0.0.1.tgz",
     "ts-node": "^9.1.1"
   }
 }
@@ -186,7 +186,7 @@ npm login
 `npm login` may need to ask multiple questions.
 
 ```
-npm publish --access public
+npm publish sphereon-pe-models-M.m.p.tgz --access public
 ```
 
 ```
