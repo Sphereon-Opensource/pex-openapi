@@ -90,7 +90,7 @@ To use the models generated as a result of above in `step 1`
 ```
 npm install
 npm install --save '<workspace>/pe-api/target/sdks/models/typescript/sphereon-pe-models-0.0.1.tgz'
-npm instal --save ts-node
+npm install --save ts-node
 ```
 
 Create a folder named `scripts`
