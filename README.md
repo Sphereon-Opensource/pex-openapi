@@ -68,7 +68,7 @@ cd target/sdks/models/typescript
 npm pack
 ```
 
-Expected result is that a file `/target/sdks/models/typescript/pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
+Expected result is that a file `/target/sdks/models/typescript/sphereon-pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
 
 ### Step 3 : Create Project to use generated models
 
@@ -89,8 +89,8 @@ To use the models generated as a result of above in `step 1`
 
 ```
 npm install
-npm install --save '<workspace>/pe-api/target/sdks/models/typescript/pe-models-0.0.1.tgz'
-npm instal --save ts-node
+npm install --save '<workspace>/pe-api/target/sdks/models/typescript/sphereon-pe-models-0.0.1.tgz'
+npm install --save ts-node
 ```
 
 Create a folder named `scripts`
@@ -102,7 +102,7 @@ mkdir scripts
 Create a file in 'scripts' named `consumer-script.ts` with following contents
 
 ```
-import {JwtObject} from 'pe-models'
+import {JwtObject} from '@sphereon/pe-models'
 
 var jwtObject : JwtObject = {
     alg : ['someAlgorithm']
@@ -126,7 +126,7 @@ In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pe-models": "file:../pe-api/target/sdks/models/typescript/pe-models-0.0.1.tgz",
+    "@sphereon/pe-models": "file:../pe-api/target/sdks/models/typescript/@sphereon/pe-models-0.0.1.tgz",
     "ts-node": "^9.1.1"
   }
 }
@@ -186,7 +186,7 @@ npm login
 `npm login` may need to ask multiple questions.
 
 ```
-npm publish pe-models-M.m.p.tgz
+npm publish --access public
 ```
 
 ```

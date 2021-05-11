@@ -1,7 +1,7 @@
 {
-  "name": "pe-models",
-  "version": "0.0.7",
-  "description": "OpenAPI client for pe-models",
+  "name": "@sphereon/pe-models",
+  "version": "0.0.1",
+  "description": "DIF Presentation Exchange OpenAPI models by Sphereon",
   "author": "Sphereon",
   "keywords": [
     "Verifiable",
