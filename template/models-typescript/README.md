@@ -47,7 +47,7 @@ To use the models generated as a result of above in `step 1`
 ```
 npm install
 npm install --save @sphereon/pe-models
-npm instal --save ts-node
+npm install --save ts-node
 ```
 
 Create a folder named `scripts`
