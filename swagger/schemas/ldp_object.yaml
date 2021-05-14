@@ -1,11 +1,13 @@
 ldp_object:
   type: object
+  description: Which Proof type is supported
   properties:
     proof_type:
       type: array
       minItems: 1
       items:
         type: string
+        description: Name of the the proof type
   required:
     - proof_type
   additionalProperties: false

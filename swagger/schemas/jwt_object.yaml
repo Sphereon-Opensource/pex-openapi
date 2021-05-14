@@ -1,11 +1,13 @@
 jwt_object:
   type: object
+  description: Which JWT Algorithm is supported
   properties:
     alg:
       type: array
       minItems: 1
       items:
         type: string
+        description: Name of the the JWT Algorithm
   required:
     - alg
   additionalProperties: false

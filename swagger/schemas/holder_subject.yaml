@@ -1,10 +1,11 @@
 holder_subject:
   title: Holder Subject
-  description: The is_holder/same_subject property would be used by a Verifier to require that certain inputs be provided by a certain subject or are about a certain subject.
   type: object
+  description: The is_holder/same_subject property would be used by a Verifier to require that certain inputs be provided by a certain subject or are about a certain subject.
   properties:
     field_id:
       type: array
+      description: The value of this property MUST be an array of strings, with each string matching the string value from a field object’s id property.
       items:
         type: string
     directive:

@@ -6,24 +6,31 @@ submission_requirement:
   properties:
     name:
       type: string
+      description: what verifiable credential is demanded in order for the presentation to be sensible.
     purpose:
       type: string
+      description: Why this verifiable credentials is requested.
     rule:
       $ref: './rules.yaml#/rules'
     count:
       type: integer
+      description: How many of the credentials are demanded for the presentation to be sensible.
       minimum: 1
     min:
       type: integer
+      description: Minimum of the credentials are demanded for the presentation to be sensible.
       minimum: 0
     max:
       type: integer
+      description: Maximum of the credentials are demanded for the presentation to be sensible.
       minimum: 0
       # It is expected that 'from' or 'from_nested' will be populated
     from:
       type: string
+      description: One of the group strings specified for one or more [[ref:Input Descriptor Objects].
     from_nested:
       type: array
+      description: nested submission_requirement and is a way to organize the requirements. For example requirements mentioned in the flat list will also be able to provide same information but will be less organized.
       minItems: 1
       items:
         $ref: '#/submission_requirement'

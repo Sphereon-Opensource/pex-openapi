@@ -1,6 +1,6 @@
 statuses:
   title: Statuses
-  description: statueses which are acceptable
+  description: statuses which are acceptable
   type: object
   properties:
     active:

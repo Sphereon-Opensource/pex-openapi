@@ -1,33 +1,46 @@
 filter:
   title: Filter
   type: object
+  description: This is the filter that can be applied on the field's value to know if the available credential with a specifici field is acceptable or not.
   properties:
     type:
       type: string
+      description: Object type of the acceptable field.
     format:
       type: string
+      description: format in which the item is expected. e.g. date time format of some sort.
     pattern:
       type: string
+      description: The regular expression that can help filter the target object.
     minLength:
       type: integer
+      description: acceptable minimum length (e.g. of string) that is acceptable
     maxLength:
       type: integer
+      description: acceptable maximum length (e.g. of string) that is acceptable
     minimum:
       type: number
+      description: acceptable minimum value (e.g. 0) that is acceptable for the number including this number (i.e. 0 in this case)
     exclusiveMinimum:
       type: number
+      description: acceptable minimum value (e.g. 0) that is acceptable for the number exclusive of the number (i.e. 0 in this case)
     exclusiveMaximum:
       type: number
+      description: acceptable maximum value (e.g. 100) that is acceptable for the number exclusive of the number (i.e. 100 in this case)
     maximum:
       type: number
+      description: acceptable maximum value (e.g. 100) that is acceptable for the number including this number (i.e. 100 in this case)
     const:
       type: number
+      description: A fixed value that is accpetable in this variable
     enum:
       type: array
       items:
         type: number
+        description: Fixed listed values which are acceptable in this variable.
     not:
       type: object
+      description: The values which will make the item unacceptable
       minProperties: 1
   required:
     - type
