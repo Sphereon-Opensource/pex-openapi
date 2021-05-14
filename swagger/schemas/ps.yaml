@@ -5,6 +5,7 @@ presentation_submission:
   properties:
     submission_requirements:
       type: array
+      description: The requirements which are to be fufilled by the holder in order for the presentation to be acceptable.
       items:
         $ref: './submission_requirement.yaml#/submission_requirement'
   required:

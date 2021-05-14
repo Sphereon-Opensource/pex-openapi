@@ -1,5 +1,6 @@
 directives:
   type: string
+  description: A directive is an instruction to the holder about what significance to give to the element it refers to
   enum:
     - required
     - allowed
