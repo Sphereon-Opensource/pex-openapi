@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sphereon.public</groupId>
-    <artifactId>pe-api</artifactId>
+    <artifactId>pe-openapi</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0-SNAPSHOT</version>
 
@@ -29,9 +29,9 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:git@github.com:Sphereon-Opensource/pe-api.git</connection>
-        <developerConnection>scm:git:git@github.com:Sphereon-Opensource/pe-api.git</developerConnection>
-        <url>https://github.com/Sphereon-Opensource/pe-api</url>
+        <connection>scm:git:git@github.com:Sphereon-Opensource/pe-openapi.git</connection>
+        <developerConnection>scm:git:git@github.com:Sphereon-Opensource/pe-openapi.git</developerConnection>
+        <url>https://github.com/Sphereon-Opensource/pe-openapi</url>
     </scm>
 
     <profiles>
@@ -80,14 +80,14 @@
                                 </goals>
                                 <phase>generate-sources</phase>
                                 <configuration>
-                                    <inputSpec>swagger/pe-api-0.0.0.yaml</inputSpec>
+                                    <inputSpec>swagger/pe-openapi-0.0.1.yaml</inputSpec>
 
                                     <generatorName>typescript-angular</generatorName>
 
                                     <configOptions>
                                         <dateLibrary>java8</dateLibrary>
                                         <npmName>pe-models</npmName>
-                                        <npmVersion>0.0.1</npmVersion>
+                                        <npmVersion>0.0.2</npmVersion>
                                     </configOptions>
 
                                     <verbose>${swagger-codgen-verbose}</verbose>

@@ -32,8 +32,8 @@ This is a maven-based-project. To setup locally for development run following co
 
 ```
 cd '<workspace>'
-git clone git@github.com:Sphereon-Opensource/pe-api.git
-cd pe-api
+git clone git@github.com:Sphereon-Opensource/pe-openapi.git
+cd pe-openapi
 ```
 
 ## Usage
@@ -56,7 +56,7 @@ git checkout <branch-name>
 
 ### Step 1 : Generate models
 
-The following command will generate the models in `<workspace>/pe-api/target/sdks/models/typescript`
+The following command will generate the models in `<workspace>/pe-openapi/target/sdks/models/typescript`
 ```
 mvn install -P models-typescript
 ```
@@ -89,7 +89,7 @@ To use the models generated as a result of above in `step 1`
 
 ```
 npm install
-npm install --save '<workspace>/pe-api/target/sdks/models/typescript/sphereon-pe-models-0.0.1.tgz'
+npm install --save '<workspace>/pe-openapi/target/sdks/models/typescript/sphereon-pe-models-0.0.2.tgz'
 npm install --save ts-node
 ```
 
@@ -126,7 +126,7 @@ In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sphereon/pe-models": "file:../pe-api/target/sdks/models/typescript/@sphereon/pe-models-0.0.1.tgz",
+    "@sphereon/pe-models": "file:../pe-openapi/target/sdks/models/typescript/sphereon-pe-models-0.0.2.tgz",
     "ts-node": "^9.1.1"
   }
 }
@@ -141,7 +141,7 @@ cd '<workspace>/my-pe-models-consumer-prj'
 npm run my-pe-models-consumer-script
 ```
 
-You should expect this to be printed on console.
+You should expect this to be printed on the console.
 
 ```
 { alg: [ 'someAlgorithm' ] }
@@ -179,14 +179,13 @@ npm pack
 #### Step C : Publish
 
 ```
-cd '<workspace>/models-typescript'
 npm login
 ```
 
 `npm login` may need to ask multiple questions.
 
 ```
-npm publish --access public
+npm publish sphereon-pe-models-M.m.p.tgz --access public
 ```
 
 ```
