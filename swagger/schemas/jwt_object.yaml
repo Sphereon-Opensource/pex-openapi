@@ -4,10 +4,10 @@ jwt_object:
   properties:
     alg:
       type: array
+      description: List of names of the the JWT Algorithms
       minItems: 1
       items:
         type: string
-        description: Name of the the JWT Algorithm
   required:
     - alg
   additionalProperties: false
