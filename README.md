@@ -151,7 +151,10 @@ You should expect this to be printed on the console.
 
 #### Step A : Update values
 
-Update this README.md and Update SDK's README.md located at `template/models-typescript/README.md`
+Update 
+- this README.md 
+- SDK's README.md located at `template/models-typescript/README.md`
+- release-notes.md
 
 Bump up the version of SDK in `pom.xml`
 

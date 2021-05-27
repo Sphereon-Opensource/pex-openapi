@@ -1,6 +1,6 @@
 field:
   title: Field
-  description: Fields required by Verifier to be submitted by Holder.
+  description: Field required by Verifier to be submitted by Holder.
   type: object
   properties:
     # [path, filter and predicate] is one set that can be filled. Or only 'path can be filled.'
@@ -9,9 +9,9 @@ field:
       description: Must be a unique identifier between all the fields in the Presentation Definition.
     path:
       type: array
+      description: List of JSon paths where the field is expected to be found.
       items:
         type: string
-        description: JSon paths where the field is expected to be found.
     purpose:
       type: string
       description: purpose for which the Claim's data is being requested.

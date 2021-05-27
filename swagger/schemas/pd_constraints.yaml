@@ -10,16 +10,19 @@ constraints:
       $ref: './pd_statuses.yaml#/statuses'
     fields:
       type: array
+      description: It's a list of Fields.
       items:
         $ref: './pd_field.yaml#/field'
     subject_is_issuer:
       $ref: './optionality.yaml#/optionality'
     is_holder:
       type: array
+      description: It's a list of holder_subjects.
       items:
         $ref: './holder_subject.yaml#/holder_subject'
     same_subject:
       type: array
+      description: It's a list of holder_subjects.
       items:
         $ref: './holder_subject.yaml#/holder_subject'
   additionalProperties: false

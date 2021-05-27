@@ -16,10 +16,12 @@ presentation_definition:
       $ref: './pd_format.yaml#/format'
     submission_requirements:
       type: array
+      description: List of requirements for described inputs in input descriptors.
       items:
         $ref: './submission_requirement.yaml#/submission_requirement'
     input_descriptors:
       type: array
+      description: List of descriptions of the required inputs.
       items:
         $ref: './pd_input_descriptor.yaml#/input_descriptor'
   required:

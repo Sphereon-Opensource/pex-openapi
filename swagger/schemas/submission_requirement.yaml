@@ -33,6 +33,6 @@ submission_requirement:
       description: nested submission_requirement and is a way to organize the requirements. For example requirements mentioned in the flat list will also be able to provide same information but will be less organized.
       minItems: 1
       items:
-        $ref: '#/submission_requirement'
+        $ref: './submission_requirement.yaml#/submission_requirement'
   required:
     - rule
