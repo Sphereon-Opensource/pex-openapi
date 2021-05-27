@@ -1,5 +1,8 @@
 # Release Notes
 
+## v0.0.4 - 2021-05-27
+- Fix: changed the nature of property from array to object.
+
 ## v0.0.3 - 2021-05-27
 - presentation submission object added.
 
