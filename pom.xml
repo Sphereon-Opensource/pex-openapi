@@ -87,7 +87,7 @@
                                     <configOptions>
                                         <dateLibrary>java8</dateLibrary>
                                         <npmName>pe-models</npmName>
-                                        <npmVersion>0.0.2</npmVersion>
+                                        <npmVersion>0.0.3</npmVersion>
                                     </configOptions>
 
                                     <verbose>${swagger-codgen-verbose}</verbose>
@@ -98,6 +98,7 @@
 
                                     <generateModels>true</generateModels>
                                     <generateApis>false</generateApis>
+                                    <generateModelDocumentation>true</generateModelDocumentation>
 
                                     <skipOverwrite>false</skipOverwrite>
 
