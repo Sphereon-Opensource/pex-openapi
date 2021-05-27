@@ -4,7 +4,7 @@ ldp_object:
   properties:
     proof_type:
       type: array
-      description: List of names of the the proof types
+      description: List of names of the proof types
       minItems: 1
       items:
         type: string
