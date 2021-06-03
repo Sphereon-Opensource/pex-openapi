@@ -37,7 +37,7 @@ The rest API supports the following actions:
 - Create [Presentation Submission](https://identity.foundation/presentation-exchange/#presentation-submission)
 - Check status of the presentation exchange
 
-For more details on the specific actions that are available, see the [Sphereon's Presentation Exchange REST API Interface specification] [TODO: ADD LINK]
+For more details on the specific actions that are available, see the Sphereon's Presentation Exchange REST API Interface specification
 
 
 ## Security
