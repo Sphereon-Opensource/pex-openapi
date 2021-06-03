@@ -9,22 +9,41 @@
 
 ## Table of Contents
 
-- [Security](#security)
 - [Background](#background)
+- [Security](#security)
 - [Setup](#Setup)
 - [Usage](#usage)
+
+
+## Background
+
+This is an implementation of the
+[Presentation Exchange v1.0.0 specification](https://identity.foundation/presentation-exchange/)
+ as OpenAPIs (YAMLs), providing an implementation agnostic, 
+and stateful interaction mediation between holders and verifiers. 
+
+The API can be used without having to implement any of the DIF PE logic. It allows generation of objects, remaining compliant and consistent with the DIF specification. Users can submit presentation(s) with certainty of acceptance, since the DIF PE logic ensures the information submitted in the response is compatible with the request model of the verifier.
+
+On each progressive interaction with the PE REST API, the backend will be updated, keeping track of the status of the overall exchange. The involved parties can be notified of the status changes using the provided endpoint. The parties can also enquire the status by calling the 'status check' API endpoint, eliminating the need to develop and deploy a callback listening endpoint.  
+
+The fact that the PE REST API is agnostic to the callers' implementation, allows the verifier and holders to be interchangeable and have different systems. A stateful, reliable and compliant DIF Presentation Exchange can be created by just using a 'create session' call. 
+
+The rest API supports the following actions:
+- Create [Presentation Definitions](https://identity.foundation/presentation-exchange/#presentation-definition)
+    - Define [Input Descriptors](https://identity.foundation/presentation-exchange/#input-descriptor)
+    - Define [Submission Requirements](https://identity.foundation/presentation-exchange/#submission-requirements)
+    - Do [Input Evaluation](https://identity.foundation/presentation-exchange/#input-evaluation)
+- Create [Presentation Requests](https://identity.foundation/presentation-exchange/#presentation-request)
+- Create [Presentation Submission](https://identity.foundation/presentation-exchange/#presentation-submission)
+- Check status of the presentation exchange
+
+For more details on the specific actions that are available, see the [Sphereon's Presentation Exchange REST API Interface specification] [TODO: ADD LINK]
+
 
 ## Security
 
 As with most security- and cryptography-related tools, the overall security of your system will largely depend on your design decisions (which key types you will use, where you'll store the private keys, what you put into your credentials, and so on.)
 
-## Background
-
-This is an interpretation of the
-[Presentation Exchange v1.0.0](https://identity.foundation/presentation-exchange/#submission-requirements)
-specification as OpenAPIs (YAMLs). 
-
-It allows you to generate objects consistently while remaining compliant and consistent with the DIF specification.
 
 ## Setup
 
