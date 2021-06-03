@@ -30,9 +30,9 @@ The fact that the PE REST API is agnostic to the callers' implementation, allows
 
 The rest API supports the following actions:
 - Create [Presentation Definitions](https://identity.foundation/presentation-exchange/#presentation-definition)
-    - Define [Input Descriptors](https://identity.foundation/presentation-exchange/#input-descriptor)
-    - Define [Submission Requirements](https://identity.foundation/presentation-exchange/#submission-requirements)
-    - Do [Input Evaluation](https://identity.foundation/presentation-exchange/#input-evaluation)
+- Define [Input Descriptors](https://identity.foundation/presentation-exchange/#input-descriptor)
+- Define [Submission Requirements](https://identity.foundation/presentation-exchange/#submission-requirements)
+- Do [Input Evaluation](https://identity.foundation/presentation-exchange/#input-evaluation)
 - Create [Presentation Requests](https://identity.foundation/presentation-exchange/#presentation-request)
 - Create [Presentation Submission](https://identity.foundation/presentation-exchange/#presentation-submission)
 - Check status of the presentation exchange
