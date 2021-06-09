@@ -14,17 +14,29 @@
 - [Setup](#Setup)
 - [Usage](#usage)
 
-## Security
-
-As with most security- and cryptography-related tools, the overall security of your system will largely depend on your design decisions (which key types you will use, where you'll store the private keys, what you put into your credentials, and so on.)
-
 ## Background
 
-This is an interpretation of the
-[Presentation Exchange v1.0.0](https://identity.foundation/presentation-exchange/#submission-requirements)
-specification as OpenAPIs (YAMLs). 
+The Presentation Exchange OpenAPI is an interpretation of the
+[DIF Presentation Exchange v1.0.0](https://identity.foundation/presentation-exchange/#submission-requirements)
+specification. 
 
-It allows you to generate objects consistently while remaining compliant and consistent with the DIF specification.
+A standardised presentation exchange is crucial for interoperability between different systems that are used by verifiers and holders (e.g. wallets). It enables verifier- and holder-systems to interpret models used by each other in a consistent way. The PE-OpenAPI specification and Models Generator will allow for usecases with the need to implement a Presentation Exchange, possibly using different programming languages.
+
+### PE-OpenAPI specification
+The PE-OpenAPI specification is a set of OpenAPI 3 specification YAML files. It can be used by 3rd parties to generate the models and SDKs for their own desired framework and programming language. The specification is used to create the Typescript models as described below.
+
+The PE-OpenAPI specification is used to generate the models and SDKs for Sphereon's [PE-JS library](https://github.com/Sphereon-Opensource/pe-js/)
+
+### PE-OpenAPI Models Generator (Coming soon)
+The PE-OpenAPI Models Generator is a pre-configured component to generate the models from the above PE-OpenAPI v3 Specification YAML files. Developers who intend to integrate the DIF PE specification in their typescript/javascript systems can either extend this project, or follow the [guide](Coming soon) to make it part of their code-bases.
+
+### PE-Models library (Coming soon)
+The PE-models library is a pre-published ready to use typescript node-module that can be directly downloaded and installed from npmjs.com. This can be used in any javascript based project to have a consistent structure of the models required in presentation exchange between verifier and holders of verifiable credentials.
+The PE-Models library will also be used in the libraries desiring to validate and verify presentation definitions and submissions.
+
+## Security
+
+As with most security- and cryptography-related tools, the overall security of your system will largely depend on your design decisions eg. which key types you will use, where you'll store the private keys, what you put into your credentials, and so on.
 
 ## Setup
 
