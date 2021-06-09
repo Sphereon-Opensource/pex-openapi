@@ -14,15 +14,29 @@
 - [Setup](#Setup)
 - [Usage](#usage)
 
-
 ## Background
 
-This is an implementation of the
-[Presentation Exchange v1.0.0 specification](https://identity.foundation/presentation-exchange/)
- as OpenAPIs (YAMLs), providing an implementation agnostic, 
+The Presentation Exchange OpenAPI is an interpretation of the
+[DIF Presentation Exchange v1.0.0](https://identity.foundation/presentation-exchange/#submission-requirements)
+specification as OpenAPIs (YAMLs), providing an implementation agnostic, 
 and stateful interaction mediation between holders and verifiers. 
 
+A standardised presentation exchange is crucial for interoperability between different systems that are used by verifiers and holders (e.g. wallets). It enables verifier- and holder-systems to interpret models used by each other in a consistent way. The PE-OpenAPI specification and Models Generator will allow for usecases with the need to implement a Presentation Exchange, possibly using different programming languages. 
+
 The API can be used without having to implement any of the DIF PE logic. It allows generation of objects, remaining compliant and consistent with the DIF specification. Users can submit presentation(s) with certainty of acceptance, since the DIF PE logic ensures the information submitted in the response is compatible with the request model of the verifier.
+
+
+### PE-OpenAPI specification
+The PE-OpenAPI specification is a set of OpenAPI 3 specification YAML files. It can be used by 3rd parties to generate the models and SDKs for their own desired framework and programming language. The specification is used to create the Typescript models as described below.
+
+The PE-OpenAPI specification is used to generate the models and SDKs for Sphereon's [PE-JS library](https://github.com/Sphereon-Opensource/pe-js/)
+
+### PE-OpenAPI Models Generator (Coming soon)
+The PE-OpenAPI Models Generator is a pre-configured component to generate the models from the above PE-OpenAPI v3 Specification YAML files. Developers who intend to integrate the DIF PE specification in their typescript/javascript systems can either extend this project, or follow the [guide](Coming soon) to make it part of their code-bases.
+
+### PE-Models library (Coming soon)
+The PE-models library is a pre-published ready to use typescript node-module that can be directly downloaded and installed from npmjs.com. This can be used in any javascript based project to have a consistent structure of the models required in presentation exchange between verifier and holders of verifiable credentials.
+The PE-Models library will also be used in the libraries desiring to validate and verify presentation definitions and submissions.
 
 On each progressive interaction with the PE REST API, the backend will be updated, keeping track of the status of the overall exchange. The involved parties can be notified of the status changes using the provided endpoint. The parties can also enquire the status by calling the 'status check' API endpoint, eliminating the need to develop and deploy a callback listening endpoint.  
 
