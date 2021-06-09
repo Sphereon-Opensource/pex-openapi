@@ -9,8 +9,8 @@
 
 ## Table of Contents
 
-- [Security](#security)
 - [Background](#background)
+- [Security](#security)
 - [Setup](#Setup)
 - [Usage](#usage)
 
@@ -18,28 +18,50 @@
 
 The Presentation Exchange OpenAPI is an interpretation of the
 [DIF Presentation Exchange v1.0.0](https://identity.foundation/presentation-exchange/#submission-requirements)
-specification. A standardised presentation exchange is crucial for interoperability between different systems that are used by verifiers and holders (e.g. wallets). It enables verifier- and holder-systems to interpret each others models in a consistent way. 
+specification as OpenAPIs (YAMLs), providing an implementation agnostic, 
+and stateful interaction mediation between holders and verifiers. 
 
-The PE-OpenAPI specification contains the DIF Presesentation Exchange logic represented as YAML files. The PE-OpenAPI Library and Models Generator allow developers to implement a presentation exchange from the specification, in their preferred programming language. 
+A standardised presentation exchange is crucial for interoperability between different systems that are used by verifiers and holders (e.g. wallets). It enables verifier- and holder-systems to interpret models used by each other in a consistent way. The PE-OpenAPI specification and Models Generator will allow for usecases with the need to implement a Presentation Exchange, possibly using different programming languages. 
+
+The API can be used without having to implement any of the DIF PE logic. It allows generation of objects, remaining compliant and consistent with the DIF specification. Users can submit presentation(s) with certainty of acceptance, since the DIF PE logic ensures the information submitted in the response is compatible with the request model of the verifier.
+
 
 ### PE-OpenAPI specification
-The PE-OpenAPI specification is a collection of OpenAPI 3 specification YAML files. It can be used by third parties to generate the models and SDKs for their own desired framework and programming language. The specification is used to create the Typescript models as described below in the [Usage](#usage) section of this readme. It is also used to generate the models and SDKs for Sphereon's [PE-JS library](https://github.com/Sphereon-Opensource/pe-js/)
+The PE-OpenAPI specification is a collection of OpenAPI 3 specification YAML files. It can be used by third parties to generate the models and SDKs for their own desired framework and programming language. The specification is used to create the Typescript models as described below.
+
+The PE-OpenAPI specification is used to generate the models and SDKs for Sphereon's [PE-JS library](https://github.com/Sphereon-Opensource/pe-js/)
 
 ### PE-OpenAPI Models Generator (Coming soon)
-The PE-OpenAPI Models Generator is a pre-configured component for generating the models from the PE-OpenAPI specification YAML files. Developers who intend to integrate the DIF PE specification in their TypeScript/JavaScript project can either extend this project, or follow the guide to make it part of their code-bases.
+The PE-OpenAPI Models Generator is a pre-configured component for generating the models from the PE-OpenAPI specification YAML files. Developers who intend to integrate the DIF PE specification in their TypeScript/JavaScript project can either extend this project, or follow the [guide](Coming soon) to make it part of their code-bases.
 
-### PE-Models library
-The PE-Models library is a pre-published, and ready to use typescript node-module that can be directly downloaded and installed from [Sphereon's PE-Models' NPMJS](https://www.npmjs.com/package/@sphereon/pe-models). This library can be used in any JavaScript project, providing a consistent structure of the models required in presentation exchange between verifier and holders of verifiable credentials.
+### PE-Models library (Coming soon)
+The PE-Models library is a pre-published, and ready to use typescript node-module that can be directly downloaded and installed from [npmjs pe-models](https://www.npmjs.com/package/@sphereon/pe-models). This library can be used in any JavaScript project, providing a consistent structure of the models required in presentation exchange between verifier and holders of verifiable credentials.
 
 Aditionally the PE-Models library can be used to create libraries for verification of presentation defifiniton and submission objects themselves. In this fashon, the PE-Models library is used in Sphereon's [PE-JS library](https://github.com/Sphereon-Opensource/pe-js/) to validate the model objects.
 
+On each progressive interaction with the PE REST API, the backend will be updated, keeping track of the status of the overall exchange. The involved parties can be notified of the status changes using the provided endpoint. The parties can also enquire the status by calling the 'status check' API endpoint, eliminating the need to develop and deploy a callback listening endpoint.  
+
+The fact that the PE REST API is agnostic to the callers' implementation, allows the verifier and holders to be interchangeable and have different systems. A stateful, reliable and compliant DIF Presentation Exchange can be created by just using a 'create session' call. 
+
+The rest API supports the following actions:
+- Create [Presentation Definitions](https://identity.foundation/presentation-exchange/#presentation-definition)
+- Define [Input Descriptors](https://identity.foundation/presentation-exchange/#input-descriptor)
+- Define [Submission Requirements](https://identity.foundation/presentation-exchange/#submission-requirements)
+- Do [Input Evaluation](https://identity.foundation/presentation-exchange/#input-evaluation)
+- Create [Presentation Requests](https://identity.foundation/presentation-exchange/#presentation-request)
+- Create [Presentation Submission](https://identity.foundation/presentation-exchange/#presentation-submission)
+- Check status of the presentation exchange
+
+For more details on the specific actions that are available, see the Sphereon's Presentation Exchange REST API Interface specification
+
+
 ## Security
 
-As with most security- and cryptography-related tools, the overall security of your system will largely depend on your design decisions eg. which key types you will use, where you'll store the private keys, what you put into your credentials, and so on.
+As with most security- and cryptography-related tools, the overall security of your system will largely depend on your design decisions which key types you will use, where you'll store the private keys, what you put into your credentials, and so on.
 
 ## Setup
 
-This is a maven-based-project. To setup for local development, run following commands.
+This is a maven-based-project. To setup locally for development, run following commands.
 
 ```
 cd '<workspace>'
