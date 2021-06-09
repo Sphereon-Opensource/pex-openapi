@@ -29,7 +29,7 @@ The PE-OpenAPI specification is a collection of OpenAPI 3 specification YAML fil
 The PE-OpenAPI Models Generator is a pre-configured component for generating the models from the PE-OpenAPI specification YAML files. Developers who intend to integrate the DIF PE specification in their TypeScript/JavaScript project can either extend this project, or follow the guide to make it part of their code-bases.
 
 ### PE-Models library
-The PE-Models library is a pre-published, and ready to use typescript node-module that can be directly downloaded and installed from [npmjs.com](https://www.npmjs.com/package/@sphereon/pe-models). This library can be used in any JavaScript project, providing a consistent structure of the models required in presentation exchange between verifier and holders of verifiable credentials.
+The PE-Models library is a pre-published, and ready to use typescript node-module that can be directly downloaded and installed from [Sphereon's PE-Models' NPMJS](https://www.npmjs.com/package/@sphereon/pe-models). This library can be used in any JavaScript project, providing a consistent structure of the models required in presentation exchange between verifier and holders of verifiable credentials.
 
 Aditionally the PE-Models library can be used to create libraries for verification of presentation defifiniton and submission objects themselves. In this fashon, the PE-Models library is used in Sphereon's [PE-JS library](https://github.com/Sphereon-Opensource/pe-js/) to validate the model objects.
 
