@@ -19,7 +19,7 @@ input_descriptor:
         type: string
     schema:
       type: array
-      description: List of pe for the credential to be compatible with.
+      description: List of schemas for the credential to be compatible with.
       items:
         $ref: './pd_schema.yaml#/schema'
     constraints:
