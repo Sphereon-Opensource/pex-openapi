@@ -1,0 +1,11 @@
+thread:
+  title: Thread
+  description: A session or thread information container object.
+  type: object
+  properties:
+    id:
+      type: string
+      description: This thread id can be used to get to definition(s) as well as will be used to find other interaction regarding this presentation exchange e.g. presentation(s) of proofs.
+  required:
+    - id
+  additionalProperties: false

@@ -1,0 +1,56 @@
+get:
+  operationId: getPresentationStatus
+  summary: Gets the status of the presentation for the presentation ID.
+  parameters:
+    - name: id
+      in: path
+      description: Presentation ID
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Status has been provided.
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: './api/models/status.yaml#/presentation_status'
+    '400':
+      description: bad request
+      content:
+        application/json:
+          schema:
+            $ref: './api/generic/generic_response.yaml#/generic_response'
+
+
+post:
+  operationId: updatePresentationStatus
+  summary: Verifier can update the status from `SUBMITTED` to e.g. `ACCEPTED` by calling this API.
+  parameters:
+    - name: id
+      in: path
+      description: Presentation ID
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: './api/models/status.yaml#/presentation_status'
+  responses:
+    '201':
+      description: Status has been updated.
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: './api/models/status.yaml#/presentation_status'
+    '400':
+      description: bad request
+      content:
+        application/json:
+          schema:
+            $ref: './api/generic/generic_response.yaml#/generic_response'

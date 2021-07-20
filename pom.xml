@@ -36,7 +36,7 @@
 
     <profiles>
         <profile>
-            <id>models-typescript</id>
+            <id>api-typescript</id>
             <build>
                 <plugins>
                     <plugin>
@@ -91,13 +91,13 @@
                                     </configOptions>
 
                                     <verbose>${swagger-codgen-verbose}</verbose>
-                                    <output>${project.basedir}/target/sdks/models/typescript</output>
+                                    <output>${project.basedir}/target/sdks/typescript</output>
 
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
 
                                     <generateModels>true</generateModels>
-                                    <generateApis>false</generateApis>
+                                    <generateApis>true</generateApis>
                                     <generateModelDocumentation>true</generateModelDocumentation>
 
                                     <skipOverwrite>false</skipOverwrite>

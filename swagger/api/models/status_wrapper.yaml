@@ -1,0 +1,16 @@
+presentation_status_wrapper:
+  title: Presentation Status Wrapper
+  description: Presentation status with meta data.
+  type: object
+  properties:
+    definition_id:
+      type: string
+      description: ID of the Presentation Definition
+    statuses:
+      type: array
+      items:
+        $ref: './status.yaml#/presentation_status'
+  required:
+    - definition_id
+    - statuses
+  additionalProperties: false

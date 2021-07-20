@@ -1,0 +1,17 @@
+get:
+  operationId: presentation
+  summary: Retrieve a presentation as a verifier as part of a credential exchange session.
+  responses:
+    '200':
+      description: Presentation has been provided.
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: './api/models/presentation_wrapper.yaml#/presentation_wrapper'
+    '400':
+      description: bad request
+      content:
+        application/json:
+          schema:
+            $ref: './api/generic/generic_response.yaml#/generic_response'

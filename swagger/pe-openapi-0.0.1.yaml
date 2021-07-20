@@ -1,30 +1,47 @@
 openapi: 3.0.3
 info:
   description: Decentralized Identity Foundation Presentation Exchange API
-  version: "1.0.0"
+  version: '1.0.0'
   title: DIF PE API
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+servers:
+  - url: '{protocol}://{environment}.{projectName}.sphereon.pe.com:{port}/pe'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: https
+      environment:
+        default: api.dev    # Development server
+        enum:
+          - api         # Production server
+          - api.dev     # Development server
+          - api.staging # Staging server
+      projectName:
+        default: essifi
+        description: Project Name
+      port:
+        enum:
+          - '443'
+          - '8443'
+        default: '443'
+
 paths:
-  /presentation_definition:
-    get:
-      operationId: getPresentationDefinition
-      summary: gets presentation definition
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/presentation_definition'
-        '400':
-          description: bad input parameter
-components:
-  schemas:
-    presentation_definition:
-      $ref: './schemas/pd.yaml#/presentation_definition'
-    presentation_submission:
-      $ref: './schemas/ps.yaml#/presentation_submission'
+  /v1/threads:
+    $ref: './api/v1/b0_pe_threads.yaml'
+  /v1/definitions:
+    $ref: './api/v1/c0_pe_definitions.yaml'
+  /v1/definitions/{definition_id}:
+    $ref: './api/v1/c1_pe_definitions.yaml'
+  /v1/presentations:
+    $ref: './api/v1/d0_pe_presentations.yaml'
+  /v1/definitions/{definition_id}/statuses:
+    $ref: './api/v1/d2_pe_definition_statuses.yaml'
+  /v1/presentations/{presentation_id}:
+    $ref: './api/v1/d3_pe_presentation.yaml'
+  /v1/presentations/{presentation_id}/statuses:
+    $ref: './api/v1/e2_pe_presentation_statuses.yaml'

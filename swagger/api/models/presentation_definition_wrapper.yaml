@@ -1,0 +1,19 @@
+presentation_definition_wrapper:
+  title: Presentation Definition Wrapper
+  description: Presentation Definitions with the meta data.
+  type: object
+  properties:
+    thread:
+      $ref: './../models/thread.yaml#/thread'
+    presentation_definition:
+      $ref: './../../pe/pd.yaml#/presentation_definition'
+    challenge:
+      $ref: './../models/challenge.yaml#/challenge'
+    callback:
+      $ref: './../models/callback.yaml#/callback'
+  required:
+    - thread
+    - presentation_definition
+    - challenge
+    - callback
+  additionalProperties: false

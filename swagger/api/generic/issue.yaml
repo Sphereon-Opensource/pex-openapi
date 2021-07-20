@@ -1,0 +1,23 @@
+issue:
+  title: Issue
+  description: This is the warnings and errors.
+  type: object
+  properties:
+    code:
+      type: string
+      description: Uniquely identifying key-code to pin point the issue that has occurred.
+    tag:
+      type: string
+      description: The object or part of object for which the issue has occurred.
+    message:
+      type: string
+      description: The details of the issue in a human readable form.
+    severity:
+      type: string
+      description: This the
+  required:
+    - code
+    - tag
+    - message
+    - severity
+  additionalProperties: false
