@@ -32,16 +32,18 @@ servers:
 
 paths:
   /v1/threads:
-    $ref: './api/v1/b0_pe_threads.yaml'
+    $ref: './api/v1/threads.yaml'
+
   /v1/definitions:
-    $ref: './api/v1/c0_pe_definitions.yaml'
+    $ref: './api/v1/definitions.yaml'
   /v1/definitions/{definition_id}:
-    $ref: './api/v1/c1_pe_definitions.yaml'
-  /v1/presentations:
-    $ref: './api/v1/d0_pe_presentations.yaml'
+    $ref: './api/v1/definition.yaml'
   /v1/definitions/{definition_id}/statuses:
-    $ref: './api/v1/d2_pe_definition_statuses.yaml'
+    $ref: './api/v1/definition_statuses.yaml'
+
+  /v1/presentations:
+    $ref: './api/v1/presentations.yaml'
   /v1/presentations/{presentation_id}:
-    $ref: './api/v1/d3_pe_presentation.yaml'
+    $ref: './api/v1/presentation.yaml'
   /v1/presentations/{presentation_id}/statuses:
-    $ref: './api/v1/e2_pe_presentation_statuses.yaml'
+    $ref: './api/v1/presentation_statuses.yaml'

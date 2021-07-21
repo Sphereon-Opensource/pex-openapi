@@ -21,7 +21,7 @@ The Presentation Exchange OpenAPI is an interpretation of the
 specification as OpenAPIs (YAMLs), providing an implementation agnostic, 
 and stateful interaction mediation between holders and verifiers. 
 
-A standardised presentation exchange is crucial for interoperability between different systems that are used by verifiers and holders (e.g. wallets). It enables verifier- and holder-systems to interpret models used by each other in a consistent way. The PE-OpenAPI specification and Models Generator will allow for usecases with the need to implement a Presentation Exchange, possibly using different programming languages.  
+A standardised presentation exchange is crucial for interoperability between different systems that are used by verifiers and holders (e.g. wallets). It enables the verifiers- and holder-systems to interpret models used by each other consistently. The PE-OpenAPI specification and Models Generator will allow for use-cases with the need to implement a Presentation Exchange, possibly using different programming languages.  
 
 ### PE-OpenAPI specification
 The PE-OpenAPI specification is a collection of OpenAPI 3 specification YAML files. It can be used by third parties to generate the models and SDKs for their own desired framework and programming language. The specification is used to create the Typescript models as described below.
@@ -29,12 +29,12 @@ The PE-OpenAPI specification is a collection of OpenAPI 3 specification YAML fil
 The PE-OpenAPI specification is used to generate the models and SDKs for Sphereon's [PE-JS library](https://github.com/Sphereon-Opensource/pe-js/)
 
 ### PE-OpenAPI Models Generator (Coming soon)
-The PE-OpenAPI Models Generator is a pre-configured component for generating the models from the PE-OpenAPI specification YAML files. Developers who intend to integrate the DIF PE specification in their TypeScript/JavaScript project can either extend this project, or follow the [guide](Coming soon) to make it part of their code-bases.
+The PE-OpenAPI Models Generator is a pre-configured component for generating the models from the PE-OpenAPI specification YAML files. Developers who intend to integrate the DIF PE specification in their TypeScript/JavaScript project can either extend this project, or follow the [guide] (Coming soon) to make it part of their code-bases.
 
 ### PE-Models library (Coming soon)
-The PE-Models library is a pre-published, and ready to use typescript node-module that can be directly downloaded and installed from [npmjs.com](https://www.npmjs.com/package/@sphereon/pe-models). This library can be used in any JavaScript project, providing a consistent structure of the models required in presentation exchange between verifier and holders of verifiable credentials.
+The PE-Models library is a pre-published, and ready to use typescript node-module that can be directly downloaded and installed from [npmjs.com](https://www.npmjs.com/package/@sphereon/pe-models). This library can be used in any JavaScript project, providing a consistent structure of the models required in presentation exchange between verifiers and holders of verifiable credentials.
 
-Aditionally the PE-Models library can be used to create libraries for verification of presentation defifiniton and submission objects themselves. In this fashon, the PE-Models library is used in Sphereon's [PE-JS library](https://github.com/Sphereon-Opensource/pe-js/) to validate the model objects.
+Additionally, the PE-Models library can be used to create libraries for verification of presentation definition and submission objects themselves. In this fashion, the PE-Models library is used in Sphereon's [PE-JS library](https://github.com/Sphereon-Opensource/pe-js/) to validate the model objects.
 
 ## Security
 
@@ -42,7 +42,7 @@ As with most security- and cryptography-related tools, the overall security of y
 
 ## Setup
 
-This is a maven-based-project. To setup locally for development, run following commands.
+This is a maven-based-project. To set it up locally for development, run following commands.
 
 ```
 cd '<workspace>'
@@ -54,9 +54,9 @@ cd pe-openapi
 
 ### Step 0 : Check GIT branch.
 
-Please check if you are on the right branch. The steps you are following should be from the same branch (e.g. in browser) as in your `cloned` git repo. 
+Please check if you are on the right branch. The steps you are following should be from the same branch (e.g. in a browser) as in your `cloned` git repo. 
 
-To list all the branches in local machine and also highlight the checked-out branch use the following command. 
+To list all the branches in a local machine and also highlight the checked-out branch use the following command. 
 ```
 git branch
 ```
@@ -66,149 +66,8 @@ To switch the branch use the following command.
 git checkout <branch-name>
 ```
 
-### Step 1 : Generate models
+### Guides
 
-The following command will generate the models in `<workspace>/pe-openapi/target/sdks/models/typescript`.
-```
-mvn install -P models-typescript
-```
-
-### Step 2 : Package the models for publishing.
-
-```
-cd target/sdks/models/typescript
-npm pack
-```
-
-The expected result is that a file `/target/sdks/models/typescript/sphereon-pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
-
-### Step 3 : Create a project using the generated models
-
-The generated models can now be used in a project. The provided example will create a new `NPM` project using `typescript` as language. It will import and use `JwtObject`, similarly you can import and use other objects. 
-
-```
-cd '<workspace>'
-mkdir my-pe-models-consumer-prj
-cd my-pe-models-consumer-prj
-npm init
-```
-
-`npm init` will ask a few questions, the default answer to those questions can be selected.
-
-### Step 4 : Add script & Import models
-
-To use the models generated as a result of `step 1`
-
-```
-npm install
-npm install --save '<workspace>/pe-openapi/target/sdks/models/typescript/sphereon-pe-models-0.0.2.tgz'
-npm install --save ts-node
-```
-
-Create a folder named `scripts`
-
-```
-mkdir scripts
-```
-
-Create a file in 'scripts' named `consumer-script.ts` with following content.
-
-```
-import {JwtObject} from '@sphereon/pe-models'
-
-var jwtObject : JwtObject = {
-    alg : ['someAlgorithm']
-};
-
-console.log(jwtObject);
-```
-
-In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts/consumer-script.ts"` in the scripts section. The resulting Package.json should look like following.
-
-```
-{
-  "name": "my-pe-models-consumer-prj",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-	"my-pe-models-consumer-script": "ts-node scripts/consumer-script.ts"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@sphereon/pe-models": "file:../pe-openapi/target/sdks/models/typescript/sphereon-pe-models-0.0.2.tgz",
-    "ts-node": "^9.1.1"
-  }
-}
-```
-
-### Step 5 : Check if everything went correctly
-
-In the terminal run the following command from the `<workspace>/my-pe-models-consumer-prj` 
-
-```
-cd '<workspace>/my-pe-models-consumer-prj'
-npm run my-pe-models-consumer-script
-```
-
-You should expect this to be printed on the console.
-
-```
-{ alg: [ 'someAlgorithm' ] }
-```
-
-## Releasing
-
-#### Step A : Update values
-
-Update 
-- this README.md 
-- SDK's README.md located at `template/models-typescript/README.md`
-- release-notes.md
-
-Bump up the version of SDK in `pom.xml`
-
-```
-<npmVersion>M.m.p</npmVersion>
-```
-
-Update the version in package.json `template/models-typescript/package.json`.
-
-```
-"version": "M.n.p",
-```
-
-Since the `package.json` file is being copied from the `template` directory instead of being created, the POM's version is not effective. Keeping it aligned would still be beneficial though.
-
-#### Step B : Recreate the SDK
-
-```
-mvn clean
-mvn install -P models-typescript
-cd target/sdks/models/typescript
-npm pack
-```
-
-#### Step C : Publish
-
-```
-npm login
-```
-
-`npm login` may ask a few questions.
-
-```
-npm publish sphereon-pe-models-M.m.p.tgz --access public
-```
-
-```
-npm logout
-```
-
-#### Step D : Check 
-
-Check on `npmjs.com`
-
-Install the module following the included `README.md`. 
+* [Generate PE-Models](docs/generate-pe-models.md)
+* [Release PE-Models](docs/release-pe-models.md)
+* [Generate PE-API](docs/generate-pe-api.md)
