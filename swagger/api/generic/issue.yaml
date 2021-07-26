@@ -13,8 +13,7 @@ issue:
       type: string
       description: The details of the issue in a human readable form.
     severity:
-      type: string
-      description: This the
+      $ref: './severity.yaml#/severity'
   required:
     - code
     - tag

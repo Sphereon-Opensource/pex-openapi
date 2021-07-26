@@ -1,11 +1,10 @@
-generic_response:
+status_response:
   title: Generic Response
   description: This is a generic wrapper to contain the info, warnings and errors.
   type: object
   properties:
     status:
-      type: string
-      description: Over all status after attempting to process or processing the request.
+      $ref: './severity.yaml#/severity'
     issues:
       type: array
       items:

@@ -9,7 +9,7 @@ presentation_status_wrapper:
     statuses:
       type: array
       items:
-        $ref: './status.yaml#/presentation_status'
+        $ref: './presentation_status.yaml#/presentation_status'
   required:
     - definition_id
     - statuses

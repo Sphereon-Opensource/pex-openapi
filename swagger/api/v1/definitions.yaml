@@ -20,4 +20,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: './api/generic/generic_response.yaml#/generic_response'
+            $ref: './api/generic/status_response.yaml#/status_response'

@@ -1,0 +1,16 @@
+presentation_status:
+  title: Presentation Status
+  description: Presentation status details.
+  type: object
+  properties:
+    presentation_id:
+      type: string
+      description: ID of the presentation
+    status:
+      $ref: './status.yaml#/status'
+    message:
+      type: string
+  required:
+    - presentation_id
+    - status
+  additionalProperties: false

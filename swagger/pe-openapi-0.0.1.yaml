@@ -8,7 +8,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 
 servers:
-  - url: '{protocol}://{environment}.{projectName}.sphereon.pe.com:{port}/pe'
+  - url: '{protocol}://{environment}.{projectName}.sphereon.io:{port}/pe'
     variables:
       protocol:
         enum:
@@ -22,7 +22,7 @@ servers:
           - api.dev     # Development server
           - api.staging # Staging server
       projectName:
-        default: essifi
+        default: pe
         description: Project Name
       port:
         enum:
