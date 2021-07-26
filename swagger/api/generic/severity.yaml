@@ -1,9 +1,0 @@
-severity:
-  title: Severity
-  description: This is the over all severity or the severity of the most significant item.
-  enum:
-    - indetermined
-    - info
-    - warn
-    - error
-  additionalProperties: false

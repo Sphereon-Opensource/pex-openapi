@@ -1,4 +1,4 @@
-status:
+exchange_status:
   type: string
   description: A presentation exchange can be in these states.
   enum:

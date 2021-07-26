@@ -7,7 +7,7 @@ presentation_status:
       type: string
       description: ID of the presentation
     status:
-      $ref: './status.yaml#/status'
+      $ref: './exchange_status.yaml#/exchange_status'
     message:
       type: string
   required:

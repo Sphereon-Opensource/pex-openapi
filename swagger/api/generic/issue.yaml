@@ -12,11 +12,11 @@ issue:
     message:
       type: string
       description: The details of the issue in a human readable form.
-    severity:
-      $ref: './severity.yaml#/severity'
+    status:
+      $ref: './status.yaml#/status'
   required:
     - code
     - tag
     - message
-    - severity
+    - status
   additionalProperties: false

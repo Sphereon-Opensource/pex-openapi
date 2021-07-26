@@ -4,7 +4,7 @@ status_response:
   type: object
   properties:
     status:
-      $ref: './severity.yaml#/severity'
+      $ref: './status.yaml#/status'
     issues:
       type: array
       items:
