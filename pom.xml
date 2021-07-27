@@ -111,6 +111,82 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>api-typescript</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>3.2.0</version>
+                        <executions>
+                            <execution>
+                                <id>process-resources</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>target/sdks/models/typescript</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>template/models-typescript</directory>
+                                            <filtering>true</filtering>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.openapitools</groupId>
+                        <artifactId>openapi-generator-maven-plugin</artifactId>
+                        <version>${openapi-generator-version}</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>io.swagger.parser.v3</groupId>
+                                <artifactId>swagger-parser</artifactId>
+                                <version>2.0.5</version>
+                            </dependency>
+                        </dependencies>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <inputSpec>swagger/pe-openapi-0.0.1.yaml</inputSpec>
+
+                                    <generatorName>typescript-angular</generatorName>
+
+                                    <configOptions>
+                                        <dateLibrary>java8</dateLibrary>
+                                        <npmName>pe-models</npmName>
+                                        <npmVersion>0.0.4</npmVersion>
+                                    </configOptions>
+
+                                    <verbose>${swagger-codgen-verbose}</verbose>
+                                    <output>${project.basedir}/target/sdks/typescript</output>
+
+                                    <artifactVersion>${project.version}</artifactVersion>
+                                    <addCompileSourceRoot>true</addCompileSourceRoot>
+
+                                    <generateModels>true</generateModels>
+                                    <generateApis>true</generateApis>
+                                    <generateModelDocumentation>true</generateModelDocumentation>
+
+                                    <skipOverwrite>false</skipOverwrite>
+
+                                    <generateSupportingFiles>true</generateSupportingFiles>
+                                    <supportingFilesToGenerate>tsconfig.json,models.ts</supportingFilesToGenerate>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
     <build>
         <plugins>

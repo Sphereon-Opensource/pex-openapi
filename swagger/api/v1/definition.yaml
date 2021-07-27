@@ -1,0 +1,30 @@
+get:
+  operationId: getPresentationDefinition
+  summary: Get a Presentation Definition with the ID.
+  parameters:
+    - name: id
+      in: path
+      description: Presentation Definition ID
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Provided Presentation Definition associated with the Presentation Definition ID.
+      content:
+        application/json:
+          schema:
+            $ref: './api/models/presentation_definition_wrapper.yaml#/presentation_definition_wrapper'
+    '400':
+      description: bad request
+      content:
+        application/json:
+          schema:
+            $ref: './api/generic/status_response.yaml#/status_response'
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: './api/generic/status_response.yaml#/status_response'
+

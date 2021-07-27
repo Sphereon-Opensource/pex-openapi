@@ -1,0 +1,11 @@
+resource:
+  title: Resource
+  description: Resource information, i.e. reachable URL
+  type: object
+  properties:
+    url:
+      type: string
+      description: The URL to locate the resource.
+  required:
+    - url
+  additionalProperties: false

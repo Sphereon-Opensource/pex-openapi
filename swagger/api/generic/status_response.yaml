@@ -1,0 +1,15 @@
+status_response:
+  title: Generic Response
+  description: This is a generic wrapper to contain the info, warnings and errors.
+  type: object
+  properties:
+    status:
+      $ref: './status.yaml#/status'
+    issues:
+      type: array
+      items:
+        $ref: './issue.yaml#/issue'
+  required:
+    - status
+    - issues
+  additionalProperties: false

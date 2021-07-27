@@ -1,0 +1,30 @@
+post:
+  operationId: submitPresentation
+  summary: Adds a presentation to the server's persistent storage after partial verification.
+  parameters:
+    - name: id
+      in: path
+      description: Presentation Definition ID
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: './api/models/presentation_wrapper.yaml#/presentation_wrapper'
+  responses:
+    '201':
+      description: Presentation has been saved.
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: './api/models/presentation_wrapper.yaml#/presentation_wrapper'
+    '400':
+      description: bad request
+      content:
+        application/json:
+          schema:
+            $ref: './api/generic/status_response.yaml#/status_response'

@@ -1,0 +1,16 @@
+post:
+  operationId: createThread
+  summary: Creates a session/thread object to the server's persistent storage and returns the ID of the thread.
+  responses:
+    '201':
+      description: Thread has been created.
+      content:
+        application/json:
+          schema:
+            $ref: './api/models/thread.yaml#/thread'
+    '400':
+      description: bad request
+      content:
+        application/json:
+          schema:
+            $ref: './api/generic/status_response.yaml#/status_response'

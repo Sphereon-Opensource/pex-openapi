@@ -1,0 +1,10 @@
+exchange_status:
+  type: string
+  description: A presentation exchange can be in these states.
+  enum:
+    - CREATED
+    - SUBMITTED
+    - HOLDER_DECLINED
+    - EXPIRED
+    - ACCEPTED
+    - VERIFIER_DECLINED
