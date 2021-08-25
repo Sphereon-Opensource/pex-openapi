@@ -83,7 +83,7 @@ In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sphereon/pe-models": "0.0.2",
+    "@sphereon/pe-models": "0.0.5",
     "ts-node": "^9.1.1"
   }
 }
