@@ -12,6 +12,9 @@ filter:
     formatMinimum:
       type: string
       description: minimum value based on the format e.g. oldest acceptable date.
+    formatMaximum:
+      type: string
+      description: maximum value based on the format e.g. latest acceptable date.
     pattern:
       type: string
       description: The regular expression that can help filter the target object.
