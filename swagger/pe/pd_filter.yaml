@@ -8,7 +8,10 @@ filter:
       description: Object type of the acceptable field.
     format:
       type: string
-      description: format in which the item is expected. e.g. date time format of some sort.
+      description: format in which the item is expected e.g. date time format of some sort.
+    formatMinimum:
+      type: string
+      description: minimum value based on the format e.g. oldest acceptable date.
     pattern:
       type: string
       description: The regular expression that can help filter the target object.
