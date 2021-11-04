@@ -31,7 +31,7 @@ filter:
       type: number
       description: acceptable maximum value (e.g. 100) that is acceptable for the number including this number (i.e. 100 in this case)
     const:
-      type: number
+      type: string
       description: A fixed value that is accpetable in this variable
     enum:
       type: array
