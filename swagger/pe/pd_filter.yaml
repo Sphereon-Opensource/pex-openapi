@@ -31,13 +31,17 @@ filter:
       type: number
       description: acceptable maximum value (e.g. 100) that is acceptable for the number including this number (i.e. 100 in this case)
     const:
-      type: string
+      oneOf:
+        - type: string
+        - type: number
       description: A fixed value that is accpetable in this variable
     enum:
       type: array
       description: Fixed listed values which are acceptable in this variable.
       items:
-        type: number
+        oneOf:
+          - type: string
+          - type: number
     not:
       type: object
       description: The values which will make the item unacceptable
