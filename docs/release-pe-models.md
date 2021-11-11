@@ -27,6 +27,7 @@ Since the `package.json` file is being copied from the `template` directory inst
 mvn clean
 mvn install -P models-typescript
 cd target/sdks/models/typescript
+npm install
 npm pack
 ```
 
