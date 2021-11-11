@@ -5,15 +5,18 @@ presentation_definition_wrapper:
   properties:
     thread:
       $ref: './../models/thread.yaml#/thread'
-    presentation_definition:
-      $ref: './../../pe/pd.yaml#/presentation_definition'
+    presentation_definition_v1:
+      $ref: './../../pe/pdV1.yaml#/presentation_definition_v1'
+    presentation_definition_v2:
+      $ref: './../../pe/pdV2.yaml#/presentation_definition_v2'
     challenge:
       $ref: './../models/challenge.yaml#/challenge'
     callback:
       $ref: './../models/callback.yaml#/callback'
   required:
     - thread
-    - presentation_definition
+    - presentation_definition_v1
+    - presentation_definition_v2
     - challenge
     - callback
   additionalProperties: false

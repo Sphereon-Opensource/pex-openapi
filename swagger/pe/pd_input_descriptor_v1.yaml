@@ -1,5 +1,5 @@
-input_descriptor:
-  title: Input Descriptor
+input_descriptor_v1:
+  title: Input Descriptor V1
   description: Input Descriptor is used by a Verifier to describe the information required of a Holder before an interaction can proceed.
   type: object
   properties:

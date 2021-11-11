@@ -1,6 +1,6 @@
-presentation_definition:
-  title: Presentation Definition
-  description: Presentation Definitions are objects that articulate what proofs a Verifier requires.
+presentation_definition_v2:
+  title: Presentation Definition V2
+  description: Version 2 of Presentation Definitions are objects that articulate what proofs a Verifier requires.
   type: object
   properties:
     id:
@@ -23,7 +23,10 @@ presentation_definition:
       type: array
       description: List of descriptions of the required inputs.
       items:
-        $ref: './pd_input_descriptor.yaml#/input_descriptor'
+        $ref: './pd_input_descriptor_v2.yaml#/input_descriptor_v2'
+    frame:
+      type: object
+      description: a JSON LD Framing Document object.
   required:
     - id
     - input_descriptors
