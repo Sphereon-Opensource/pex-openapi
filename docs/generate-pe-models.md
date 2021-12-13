@@ -9,6 +9,8 @@ mvn clean install -P models-typescript
 
 ```
 cd target/sdks/models/typescript
+npm install
+npm build
 npm pack
 ```
 
