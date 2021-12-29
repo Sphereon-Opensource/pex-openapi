@@ -23,7 +23,7 @@ input_descriptor_v1:
       items:
         $ref: './pd_schema.yaml#/schema'
     constraints:
-      $ref: './pd_constraints.yaml#/constraints'
+      $ref: './pd_constraints_v1.yaml#/constraints_v1'
   required:
     - id
     - schema

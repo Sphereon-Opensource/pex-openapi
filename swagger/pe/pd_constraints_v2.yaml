@@ -1,5 +1,5 @@
-constraints:
-  title: Constraints
+constraints_v2:
+  title: Constraints V2
   description: Describes the constraints from Verifier that should be followed by Holder.
   type: object
   properties:
@@ -12,7 +12,7 @@ constraints:
       type: array
       description: It's a list of Fields.
       items:
-        $ref: './pd_field.yaml#/field'
+        $ref: './pd_field_v2.yaml#/field_v2'
     subject_is_issuer:
       $ref: './optionality.yaml#/optionality'
     is_holder:
