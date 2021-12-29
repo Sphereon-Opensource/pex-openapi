@@ -6,7 +6,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: './api/models/presentation_definition_wrapper.yaml#/presentation_definition_wrapper'
+          $ref: '../models/presentation_definition_wrapper.yaml#/presentation_definition_wrapper'
   responses:
     '201':
       description: Presentation definition has been saved.
@@ -14,10 +14,10 @@ post:
         application/json:
           schema:
             type: object
-            $ref: './api/models/resource.yaml#/resource'
+            $ref: '../models/resource.yaml#/resource'
     '400':
       description: bad request
       content:
         application/json:
           schema:
-            $ref: './api/generic/status_response.yaml#/status_response'
+            $ref: '../generic/status_response.yaml#/status_response'

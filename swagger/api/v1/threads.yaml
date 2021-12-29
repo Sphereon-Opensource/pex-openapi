@@ -7,10 +7,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: './api/models/thread.yaml#/thread'
+            $ref: '../models/thread.yaml#/thread'
     '400':
       description: bad request
       content:
         application/json:
           schema:
-            $ref: './api/generic/status_response.yaml#/status_response'
+            $ref: '../generic/status_response.yaml#/status_response'

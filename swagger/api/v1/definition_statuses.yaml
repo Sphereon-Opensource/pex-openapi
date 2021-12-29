@@ -15,16 +15,16 @@ get:
         application/json:
           schema:
             type: object
-            $ref: './api/models/status_wrapper.yaml#/presentation_status_wrapper'
+            $ref: '../models/status_wrapper.yaml#/presentation_status_wrapper'
     '400':
       description: bad request
       content:
         application/json:
           schema:
-            $ref: './api/generic/status_response.yaml#/status_response'
+            $ref: '../generic/status_response.yaml#/status_response'
     '404':
       description: Not found
       content:
         application/json:
           schema:
-            $ref: './api/generic/status_response.yaml#/status_response'
+            $ref: '../generic/status_response.yaml#/status_response'

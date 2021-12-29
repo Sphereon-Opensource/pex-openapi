@@ -13,7 +13,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: './api/models/presentation_wrapper.yaml#/presentation_wrapper'
+          $ref: '../models/presentation_wrapper.yaml#/presentation_wrapper'
   responses:
     '201':
       description: Presentation has been saved.
@@ -21,10 +21,10 @@ post:
         application/json:
           schema:
             type: object
-            $ref: './api/models/presentation_wrapper.yaml#/presentation_wrapper'
+            $ref: '../models/presentation_wrapper.yaml#/presentation_wrapper'
     '400':
       description: bad request
       content:
         application/json:
           schema:
-            $ref: './api/generic/status_response.yaml#/status_response'
+            $ref: '../generic/status_response.yaml#/status_response'

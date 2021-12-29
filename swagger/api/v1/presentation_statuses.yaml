@@ -15,19 +15,19 @@ get:
         application/json:
           schema:
             type: object
-            $ref: './api/models/presentation_status.yaml#/presentation_status'
+            $ref: '../models/presentation_status.yaml#/presentation_status'
     '400':
       description: bad request
       content:
         application/json:
           schema:
-            $ref: './api/generic/status_response.yaml#/status_response'
+            $ref: '../generic/status_response.yaml#/status_response'
     '404':
       description: Not found
       content:
         application/json:
           schema:
-            $ref: './api/generic/status_response.yaml#/status_response'
+            $ref: '../generic/status_response.yaml#/status_response'
 
 
 post:
@@ -45,7 +45,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: './api/models/presentation_status.yaml#/presentation_status'
+          $ref: '../models/presentation_status.yaml#/presentation_status'
   responses:
     '201':
       description: Status has been updated.
@@ -53,16 +53,16 @@ post:
         application/json:
           schema:
             type: object
-            $ref: './api/models/presentation_status.yaml#/presentation_status'
+            $ref: '../models/presentation_status.yaml#/presentation_status'
     '400':
       description: bad request
       content:
         application/json:
           schema:
-            $ref: './api/generic/status_response.yaml#/status_response'
+            $ref: '../generic/status_response.yaml#/status_response'
     '404':
       description: Not found
       content:
         application/json:
           schema:
-            $ref: './api/generic/status_response.yaml#/status_response'
+            $ref: '../generic/status_response.yaml#/status_response'
