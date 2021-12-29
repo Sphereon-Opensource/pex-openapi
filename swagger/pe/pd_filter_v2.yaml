@@ -1,0 +1,71 @@
+filter_v2:
+  title: Filter V2
+  type: object
+  description: This is the filter that can be applied on the field's value to know if the available credential with a specifici field is acceptable or not.
+  properties:
+    "const":
+      oneOf:
+        - type: number
+        - type: string
+      description: A fixed value that is acceptable in this variable
+    "enum":
+      type: array
+      description: Fixed listed values which are acceptable in this variable.
+      items:
+        oneOf:
+          - type: number
+          - type: string
+    exclusiveMinimum:
+      oneOf:
+        - type: number
+        - type: string
+      description: acceptable minimum value (e.g. 0) that is acceptable for the number exclusive of the number (i.e. 0 in this case)
+    exclusiveMaximum:
+      oneOf:
+        - type: number
+        - type: string
+      description: acceptable maximum value (e.g. 100) that is acceptable for the number exclusive of the number (i.e. 100 in this case)
+    format:
+      type: string
+      description: format in which the item is expected. e.g. date time format of some sort.
+    formatMaximum:
+      type: string
+      description: When this keyword are added, they also add comparison functions to formats "date", "time" and "date-time"
+    formatMinimum:
+      type: string
+      description: When this keyword are added, they also add comparison functions to formats "date", "time" and "date-time"
+    formatExclusiveMaximum:
+      type: string
+      description: When this keyword are added, they also add comparison functions to formats "date", "time" and "date-time"
+    formatExclusiveMinimum:
+      type: string
+      description: When this keyword are added, they also add comparison functions to formats "date", "time" and "date-time"
+    minLength:
+      type: integer
+      description: acceptable minimum length (e.g. of string) that is acceptable
+    maxLength:
+      type: integer
+      description: acceptable maximum length (e.g. of string) that is acceptable
+    minimum:
+      oneOf:
+        - type: number
+        - type: string
+      description: acceptable minimum value (e.g. 0) that is acceptable for the number including this number (i.e. 0 in this case)
+    maximum:
+      oneOf:
+        - type: number
+        - type: string
+      description: acceptable maximum value (e.g. 100) that is acceptable for the number including this number (i.e. 100 in this case)
+    not:
+      type: object
+      description: The values which will make the item unacceptable
+      minProperties: 1
+    pattern:
+      type: string
+      description: The regular expression that can help filter the target object.
+    type:
+      type: string
+      description: Object type of the acceptable field.
+  required:
+    - type
+  additionalProperties: false

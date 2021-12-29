@@ -1,5 +1,5 @@
-field:
-  title: Field
+field_v1:
+  title: Field V1
   description: Field required by Verifier to be submitted by Holder.
   type: object
   properties:
@@ -16,7 +16,7 @@ field:
       type: string
       description: purpose for which the Claim's data is being requested.
     filter:
-      $ref: './pd_filter.yaml#/filter'
+      $ref: './pd_filter_v1.yaml#/filter_v1'
     predicate:
       $ref: './optionality.yaml#/optionality'
   additionalProperties: false

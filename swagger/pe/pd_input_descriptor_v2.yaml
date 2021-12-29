@@ -18,7 +18,7 @@ input_descriptor_v2:
       items:
         type: string
     constraints:
-      $ref: './pd_constraints.yaml#/constraints'
+      $ref: './pd_constraints_v2.yaml#/constraints_v2'
   required:
     - id
     - schema

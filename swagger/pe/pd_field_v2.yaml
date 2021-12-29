@@ -1,0 +1,22 @@
+field_v2:
+  title: Field V2
+  description: Field required by Verifier to be submitted by Holder.
+  type: object
+  properties:
+    # [path, filter and predicate] is one set that can be filled. Or only 'path can be filled.'
+    id:
+      type: string
+      description: Must be a unique identifier between all the fields in the Presentation Definition.
+    path:
+      type: array
+      description: List of JSon paths where the field is expected to be found.
+      items:
+        type: string
+    purpose:
+      type: string
+      description: purpose for which the Claim's data is being requested.
+    filter:
+      $ref: './pd_filter_v2.yaml#/filter_v2'
+    predicate:
+      $ref: './optionality.yaml#/optionality'
+  additionalProperties: false
