@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   description: Decentralized Identity Foundation Presentation Exchange API
-  version: '1.0.0'
+  version: '1.1.0'
   title: DIF PE API
   license:
     name: Apache 2.0
