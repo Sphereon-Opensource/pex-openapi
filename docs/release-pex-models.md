@@ -27,25 +27,21 @@ Since the `package.json` file is being copied from the `template` directory inst
 mvn clean
 mvn install -P models-typescript
 cd target/sdks/models/typescript
-npm install
-npm build
-npm pack
+yarn install
+yarn build
 ```
 
 #### Step C : Publish
 
+If not already logged in at npmjs.org with a token
 ```
-npm login
+yarn login
 ```
 
 `npm login` may ask a few questions.
 
 ```
-npm publish sphereon-pex-models-M.m.p.tgz --access public
-```
-
-```
-npm logout
+yarn publish --access public
 ```
 
 #### Step D : Check
