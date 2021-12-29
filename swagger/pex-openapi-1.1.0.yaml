@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
-  description: Decentralized Identity Foundation Presentation Exchange API
+  description: Presentation Exchange API
   version: '1.1.0'
-  title: DIF PE API
+  title: Presentation Echange API
   license:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
@@ -22,8 +22,8 @@ servers:
           - api.dev     # Development server
           - api.staging # Staging server
       projectName:
-        default: pe
-        description: Project Name
+        default: pex
+        description: Prentation Exchange API
       port:
         enum:
           - '443'
