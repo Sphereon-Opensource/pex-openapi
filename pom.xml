@@ -1,213 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sphereon.public</groupId>
-    <artifactId>pe-openapi</artifactId>
-    <packaging>jar</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+  <groupId>com.sphereon.public</groupId>
+  <artifactId>pe-openapi</artifactId>
+  <packaging>jar</packaging>
+  <version>1.1.0-SNAPSHOT</version>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <openapi-generator-version>5.1.0</openapi-generator-version>
-        <swagger-codgen-verbose>false</swagger-codgen-verbose>
-    </properties>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <openapi-generator-version>5.3.1</openapi-generator-version>
+    <swagger-codegen-verbose>false</swagger-codegen-verbose>
+    <swagger-parser.version>2.0.26</swagger-parser.version>
+    <pex-models-version>1.1.0</pex-models-version>
+  </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>sphereon-opensource-releases</id>
-            <url>https://nexus.qa.sphereon.com/nexus/content/repositories/sphereon-opensource-releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>sphereon-opensource-snapshots</id>
-            <url>https://nexus.qa.sphereon.com/nexus/content/repositories/sphereon-opensource-snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
+  <distributionManagement>
+    <repository>
+      <id>sphereon-opensource-releases</id>
+      <url>https://nexus.qa.sphereon.com/nexus/content/repositories/sphereon-opensource-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>sphereon-opensource-snapshots</id>
+      <url>https://nexus.qa.sphereon.com/nexus/content/repositories/sphereon-opensource-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 
-    <scm>
-        <connection>scm:git:git@github.com:Sphereon-Opensource/pe-openapi.git</connection>
-        <developerConnection>scm:git:git@github.com:Sphereon-Opensource/pe-openapi.git</developerConnection>
-        <url>https://github.com/Sphereon-Opensource/pe-openapi</url>
-    </scm>
+  <scm>
+    <connection>scm:git:git@github.com:Sphereon-Opensource/pex-openapi.git</connection>
+    <developerConnection>scm:git:git@github.com:Sphereon-Opensource/pex-openapi.git</developerConnection>
+    <url>https://github.com/Sphereon-Opensource/pex-openapi</url>
+  </scm>
 
-    <profiles>
-        <profile>
-            <id>models-typescript</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <version>3.2.0</version>
-                        <executions>
-                            <execution>
-                                <id>process-resources</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>target/sdks/models/typescript</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>template/models-typescript</directory>
-                                            <filtering>true</filtering>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.openapitools</groupId>
-                        <artifactId>openapi-generator-maven-plugin</artifactId>
-                        <version>${openapi-generator-version}</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>io.swagger.parser.v3</groupId>
-                                <artifactId>swagger-parser</artifactId>
-                                <version>2.0.5</version>
-                            </dependency>
-                        </dependencies>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <phase>generate-sources</phase>
-                                <configuration>
-                                    <inputSpec>swagger/pe-openapi-0.0.1.yaml</inputSpec>
-
-                                    <generatorName>typescript-angular</generatorName>
-
-                                    <configOptions>
-                                        <dateLibrary>java8</dateLibrary>
-                                        <npmName>pe-models</npmName>
-                                        <npmVersion>0.0.5</npmVersion>
-                                    </configOptions>
-
-                                    <verbose>${swagger-codgen-verbose}</verbose>
-                                    <output>${project.basedir}/target/sdks/models/typescript</output>
-
-                                    <artifactVersion>${project.version}</artifactVersion>
-                                    <addCompileSourceRoot>true</addCompileSourceRoot>
-
-                                    <generateModels>true</generateModels>
-                                    <generateApis>false</generateApis>
-                                    <generateModelDocumentation>true</generateModelDocumentation>
-
-                                    <skipOverwrite>false</skipOverwrite>
-
-                                    <generateSupportingFiles>true</generateSupportingFiles>
-                                    <supportingFilesToGenerate>tsconfig.json,models.ts</supportingFilesToGenerate>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>api-typescript</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <version>3.2.0</version>
-                        <executions>
-                            <execution>
-                                <id>process-resources</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>target/sdks/models/typescript</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>template/models-typescript</directory>
-                                            <filtering>true</filtering>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.openapitools</groupId>
-                        <artifactId>openapi-generator-maven-plugin</artifactId>
-                        <version>${openapi-generator-version}</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>io.swagger.parser.v3</groupId>
-                                <artifactId>swagger-parser</artifactId>
-                                <version>2.0.5</version>
-                            </dependency>
-                        </dependencies>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <phase>generate-sources</phase>
-                                <configuration>
-                                    <inputSpec>swagger/pe-openapi-0.0.1.yaml</inputSpec>
-
-                                    <generatorName>typescript-angular</generatorName>
-
-                                    <configOptions>
-                                        <dateLibrary>java8</dateLibrary>
-                                        <npmName>pe-models</npmName>
-                                        <npmVersion>0.0.4</npmVersion>
-                                    </configOptions>
-
-                                    <verbose>${swagger-codgen-verbose}</verbose>
-                                    <output>${project.basedir}/target/sdks/typescript</output>
-
-                                    <artifactVersion>${project.version}</artifactVersion>
-                                    <addCompileSourceRoot>true</addCompileSourceRoot>
-
-                                    <generateModels>true</generateModels>
-                                    <generateApis>true</generateApis>
-                                    <generateModelDocumentation>true</generateModelDocumentation>
-
-                                    <skipOverwrite>false</skipOverwrite>
-
-                                    <generateSupportingFiles>true</generateSupportingFiles>
-                                    <supportingFilesToGenerate>tsconfig.json,models.ts</supportingFilesToGenerate>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-    <build>
+  <profiles>
+    <profile>
+      <id>models-typescript</id>
+      <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <executions>
-                    <execution>
-                        <id>default-compile</id>
-                        <phase>none</phase>
-                    </execution>
-                </executions>
-            </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+              <execution>
+                <id>process-resources</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>target/sdks/models/typescript</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>template/models-typescript</directory>
+                      <filtering>true</filtering>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.openapitools</groupId>
+            <artifactId>openapi-generator-maven-plugin</artifactId>
+            <version>${openapi-generator-version}</version>
+            <dependencies>
+              <dependency>
+                <groupId>io.swagger.parser.v3</groupId>
+                <artifactId>swagger-parser</artifactId>
+                <version>${swagger-parser.version}</version>
+              </dependency>
+              <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>2.12.5</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>generate-sources</phase>
+                <configuration>
+                  <inputSpec>swagger/pex-openapi-1.1.0.yaml</inputSpec>
+
+                  <generatorName>typescript-angular</generatorName>
+
+                  <configOptions>
+                    <dateLibrary>java8</dateLibrary>
+                    <npmName>@sphereon/pex-models</npmName>
+                    <npmVersion>${pex-models-version}</npmVersion>
+                  </configOptions>
+
+                  <verbose>${swagger-codegen-verbose}</verbose>
+                  <output>${project.basedir}/target/sdks/models/typescript</output>
+
+                  <artifactVersion>${project.version}</artifactVersion>
+                  <addCompileSourceRoot>true</addCompileSourceRoot>
+
+                  <generateModels>true</generateModels>
+                  <generateApis>false</generateApis>
+                  <generateModelDocumentation>true</generateModelDocumentation>
+
+                  <skipOverwrite>false</skipOverwrite>
+
+                  <generateSupportingFiles>true</generateSupportingFiles>
+                  <supportingFilesToGenerate>tsconfig.json,models.ts</supportingFilesToGenerate>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
-    </build>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>maven-central</id>
-            <name>Maven Central</name>
-            <url>https://repo1.maven.org/maven2/</url>
-        </pluginRepository>
-    </pluginRepositories>
+      </build>
+    </profile>
+    <profile>
+      <id>api-typescript</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+              <execution>
+                <id>process-resources</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>target/sdks/models/typescript</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>template/models-typescript</directory>
+                      <filtering>true</filtering>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.openapitools</groupId>
+            <artifactId>openapi-generator-maven-plugin</artifactId>
+            <version>${openapi-generator-version}</version>
+            <dependencies>
+              <dependency>
+                <groupId>io.swagger.parser.v3</groupId>
+                <artifactId>swagger-parser</artifactId>
+                <version>${swagger-parser.version}</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>generate-sources</phase>
+                <configuration>
+                  <inputSpec>swagger/pex-openapi-1.1.0.yaml</inputSpec>
+
+                  <generatorName>typescript-angular</generatorName>
+
+                  <configOptions>
+                    <dateLibrary>java8</dateLibrary>
+                    <npmName>@sphereon/pex-sdk</npmName>
+                    <npmVersion>${pex-models-version}</npmVersion>
+                  </configOptions>
+
+                  <verbose>${swagger-codegen-verbose}</verbose>
+                  <output>${project.basedir}/target/sdks/typescript</output>
+
+                  <artifactVersion>${project.version}</artifactVersion>
+                  <addCompileSourceRoot>true</addCompileSourceRoot>
+
+                  <generateModels>true</generateModels>
+                  <generateApis>true</generateApis>
+                  <generateModelDocumentation>true</generateModelDocumentation>
+
+                  <skipOverwrite>false</skipOverwrite>
+
+                  <generateSupportingFiles>true</generateSupportingFiles>
+                  <supportingFilesToGenerate>tsconfig.json,models.ts</supportingFilesToGenerate>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <phase>none</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>maven-central</id>
+      <name>Maven Central</name>
+      <url>https://repo1.maven.org/maven2/</url>
+    </pluginRepository>
+  </pluginRepositories>
 </project>
