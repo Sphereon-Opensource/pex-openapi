@@ -41,7 +41,7 @@ npm login
 `npm login` may ask a few questions.
 
 ```
-npm publish sphereon-pe-models-M.m.p.tgz --access public
+npm publish sphereon-pex-models-M.m.p.tgz --access public
 ```
 
 ```

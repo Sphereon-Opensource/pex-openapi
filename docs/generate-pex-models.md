@@ -1,6 +1,6 @@
 ### Step 1 : Generate models
 
-The following command will generate the models in `<workspace>/pe-openapi/target/sdks/models/typescript`.
+The following command will generate the models in `<workspace>/pex-openapi/target/sdks/models/typescript`.
 ```
 mvn clean install -P models-typescript
 ```
@@ -14,7 +14,7 @@ npm build
 npm pack
 ```
 
-The expected result is that a file `/target/sdks/models/typescript/sphereon-pe-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
+The expected result is that a file `/target/sdks/models/typescript/sphereon-pex-models-M.m.p.tgz` is generated where `M.m.p` is arbitrary.
 
 ### Step 3 : Create a project using the generated models
 
@@ -22,8 +22,8 @@ The generated models can now be used in a project. The provided example will cre
 
 ```
 cd '<workspace>'
-mkdir my-pe-models-consumer-prj
-cd my-pe-models-consumer-prj
+mkdir my-pex-models-consumer-prj
+cd my-pex-models-consumer-prj
 npm init
 ```
 
@@ -35,7 +35,7 @@ To use the models generated as a result of `step 1`
 
 ```
 npm install
-npm install --save '<workspace>/pe-openapi/target/sdks/models/typescript/sphereon-pe-models-0.0.2.tgz'
+npm install --save '<workspace>/pex-openapi/target/sdks/models/typescript/sphereon-pex-models-0.0.2.tgz'
 npm install --save ts-node
 ```
 
@@ -48,7 +48,7 @@ mkdir scripts
 Create a file in 'scripts' named `consumer-script.ts` with following content.
 
 ```
-import {JwtObject} from '@sphereon/pe-models'
+import {JwtObject} from '@sphereon/pex-models'
 
 var jwtObject : JwtObject = {
     alg : ['someAlgorithm']
@@ -57,22 +57,22 @@ var jwtObject : JwtObject = {
 console.log(jwtObject);
 ```
 
-In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts/consumer-script.ts"` in the scripts section. The resulting Package.json should look like following.
+In `package.json` add a script `"my-pex-models-consumer-script": "ts-node scripts/consumer-script.ts"` in the scripts section. The resulting Package.json should look like following.
 
 ```
 {
-  "name": "my-pe-models-consumer-prj",
+  "name": "my-pex-models-consumer-prj",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"my-pe-models-consumer-script": "ts-node scripts/consumer-script.ts"
+	"my-pex-models-consumer-script": "ts-node scripts/consumer-script.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sphereon/pe-models": "file:../pe-openapi/target/sdks/models/typescript/sphereon-pe-models-0.0.2.tgz",
+    "@sphereon/pex-models": "file:../pe-openapi/target/sdks/models/typescript/sphereon-pex-models-0.0.2.tgz",
     "ts-node": "^9.1.1"
   }
 }
@@ -80,11 +80,11 @@ In `package.json` add a script `"my-pe-models-consumer-script": "ts-node scripts
 
 ### Step 5 : Check if everything went correctly
 
-In the terminal run the following command from the `<workspace>/my-pe-models-consumer-prj`
+In the terminal run the following command from the `<workspace>/my-pex-models-consumer-prj`
 
 ```
-cd '<workspace>/my-pe-models-consumer-prj'
-npm run my-pe-models-consumer-script
+cd '<workspace>/my-pex-models-consumer-prj'
+npm run my-pex-models-consumer-script
 ```
 
 You should expect this to be printed on the console.
