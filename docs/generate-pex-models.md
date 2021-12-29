@@ -35,7 +35,7 @@ To use the models generated as a result of `step 1`
 
 ```
 npm install
-npm install --save '<workspace>/pex-openapi/target/sdks/models/typescript/sphereon-pex-models-0.0.2.tgz'
+npm install --save '<workspace>/pex-openapi/target/sdks/models/typescript/sphereon-pex-models-1.1.0.tgz'
 npm install --save ts-node
 ```
 
