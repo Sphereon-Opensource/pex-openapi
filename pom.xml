@@ -17,6 +17,7 @@
     <swagger-codegen-verbose>false</swagger-codegen-verbose>
     <swagger-parser.version>2.0.26</swagger-parser.version>
     <pex-models-version>1.1.0</pex-models-version>
+    <open-api-address>swagger/pex-openapi-1.1.0.yaml</open-api-address>
   </properties>
 
   <distributionManagement>
@@ -163,7 +164,7 @@
                 </goals>
                 <phase>generate-sources</phase>
                 <configuration>
-                  <inputSpec>swagger/pex-openapi-1.1.0.yaml</inputSpec>
+                  <inputSpec>${open-api-address}</inputSpec>
 
                   <generatorName>typescript-angular</generatorName>
 
@@ -187,6 +188,40 @@
 
                   <generateSupportingFiles>true</generateSupportingFiles>
                   <supportingFilesToGenerate>tsconfig.json,models.ts</supportingFilesToGenerate>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>models-java</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.openapitools</groupId>
+            <artifactId>openapi-generator-maven-plugin</artifactId>
+            <version>5.4.0</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <configuration>
+                  <inputSpec>${open-api-address}</inputSpec>
+                  <generatorName>java</generatorName>
+                  <apiPackage>com.sphereon.pex.api</apiPackage>
+                  <modelPackage>com.sphereon.pex.model</modelPackage>
+                  <supportingFilesToGenerate>
+                    ApiUtil.java
+                  </supportingFilesToGenerate>
+                  <configOptions>
+                    <delegatePattern>true</delegatePattern>
+                  </configOptions>
+                    <typeMappings>
+                      <typeMapping>OneOfnumberstring=Object</typeMapping>
+                  </typeMappings>
                 </configuration>
               </execution>
             </executions>
