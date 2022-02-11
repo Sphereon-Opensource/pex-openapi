@@ -1,3 +1,5 @@
+## Generate type-script models
+
 ### Step 1 : Generate models
 
 The following command will generate the models in `<workspace>/pex-openapi/target/sdks/models/typescript`.
@@ -93,3 +95,10 @@ You should expect this to be printed on the console.
 { alg: [ 'someAlgorithm' ] }
 ```
 
+## Generate java models
+
+### Step 1 : Generate models
+The following command will generate the models in `<workspace>/pex-openapi/target/classes/com/sphereon/pex/models`.
+```
+mvn clean install -P java
+```
