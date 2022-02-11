@@ -1,4 +1,4 @@
-## Releasing
+## Releasing type-script
 
 #### Step A : Update values
 
@@ -49,3 +49,13 @@ yarn publish --access public
 Check on `npmjs.com`
 
 Install the module following the included `README.md`. 
+
+
+## Releasing java
+
+If you have the correct settings in your local workspace, you can easily publish a new version on Sphereon repository (`sphereon-opensource-snapshots`)
+if you do, you can create and upload a new version with running:
+
+```
+mvn clean deploy -P java
+```
