@@ -1,0 +1,9 @@
+issuance_v1:
+  title: Issuance V1
+  description: Describes the issuance properties. Non-spec compliant, but used in the wild.
+  type: object
+  properties:
+    manifest:
+      type: string
+      description: The URL of the Credential Manifest
+  additionalProperties: true

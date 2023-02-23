@@ -7,7 +7,7 @@
   <groupId>com.sphereon.public</groupId>
   <artifactId>pe-openapi</artifactId>
   <packaging>jar</packaging>
-  <version>1.2.0-SNAPSHOT</version>
+  <version>1.2.1-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,8 +22,8 @@
     <openapi-generator-version>6.4.0</openapi-generator-version>
     <swagger-codegen-verbose>false</swagger-codegen-verbose>
     <swagger-parser.version>2.0.26</swagger-parser.version>
-    <pex-models-version>1.2.0</pex-models-version>
-    <open-api-address>swagger/pex-openapi-1.2.0.yaml</open-api-address>
+    <pex-models-version>1.2.1</pex-models-version>
+    <open-api-address>swagger/pex-openapi-1.2.1.yaml</open-api-address>
   </properties>
 
   <distributionManagement>
