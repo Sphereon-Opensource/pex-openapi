@@ -22,6 +22,11 @@ input_descriptor_v1:
       description: List of schemas for the credential to be compatible with.
       items:
         $ref: './pd_schema.yaml#/schema'
+    issuance:
+      type: array
+      description: Issuance URL(s). Although not spec compliant, used by for instance Entra Verified ID for Credential Manifests
+      items:
+        type: string
     constraints:
       $ref: './pd_constraints_v1.yaml#/constraints_v1'
   required:

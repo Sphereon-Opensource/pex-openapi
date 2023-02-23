@@ -1,17 +1,15 @@
 {
   "name": "@sphereon/pex-models",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Presentation Exchange v1 and v2 typescript models",
   "author": "Sphereon",
   "keywords": [
     "Verifiable",
     "Credentials",
     "Presentation Exchange",
-    "Presentation",
-    "Exchange",
+    "PE",
     "DIF",
-    "SSI",
-    "OpenAPI"
+    "SSI"
   ],
   "repository": "https://github.com/Sphereon-Opensource/pex-openapi.git",
   "license": "Apache 2",
@@ -24,6 +22,6 @@
   "peerDependencies": {
   },
   "devDependencies": {
-    "typescript": "^4.5.4"
+    "typescript": "^4.6.4"
   }
 }

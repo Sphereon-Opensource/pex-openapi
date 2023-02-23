@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
   description: Presentation Exchange API
-  version: '1.1.0'
-  title: Presentation Echange API
+  version: '1.2.0'
+  title: Presentation Exchange API
   license:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
@@ -23,7 +23,7 @@ servers:
           - api.staging # Staging server
       projectName:
         default: pex
-        description: Prentation Exchange API
+        description: Presentation Exchange API
       port:
         enum:
           - '443'

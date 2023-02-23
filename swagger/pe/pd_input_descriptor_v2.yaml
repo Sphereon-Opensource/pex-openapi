@@ -17,6 +17,11 @@ input_descriptor_v2:
       description: A group from which the specific credential is required.
       items:
         type: string
+    issuance:
+      type: array
+      description: Issuance URL(s). Although not spec compliant, used by for instance Entra Verified ID for Credential Manifests
+      items:
+        type: string
     constraints:
       $ref: './pd_constraints_v2.yaml#/constraints_v2'
   required:

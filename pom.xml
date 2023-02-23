@@ -7,23 +7,23 @@
   <groupId>com.sphereon.public</groupId>
   <artifactId>pe-openapi</artifactId>
   <packaging>jar</packaging>
-  <version>1.1.0-SNAPSHOT</version>
+  <version>1.2.0-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <swagger.version>2.1.12</swagger.version>
+    <swagger.version>2.2.8</swagger.version>
     <jackson.version>2.13.1</jackson.version>
     <springfox.version>3.0.0</springfox.version>
     <springdoc.version>1.6.5</springdoc.version>
     <springboot.version>2.6.3</springboot.version>
     <jackson-databind-nullable>0.2.1</jackson-databind-nullable>
     <javax.version>2.0.1.Final</javax.version>
-    <openapi-generator-version>5.3.1</openapi-generator-version>
+    <openapi-generator-version>6.4.0</openapi-generator-version>
     <swagger-codegen-verbose>false</swagger-codegen-verbose>
     <swagger-parser.version>2.0.26</swagger-parser.version>
-    <pex-models-version>1.1.0</pex-models-version>
-    <open-api-address>swagger/pex-openapi-1.1.0.yaml</open-api-address>
+    <pex-models-version>1.2.0</pex-models-version>
+    <open-api-address>swagger/pex-openapi-1.2.0.yaml</open-api-address>
   </properties>
 
   <distributionManagement>

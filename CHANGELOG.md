@@ -1,5 +1,9 @@
 # Release Notes
 
+## v1.2.0 - 2023-02-23
+- Feature
+  - Allow issuance in input descriptors for credential manifest URLs. Although not spec compliant, it is used in the wild.
+
 ## v0.0.5 - 2021-08-25
 - Feature: added REST API v1 specs and data types
 - Documentation 
