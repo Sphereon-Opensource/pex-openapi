@@ -1,5 +1,5 @@
-issuance_v1:
-  title: Issuance V1
+issuance:
+  title: Issuance
   description: Describes the issuance properties. Non-spec compliant, but used in the wild.
   type: object
   properties:

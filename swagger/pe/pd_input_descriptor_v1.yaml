@@ -26,7 +26,7 @@ input_descriptor_v1:
       type: array
       items:
         type: object
-        $ref: './pd_issuance_v1.yaml#/issuance_v1'
+        $ref: './pd_issuance.yaml#/issuance'
 
     constraints:
       $ref: './pd_constraints_v1.yaml#/constraints_v1'

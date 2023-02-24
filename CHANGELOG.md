@@ -1,6 +1,6 @@
 # Release Notes
 
-## v1.2.1 - 2023-02-24
+## v1.2.2 - 2023-02-24
 - Fix
     - issuance changed from string to object in input descriptors. Issuance is now an object with a `manifest` property that contains the URL of the Credential Manifest.
 

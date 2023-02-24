@@ -19,9 +19,9 @@ input_descriptor_v2:
         type: string
     issuance:
       type: array
-      description: Issuance URL(s). Although not spec compliant, used by for instance Entra Verified ID for Credential Manifests
       items:
-        type: string
+        type: object
+        $ref: './pd_issuance.yaml#/issuance'
     constraints:
       $ref: './pd_constraints_v2.yaml#/constraints_v2'
   required:
