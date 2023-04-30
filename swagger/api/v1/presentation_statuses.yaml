@@ -14,7 +14,6 @@ get:
       content:
         application/json:
           schema:
-            type: object
             $ref: '../models/presentation_status.yaml#/presentation_status'
     '400':
       description: bad request
@@ -52,7 +51,6 @@ post:
       content:
         application/json:
           schema:
-            type: object
             $ref: '../models/presentation_status.yaml#/presentation_status'
     '400':
       description: bad request

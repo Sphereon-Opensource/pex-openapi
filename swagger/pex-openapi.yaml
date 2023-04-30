@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   description: Presentation Exchange API
-  version: '1.2.0'
+  version: '2.0.0'
   title: Presentation Exchange API
   license:
     name: Apache 2.0

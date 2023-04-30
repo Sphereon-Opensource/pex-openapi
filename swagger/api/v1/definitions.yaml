@@ -13,7 +13,6 @@ post:
       content:
         application/json:
           schema:
-            type: object
             $ref: '../models/resource.yaml#/resource'
     '400':
       description: bad request

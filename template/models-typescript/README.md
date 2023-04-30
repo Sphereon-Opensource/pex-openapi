@@ -81,7 +81,7 @@ In `package.json` add a script `"my-pex-models-consumer-script": "ts-node script
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sphereon/pex-models": "1.2.0",
+    "@sphereon/pex-models": "2.0.0",
     "ts-node": "^9.1.1"
   }
 }

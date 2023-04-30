@@ -13,7 +13,7 @@ descriptor:
       $ref: './descriptor.yaml#/descriptor'
     format:
       type: string
-      description: The Proof or JWT algorith that the proof is in
+      description: The Proof or JWT algorithm that the proof is in
   required:
     - id
     - path

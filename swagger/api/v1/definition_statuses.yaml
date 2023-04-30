@@ -14,7 +14,6 @@ get:
       content:
         application/json:
           schema:
-            type: object
             $ref: '../models/status_wrapper.yaml#/presentation_status_wrapper'
     '400':
       description: bad request

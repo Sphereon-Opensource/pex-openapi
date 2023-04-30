@@ -7,7 +7,6 @@ get:
       content:
         application/json:
           schema:
-            type: object
             $ref: '../models/presentation_wrapper.yaml#/presentation_wrapper'
     '400':
       description: bad request

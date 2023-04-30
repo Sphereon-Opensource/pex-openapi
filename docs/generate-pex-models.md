@@ -37,7 +37,7 @@ To use the models generated as a result of `step 1`
 
 ```
 npm install
-npm install --save '<workspace>/pex-openapi/target/sdks/models/typescript/sphereon-pex-models-1.1.0.tgz'
+npm install --save '<workspace>/pex-openapi/target/sdks/models/typescript/sphereon-pex-models-2.0.0.tgz'
 npm install --save ts-node
 ```
 
@@ -74,7 +74,7 @@ In `package.json` add a script `"my-pex-models-consumer-script": "ts-node script
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sphereon/pex-models": "file:../pe-openapi/target/sdks/models/typescript/sphereon-pex-models-0.0.2.tgz",
+    "@sphereon/pex-models": "file:../pe-openapi/target/sdks/models/typescript/sphereon-pex-models-2.0.0.tgz",
     "ts-node": "^9.1.1"
   }
 }
