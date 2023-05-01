@@ -1,5 +1,10 @@
 # Release Notes
 
+## v2.0.0 - 2023-05-01
+
+- Fix
+  - Remove wrong export path
+  
 ## v2.0.0 - 2023-04-30
 
 - Fix

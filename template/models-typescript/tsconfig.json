@@ -18,7 +18,6 @@
         ]
     },
     "exclude": [
-        "index.ts",
         "node_modules",
         "dist"
     ],
