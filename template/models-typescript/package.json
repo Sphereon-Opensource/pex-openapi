@@ -1,6 +1,6 @@
 {
   "name": "@sphereon/pex-models",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Presentation Exchange v1 and v2 typescript models",
   "author": "Sphereon",
   "keywords": [
@@ -13,15 +13,18 @@
   ],
   "repository": "https://github.com/Sphereon-Opensource/pex-openapi.git",
   "license": "Apache-2.0",
-  "source": "index.ts",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build"
   },
-  "peerDependencies": {
-  },
+  "files": [
+    "/dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
   "devDependencies": {
     "typescript": "^4.9.5"
   }

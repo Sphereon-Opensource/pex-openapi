@@ -196,7 +196,7 @@
                   <skipOverwrite>false</skipOverwrite>
 
                   <generateSupportingFiles>true</generateSupportingFiles>
-                  <supportingFilesToGenerate>tsconfig.json,models.ts</supportingFilesToGenerate>
+                  <supportingFilesToGenerate>models.ts</supportingFilesToGenerate>
                 </configuration>
               </execution>
             </executions>
