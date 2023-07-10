@@ -19,4 +19,7 @@ field_v2:
       $ref: './pd_filter_v2.yaml#/filter_v2'
     predicate:
       $ref: './optionality.yaml#/optionality'
+    name:
+      type: string
+      description: human-friendly name that describes what the target field represents
   additionalProperties: false
