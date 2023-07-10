@@ -7,7 +7,7 @@
   <groupId>com.sphereon.public</groupId>
   <artifactId>pe-openapi</artifactId>
   <packaging>jar</packaging>
-  <version>2.0.2-unstable.0</version>
+  <version>2.0.3-unstable.0</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,14 +15,14 @@
     <swagger.version>2.2.8</swagger.version>
     <jackson.version>2.14.0</jackson.version>
     <springfox.version>3.0.0</springfox.version>
-    <springdoc.version>1.6.5</springdoc.version>
-    <springboot.version>2.6.3</springboot.version>
+    <springdoc.version>1.7.0</springdoc.version>
+    <springboot.version>2.6.15</springboot.version>
     <jackson-databind-nullable>0.2.1</jackson-databind-nullable>
     <javax.version>2.0.1.Final</javax.version>
-    <openapi-generator-version>6.5.0</openapi-generator-version>
+    <openapi-generator-version>6.6.0</openapi-generator-version>
     <swagger-codegen-verbose>false</swagger-codegen-verbose>
     <swagger-parser.version>2.1.13</swagger-parser.version>
-    <pex-models-version>2.0.2-SNAPSHOT</pex-models-version>
+    <pex-models-version>2.0.3-SNAPSHOT</pex-models-version>
     <open-api-address>swagger/pex-openapi.yaml</open-api-address>
   </properties>
 
@@ -322,7 +322,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.9.0</version>
+            <version>3.11.0</version>
             <configuration>
               <source>1.8</source>
               <target>1.8</target>
