@@ -5,7 +5,7 @@
 - Feature
     - Add support for `items` and `contains` in filter
     - Add support for `jwt_vc_json` format
-    - 
+  
 ## v2.0.0 - 2023-05-01
 
 - Fix
