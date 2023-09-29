@@ -1,4 +1,14 @@
 filter_v2:
+  allOf:
+    - $ref: "#/filter_v2_base"
+    - type: object
+      properties:
+        type:
+          type: string
+          description: Object type of the acceptable field.
+      required:
+        - type
+filter_v2_base:
   title: Filter V2
   type: object
   description: This is the filter that can be applied on the field's value to know if the available credential with a specifici field is acceptable or not.
@@ -54,6 +64,13 @@ filter_v2:
     type:
       type: string
       description: Object type of the acceptable field.
-  required:
-    - type
+    contains:
+      $ref: "#/filter_v2_base"
+    items:
+      anyOf:
+        - $ref: "#/filter_v2"
+        - items:
+            $ref: "#/filter_v2"
+          minItems: 1
+          type: array
   additionalProperties: false
