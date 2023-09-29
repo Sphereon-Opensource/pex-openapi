@@ -9,6 +9,8 @@ format:
       $ref: './jwt_object.yaml#/jwt_object'
     jwt_vc:
       $ref: './jwt_object.yaml#/jwt_object'
+    jwt_vc_json:
+      $ref: './jwt_object.yaml#/jwt_object'
     jwt_vp:
       $ref: './jwt_object.yaml#/jwt_object'
     ldp:
