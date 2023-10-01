@@ -12,6 +12,8 @@ input_descriptor_v2:
     purpose:
       type: string
       description: It describes the purpose for which the Presentation Definition's inputs are being requested.
+    format:
+      $ref: './pd_format.yaml#/format'
     group:
       type: array
       description: A group from which the specific credential is required.

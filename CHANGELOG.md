@@ -1,16 +1,23 @@
 # Release Notes
 
+## v2.1.1 - 2023-10-02
+
+- Feature
+    - Add support for `format` in V2 input descriptor
+- Fix
+    - Remove `contains` and `items` from V1 filters, as that spec has no notion of them
+
 ## v2.1.0 - 2023-09-29
 
 - Feature
     - Add support for `items` and `contains` in filter
     - Add support for `jwt_vc_json` format
-  
+
 ## v2.0.0 - 2023-05-01
 
 - Fix
-  - Remove wrong export path
-  
+    - Remove wrong export path
+
 ## v2.0.0 - 2023-04-30
 
 - Fix
