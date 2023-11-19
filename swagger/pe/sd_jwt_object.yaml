@@ -1,0 +1,5 @@
+sd_jwt_object:
+  type: object
+  description: Indicate support for SD-JWT VCs
+  properties: {}
+  additionalProperties: false
