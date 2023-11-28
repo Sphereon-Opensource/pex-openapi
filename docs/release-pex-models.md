@@ -27,6 +27,7 @@ Since the `package.json` file is being copied from the `template` directory inst
 mvn clean
 mvn install -P models-typescript
 cd target/sdks/models/typescript
+Fix model/format.ts to include the line  ['vc+sd-jwt']?: SdJwtObject;
 yarn install
 yarn build
 ```
