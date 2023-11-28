@@ -1,5 +1,10 @@
 # Release Notes
 
+## v2.1.2 - 2023-11-28
+
+- Feature
+    - Add support for `vc+sd-jwt` formats
+
 ## v2.1.1 - 2023-10-02
 
 - Feature
