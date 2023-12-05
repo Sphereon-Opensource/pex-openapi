@@ -1,7 +1,0 @@
-pd_status:
-  title: Presentation Definition Status
-  description: This is a requirement to show what directive is to be followed for this status.
-  type: object
-  properties:
-    directive:
-      $ref: './directives.yaml#/directives'
