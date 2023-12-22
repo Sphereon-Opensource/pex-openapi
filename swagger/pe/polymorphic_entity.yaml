@@ -1,6 +1,0 @@
-one_of_number_string:
-  title: One of number or string
-  oneOf:
-    - type: number
-    - type: string
-  additionalProperties: false

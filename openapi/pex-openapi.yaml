@@ -1,0 +1,1044 @@
+openapi: 3.0.3
+info:
+  description: Presentation Exchange API
+  version: '2.1.1'
+  title: Presentation Exchange API
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+
+servers:
+  - url: '{protocol}://{environment}.{projectName}.sphereon.io:{port}/pe'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: https
+      environment:
+        default: api.dev    # Development server
+        enum:
+          - api         # Production server
+          - api.dev     # Development server
+          - api.staging # Staging server
+      projectName:
+        default: pex
+        description: Presentation Exchange API
+      port:
+        enum:
+          - '443'
+          - '8443'
+        default: '443'
+
+paths:
+  /v1/threads:
+    post:
+      operationId: createThread
+      summary: Creates a session/thread object to the server's persistent storage and returns the ID of the thread.
+      responses:
+        '201':
+          description: Thread has been created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/thread'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+
+
+  /v1/definitions:
+    post:
+      operationId: createPresentationDefinition
+      summary: Adds a presentation definition to the server's persistent storage.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/presentation_definition_wrapper'
+      responses:
+        '201':
+          description: Presentation definition has been saved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resource'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+
+
+  /v1/definitions/{definition_id}:
+    get:
+      operationId: getPresentationDefinition
+      summary: Get a Presentation Definition with the ID.
+      responses:
+        '200':
+          description: Provided Presentation Definition associated with the Presentation Definition ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/presentation_definition_wrapper'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+    parameters:
+      - $ref: '#/components/parameters/definition_id'
+
+  /v1/definitions/{definition_id}/statuses:
+    get:
+      operationId: getPresentationDefinitionsStatus
+      summary: Gets the status of the submitted presentation(s) for the definition.
+      responses:
+        '200':
+          description: Status has been provided.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/presentation_status_wrapper'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+    parameters:
+      - $ref: '#/components/parameters/definition_id'
+
+  /v1/presentations:
+    post:
+      operationId: submitPresentation
+      summary: Adds a presentation to the server's persistent storage after partial verification.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/presentation_wrapper'
+      responses:
+        '201':
+          description: Presentation has been saved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/presentation_wrapper'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+
+  /v1/presentations/{presentation_id}:
+    get:
+      operationId: presentation
+      summary: Retrieve a presentation as a verifier as part of a credential exchange session.
+      responses:
+        '200':
+          description: Presentation has been provided.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/presentation_wrapper'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+    parameters:
+      - $ref: '#/components/parameters/presentation_id'
+
+  /v1/presentations/{presentation_id}/statuses:
+    get:
+      operationId: getPresentationStatus
+      summary: Gets the status of the presentation for the presentation ID.
+      responses:
+        '200':
+          description: Status has been provided.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/presentation_status'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+    post:
+      operationId: updatePresentationStatus
+      summary: Verifier can update the status from `SUBMITTED` to e.g. `ACCEPTED` by calling this API.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/presentation_status'
+      responses:
+        '201':
+          description: Status has been updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/presentation_status'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_response'
+    parameters:
+      - $ref: '#/components/parameters/presentation_id'
+
+components:
+  parameters:
+    definition_id:
+      name: definition_id
+      in: path
+      required: true
+      description: id of the presentation_definition
+      schema:
+        type: string
+
+    presentation_id:
+      name: presentation_id
+      in: path
+      required: true
+      description: id of the presentation
+      schema:
+        type: string
+
+  schemas:
+    callback:
+      title: Callback details
+      description: The caller can provide callback related information e.g. in the form of a URL.
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL that can be used to send information back to this requestor.
+      required:
+        - url
+      additionalProperties: false
+
+    challenge:
+      title: Challenge
+      description: A security related challenge to avoid abuse of the API
+      type: object
+      properties:
+        holder:
+          type: string
+          description: The client requesting the information.
+        token:
+          type: string
+          description: The security code/token that is not expected to be guessable by a random chance.
+      required:
+        - token
+      additionalProperties: false
+
+    constraints_v1:
+      title: Constraints V1
+      description: Describes the constraints from Verifier that should be followed by Holder.
+      type: object
+      properties:
+        limit_disclosure:
+          # Allows the Verifier to convey to Holder to see which properties are required and what optional credentials can be ommitted if desired by Holder.
+          $ref: '#/components/schemas/optionality'
+        statuses:
+          $ref: '#/components/schemas/statuses'
+        fields:
+          type: array
+          description: It's a list of Fields.
+          items:
+            $ref: '#/components/schemas/field_v1'
+        subject_is_issuer:
+          $ref: '#/components/schemas/optionality'
+        is_holder:
+          type: array
+          description: It's a list of holder_subjects.
+          items:
+            $ref: '#/components/schemas/holder_subject'
+        same_subject:
+          type: array
+          description: It's a list of holder_subjects.
+          items:
+            $ref: '#/components/schemas/holder_subject'
+      additionalProperties: false
+
+    constraints_v2:
+      title: Constraints V2
+      description: Describes the constraints from Verifier that should be followed by Holder.
+      type: object
+      properties:
+        limit_disclosure:
+          # Allows the Verifier to convey to Holder to see which properties are required and what optional credentials can be ommitted if desired by Holder.
+          $ref: '#/components/schemas/optionality'
+        statuses:
+          $ref: '#/components/schemas/statuses'
+        fields:
+          type: array
+          description: It's a list of Fields.
+          items:
+            $ref: '#/components/schemas/field_v2'
+        subject_is_issuer:
+          $ref: '#/components/schemas/optionality'
+        is_holder:
+          type: array
+          description: It's a list of holder_subjects.
+          items:
+            $ref: '#/components/schemas/holder_subject'
+        same_subject:
+          type: array
+          description: It's a list of holder_subjects.
+          items:
+            $ref: '#/components/schemas/holder_subject'
+      additionalProperties: false
+
+    descriptor:
+      title: Descriptor
+      description: descriptor map laying out the structure of the presentation submission.
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID to identify the descriptor from Presentation Definition Input Descriptor it coresponds to.
+        path:
+          type: string
+          description: The path where the verifiable credential is located in the presentation submission json
+        path_nested:
+          $ref: '#/components/schemas/descriptor'
+        format:
+          type: string
+          description: The Proof or JWT algorithm that the proof is in
+      required:
+        - id
+        - path
+        - format
+      additionalProperties: false
+
+    directives:
+      type: string
+      description: >
+        A directive is an instruction to the holder about what significance to give to the element it refers to.
+        
+        * `required` - The item 'must' be presented
+        * `allowed` - The item 'can' be presented
+        * `disallowed` - The item 'must NOT' be presented
+      enum:
+        - required
+        - allowed
+        - disallowed
+
+    exchange_status:
+      type: string
+      description: A presentation exchange can be in these states.
+      enum:
+        - CREATED
+        - SUBMITTED
+        - HOLDER_DECLINED
+        - EXPIRED
+        - ACCEPTED
+        - VERIFIER_DECLINED
+
+    field_v1:
+      title: Field V1
+      description: Field required by Verifier to be submitted by Holder.
+      type: object
+      properties:
+        # [path, filter and predicate] is one set that can be filled. Or only 'path can be filled.'
+        id:
+          type: string
+          description: Must be a unique identifier between all the fields in the Presentation Definition.
+        path:
+          type: array
+          description: List of JSon paths where the field is expected to be found.
+          items:
+            type: string
+        purpose:
+          type: string
+          description: purpose for which the Claim's data is being requested.
+        filter:
+          $ref: '#/components/schemas/filter_v1'
+        predicate:
+          $ref: '#/components/schemas/optionality'
+      required:
+        - path
+      additionalProperties: false
+
+    field_v2:
+      title: Field V2
+      description: Field required by Verifier to be submitted by Holder.
+      type: object
+      properties:
+        # [path, filter and predicate] is one set that can be filled. Or only 'path can be filled.'
+        id:
+          type: string
+          description: Must be a unique identifier between all the fields in the Presentation Definition.
+        path:
+          type: array
+          description: List of JSon paths where the field is expected to be found.
+          items:
+            type: string
+        purpose:
+          type: string
+          description: purpose for which the Claim's data is being requested.
+        filter:
+          $ref: '#/components/schemas/filter_v2'
+        predicate:
+          $ref: '#/components/schemas/optionality'
+        name:
+          type: string
+          description: human-friendly name that describes what the target field represents
+      required:
+        - path
+      additionalProperties: false
+
+    filter_v1:
+      title: Filter V1
+      type: object
+      description: This is the filter that can be applied on the field's value to know if the available credential with a specifici field is acceptable or not.
+      properties:
+        const:
+          $ref: '#/components/schemas/one_of_number_string'
+        "enum":
+          type: array
+          description: Fixed listed values which are acceptable in this variable.
+          items:
+            $ref: '#/components/schemas/one_of_number_string'
+        exclusiveMinimum:
+          $ref: '#/components/schemas/one_of_number_string'
+        exclusiveMaximum:
+          $ref: '#/components/schemas/one_of_number_string'
+        format:
+          type: string
+          description: format in which the item is expected. e.g. date time format of some sort.
+        minLength:
+          type: integer
+          description: acceptable minimum length (e.g. of string) that is acceptable
+        maxLength:
+          type: integer
+          description: acceptable maximum length (e.g. of string) that is acceptable
+        minimum:
+          $ref: '#/components/schemas/one_of_number_string'
+        maximum:
+          $ref: '#/components/schemas/one_of_number_string'
+        not:
+          type: object
+          description: The values which will make the item unacceptable
+          minProperties: 1
+        pattern:
+          type: string
+          description: The regular expression that can help filter the target object.
+        type:
+          type: string
+          description: Object type of the acceptable field.
+      required:
+        - type
+      additionalProperties: false
+
+    filter_v2:
+      allOf:
+        - $ref: "#/components/schemas/filter_v2_base"
+        - type: object
+          properties:
+            type:
+              type: string
+              description: Object type of the acceptable field.
+          required:
+            - type
+
+    filter_v2_base:
+      title: Filter V2
+      type: object
+      description: This is the filter that can be applied on the field's value to know if the available credential with a specifici field is acceptable or not.
+      properties:
+        "const":
+          $ref: '#/components/schemas/one_of_number_string'
+        "enum":
+          type: array
+          description: Fixed listed values which are acceptable in this variable.
+          items:
+            $ref: '#/components/schemas/one_of_number_string'
+        exclusiveMinimum:
+          $ref: '#/components/schemas/one_of_number_string'
+        exclusiveMaximum:
+          $ref: '#/components/schemas/one_of_number_string'
+        format:
+          type: string
+          description: format in which the item is expected. e.g. date time format of some sort.
+        formatMaximum:
+          type: string
+          description: When this keyword are added, they also add comparison functions to formats "date", "time" and "date-time"
+        formatMinimum:
+          type: string
+          description: When this keyword are added, they also add comparison functions to formats "date", "time" and "date-time"
+        formatExclusiveMaximum:
+          type: string
+          description: When this keyword are added, they also add comparison functions to formats "date", "time" and "date-time"
+        formatExclusiveMinimum:
+          type: string
+          description: When this keyword are added, they also add comparison functions to formats "date", "time" and "date-time"
+        minLength:
+          type: integer
+          description: acceptable minimum length (e.g. of string) that is acceptable
+        maxLength:
+          type: integer
+          description: acceptable maximum length (e.g. of string) that is acceptable
+        minimum:
+          $ref: '#/components/schemas/one_of_number_string'
+        maximum:
+          $ref: '#/components/schemas/one_of_number_string'
+        not:
+          type: object
+          description: The values which will make the item unacceptable
+          minProperties: 1
+        pattern:
+          type: string
+          description: The regular expression that can help filter the target object.
+        type:
+          type: string
+          description: Object type of the acceptable field.
+        contains:
+          $ref: "#/components/schemas/filter_v2_base"
+        items:
+          anyOf:
+            - $ref: "#/components/schemas/filter_v2"
+            - items:
+                $ref: "#/components/schemas/filter_v2"
+              minItems: 1
+              type: array
+      additionalProperties: false
+
+    format:
+      title: Format
+      description: What claim variants Verifiers and Holders support.
+      type: object
+      additionalProperties: false
+      properties:
+        # All properties are not expected to be non-null filled.
+        jwt:
+          $ref: '#/components/schemas/jwt_object'
+        jwt_vc:
+          $ref: '#/components/schemas/jwt_object'
+        jwt_vc_json:
+          $ref: '#/components/schemas/jwt_object'
+        jwt_vp:
+          $ref: '#/components/schemas/jwt_object'
+        ldp:
+          $ref: '#/components/schemas/ldp_object'
+        ldp_vc:
+          $ref: '#/components/schemas/ldp_object'
+        ldp_vp:
+          $ref: '#/components/schemas/ldp_object'
+        vc+sd-jwt:
+          $ref: '#/components/schemas/sd_jwt_object'
+
+    holder_subject:
+      title: Holder Subject
+      type: object
+      description: The is_holder/same_subject property would be used by a Verifier to require that certain inputs be provided by a certain subject or are about a certain subject.
+      properties:
+        field_id:
+          type: array
+          description: The value of this property MUST be an array of strings, with each string matching the string value from a field object’s id property.
+          items:
+            type: string
+        directive:
+          $ref: '#/components/schemas/optionality'
+      required:
+        - field_id
+        - directive
+      additionalProperties: false
+
+    input_descriptor_v1:
+      title: Input Descriptor V1
+      description: Input Descriptor is used by a Verifier to describe the information required of a Holder before an interaction can proceed.
+      type: object
+      properties:
+        id:
+          type: string
+          description: The verifiable credentials that is acceptable from the holder. e.g. wa_driver_license
+        name:
+          type: string
+          description: The verifiable credentials that is acceptable from the holder in a human readibly string form. i.e. an alternative for the humans to the id
+        purpose:
+          type: string
+          description: It describes the purpose for which the Presentation Definition's inputs are being requested.
+        group:
+          type: array
+          description: A group from which the specific credential is required.
+          items:
+            type: string
+        schema:
+          type: array
+          description: List of schemas for the credential to be compatible with.
+          items:
+            $ref: '#/components/schemas/definition_schema'
+        issuance:
+          type: array
+          items:
+            $ref: '#/components/schemas/issuance'
+        constraints:
+          $ref: '#/components/schemas/constraints_v1'
+      required:
+        - id
+        - schema
+      additionalProperties: false
+
+    input_descriptor_v2:
+      title: Input Descriptor V2
+      description: Input Descriptor is used by a Verifier to describe the information required of a Holder before an interaction can proceed.
+      type: object
+      properties:
+        id:
+          type: string
+          description: The verifiable credentials that is acceptable from the holder. e.g. wa_driver_license
+        name:
+          type: string
+          description: The verifiable credentials that is acceptable from the holder in a human readibly string form. i.e. an alternative for the humans to the id
+        purpose:
+          type: string
+          description: It describes the purpose for which the Presentation Definition's inputs are being requested.
+        format:
+          $ref: '#/components/schemas/format'
+        group:
+          type: array
+          description: A group from which the specific credential is required.
+          items:
+            type: string
+        issuance:
+          type: array
+          items:
+            $ref: '#/components/schemas/issuance'
+        constraints:
+          $ref: '#/components/schemas/constraints_v2'
+      required:
+        - id
+        - constraints
+      additionalProperties: false
+
+
+    issuance:
+      title: Issuance
+      description: Describes the issuance properties. Non-spec compliant, but used in the wild.
+      type: object
+      properties:
+        manifest:
+          type: string
+          description: The URL of the Credential Manifest
+      additionalProperties: true
+
+    issue:
+      title: Issue
+      description: This is the warnings and errors.
+      type: object
+      properties:
+        code:
+          type: string
+          description: Uniquely identifying key-code to pin point the issue that has occurred.
+        tag:
+          type: string
+          description: The object or part of object for which the issue has occurred.
+        message:
+          type: string
+          description: The details of the issue in a human readable form.
+        status:
+          $ref: '#/components/schemas/status'
+      required:
+        - code
+        - tag
+        - message
+        - status
+      additionalProperties: false
+
+    jwt_object:
+      type: object
+      description: Which JWT Algorithm is supported
+      properties:
+        alg:
+          type: array
+          description: List of names of the the JWT Algorithms
+          minItems: 1
+          items:
+            type: string
+      required:
+        - alg
+      additionalProperties: false
+
+    ldp_object:
+      type: object
+      description: Which Proof type is supported
+      properties:
+        proof_type:
+          type: array
+          description: List of names of the proof types
+          minItems: 1
+          items:
+            type: string
+            description: Name of the the proof type
+      required:
+        - proof_type
+      additionalProperties: false
+
+    one_of_number_string:
+      title: One of number or string
+      oneOf:
+        - type: number
+        - type: string
+      additionalProperties: false
+
+    optionality:
+      type: string
+      description: Whether an item is optional or not in the presentation. E.g. if an item is required presentation can not be accepted without it.
+      enum:
+        - required
+        - preferred
+
+    pd_status:
+      title: Presentation Definition Status
+      description: This is a requirement to show what directive is to be followed for this status.
+      type: object
+      properties:
+        directive:
+          $ref: '#/components/schemas/directives'
+
+    presentation_definition_v1:
+      title: Presentation Definition V1
+      description: Version 1 of Presentation Definitions are objects that articulate what proofs a Verifier requires.
+      type: object
+      properties:
+        id:
+          type: string
+          description: A UUID or some other unique ID to identify this Presentation Definition
+        name:
+          type: string
+          description: A name property is a human-friendly string intended to constitute a distinctive designation of the Presentation Definition.
+        purpose:
+          type: string
+          description: It describes the purpose for which the Presentation Definition's inputs are being requested.
+        format:
+          $ref: '#/components/schemas/format'
+        submission_requirements:
+          type: array
+          description: List of requirements for described inputs in input descriptors.
+          items:
+            $ref: '#/components/schemas/submission_requirement'
+        input_descriptors:
+          type: array
+          description: List of descriptions of the required inputs.
+          items:
+            $ref: '#/components/schemas/input_descriptor_v1'
+      required:
+        - id
+        - input_descriptors
+      additionalProperties: false
+
+    presentation_definition_v2:
+      title: Presentation Definition V2
+      description: Version 2 of Presentation Definitions are objects that articulate what proofs a Verifier requires.
+      type: object
+      properties:
+        id:
+          type: string
+          description: A UUID or some other unique ID to identify this Presentation Definition
+        name:
+          type: string
+          description: A name property is a human-friendly string intended to constitute a distinctive designation of the Presentation Definition.
+        purpose:
+          type: string
+          description: It describes the purpose for which the Presentation Definition's inputs are being requested.
+        format:
+          $ref: '#/components/schemas/format'
+        submission_requirements:
+          type: array
+          description: List of requirements for described inputs in input descriptors.
+          items:
+            $ref: '#/components/schemas/submission_requirement'
+        input_descriptors:
+          type: array
+          description: List of descriptions of the required inputs.
+          items:
+            $ref: '#/components/schemas/input_descriptor_v2'
+        frame:
+          type: object
+          description: a JSON LD Framing Document object.
+      required:
+        - id
+        - input_descriptors
+      additionalProperties: false
+
+    presentation_definition_wrapper:
+      title: Presentation Definition Wrapper
+      description: Presentation Definitions with the meta data.
+      type: object
+      properties:
+        thread:
+          $ref: '#/components/schemas/thread'
+        presentation_definition_v1:
+          $ref: '#/components/schemas/presentation_definition_v1'
+        presentation_definition_v2:
+          $ref: '#/components/schemas/presentation_definition_v2'
+        challenge:
+          $ref: '#/components/schemas/challenge'
+        callback:
+          $ref: '#/components/schemas/callback'
+      required:
+        - thread
+        - challenge
+        - callback
+      additionalProperties: false
+
+    presentation_status:
+      title: Presentation Status
+      description: Presentation status details.
+      type: object
+      properties:
+        presentation_id:
+          type: string
+          description: ID of the presentation
+        status:
+          $ref: '#/components/schemas/exchange_status'
+        message:
+          type: string
+      required:
+        - presentation_id
+        - status
+      additionalProperties: false
+
+    presentation_status_wrapper:
+      title: Presentation Status Wrapper
+      description: Presentation status with meta data.
+      type: object
+      properties:
+        definition_id:
+          type: string
+          description: ID of the Presentation Definition
+        statuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/presentation_status'
+      required:
+        - definition_id
+        - statuses
+      additionalProperties: false
+
+
+    presentation_submission:
+      title: Presentation Submission
+      description: It express how the inputs presented as proofs to a Verifier.
+      type: object
+      properties:
+        id:
+          type: string
+          description: A UUID or some other unique ID to identify this Presentation Submission
+        definition_id:
+          type: string
+          description: A UUID or some other unique ID to identify this Presentation Definition
+        descriptor_map:
+          type: array
+          description: List of descriptors of how the claims are being mapped to presentation definition
+          items:
+            $ref: '#/components/schemas/descriptor'
+      required:
+        - id
+        - definition_id
+        - descriptor_map
+      additionalProperties: false
+
+    presentation_wrapper:
+      title: Presentation wrapper
+      description: Presentation wrapper with meta data.
+      type: object
+      properties:
+        presentation_submission:
+          $ref: '#/components/schemas/presentation_submission'
+        challenge:
+          $ref: '#/components/schemas/challenge'
+        callback:
+          $ref: '#/components/schemas/callback'
+      required:
+        - presentation_submission
+        - challenge
+        - callback
+      additionalProperties: false
+
+    resource:
+      title: Resource
+      description: Resource information, i.e. reachable URL
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL to locate the resource.
+      required:
+        - url
+      additionalProperties: false
+
+    rules:
+      type: string
+      description: Whether all the requirements are mandatory or holder has multiple options to select verifiable credentials from
+      enum:
+        - all
+        - pick
+
+    definition_schema:
+      title: Schema
+      type: object
+      description: Is a Schema for the credential to be compatible with.
+      properties:
+        uri:
+          type: string
+          description: Is a URL that points to the JSON schema required for the credential to be compatible with.
+        required:
+          type: boolean
+          description: Whether this is mandatory or not.
+      required:
+        - uri
+      additionalProperties: false
+
+    sd_jwt_object:
+      type: object
+      description: Indicate support for SD-JWT VCs
+      properties:
+        sd-jwt_alg_values:
+          type: array
+          description: A JSON array containing identifiers of cryptographic algorithms the verifier supports for protection of a SD-JWT. If present, the alg JOSE header (as defined in [RFC7515]) of the presented SD-JWT MUST match one of the array values.
+          minItems: 1
+          items:
+            type: string
+        kb-jwt_alg_values:
+          type: array
+          description: A JSON array containing identifiers of cryptographic algorithms the verifier supports for protection of a KB-JWT. If present, the alg JOSE header (as defined in [RFC7515]) of the presented KB-JWT MUST match one of the array values.
+          minItems: 1
+          items:
+            type: string
+      additionalProperties: false
+
+    status:
+      type: string
+      title: Status
+      description: This is the over all status or the status of the most significant item.
+      enum:
+        - SUCCESS
+        - WARN
+        - ERROR
+
+    statuses:
+      title: Statuses
+      description: statuses which are acceptable
+      type: object
+      properties:
+        active:
+          $ref: '#/components/schemas/pd_status'
+        suspended:
+          $ref: '#/components/schemas/pd_status'
+        revoked:
+          $ref: '#/components/schemas/pd_status'
+
+    status_response:
+      title: Generic Response
+      description: This is a generic wrapper to contain the info, warnings and errors.
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/status'
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/issue'
+      required:
+        - status
+        - issues
+      additionalProperties: false
+
+    submission_requirement:
+      title: Submission Requirement
+      description: It defines what combinations of inputs a processing entity must submit to comply with the requirements of a Verifier.
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+          description: what verifiable credential is demanded in order for the presentation to be sensible.
+        purpose:
+          type: string
+          description: Why this verifiable credentials is requested.
+        rule:
+          $ref: '#/components/schemas/rules'
+        count:
+          type: integer
+          description: How many of the credentials are demanded for the presentation to be sensible.
+          minimum: 1
+        min:
+          type: integer
+          description: Minimum of the credentials are demanded for the presentation to be sensible.
+          minimum: 0
+        max:
+          type: integer
+          description: Maximum of the credentials are demanded for the presentation to be sensible.
+          minimum: 0
+          # It is expected that 'from' or 'from_nested' will be populated
+        from:
+          type: string
+          description: One of the group strings specified for one or more [[ref:Input Descriptor Objects].
+        from_nested:
+          type: array
+          description: nested submission_requirement and is a way to organize the requirements. For example requirements mentioned in the flat list will also be able to provide same information but will be less organized.
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/submission_requirement'
+      required:
+        - rule
+
+    thread:
+      title: Thread
+      description: A session or thread information container object.
+      type: object
+      properties:
+        id:
+          type: string
+          description: This thread id can be used to get to definition(s) as well as will be used to find other interaction regarding this presentation exchange e.g. presentation(s) of proofs.
+      required:
+        - id
+      additionalProperties: false

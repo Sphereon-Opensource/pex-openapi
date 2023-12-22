@@ -1,6 +1,0 @@
-optionality:
-  type: string
-  description: Whether an item is optional or not in the presentation. E.g. if an item is required presentation can not be accepted without it.
-  enum:
-    - required
-    - preferred
