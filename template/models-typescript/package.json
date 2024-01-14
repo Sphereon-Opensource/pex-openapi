@@ -1,6 +1,6 @@
 {
   "name": "@sphereon/pex-models",
-  "version": "2.1.4-unstable.0",
+  "version": "2.1.4",
   "description": "Presentation Exchange v1 and v2 typescript models",
   "author": "Sphereon",
   "keywords": [
@@ -26,6 +26,6 @@
     "README.md"
   ],
   "devDependencies": {
-    "typescript": "^4.9.5"
+    "typescript": "^5.3.3"
   }
 }

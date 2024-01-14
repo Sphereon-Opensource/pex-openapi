@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   description: Presentation Exchange API
-  version: '2.1.4-SMAPSHOT'
+  version: '2.1.4'
   title: Presentation Exchange API
   license:
     name: Apache 2.0
@@ -614,7 +614,7 @@ components:
           type: array
           description: List of schemas for the credential to be compatible with.
           items:
-            $ref: '#/components/schemas/definition_schema'
+            $ref: '#/components/schemas/schema'
         issuance:
           type: array
           items:
@@ -922,7 +922,7 @@ components:
         - all
         - pick
 
-    definition_schema:
+    schema:
       title: Schema
       type: object
       description: Is a Schema for the credential to be compatible with.
