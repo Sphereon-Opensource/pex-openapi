@@ -1,8 +1,0 @@
-status:
-  type: string
-  title: Status
-  description: This is the over all status or the status of the most significant item.
-  enum:
-    - SUCCESS
-    - WARN
-    - ERROR

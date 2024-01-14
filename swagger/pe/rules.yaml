@@ -1,6 +1,0 @@
-rules:
-  type: string
-  description: Whether all the requirements are mandatory or holder has multiple options to select verifiable credentials from
-  enum:
-    - all
-    - pick
