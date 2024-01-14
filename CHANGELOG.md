@@ -1,5 +1,10 @@
 # Release Notes
 
+## v2.1.3 - 2024-01-14
+
+- Fix
+  - `path` is now required in a `Field` according to the v1 and v2 spec
+
 ## v2.1.2 - 2023-11-28
 
 - Feature
