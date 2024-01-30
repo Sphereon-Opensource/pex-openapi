@@ -339,55 +339,26 @@ components:
       title: Descriptor
       description: descriptor map laying out the structure of the presentation submission.
       type: object
-      oneOf:
-        - type: object
-          title: StandardDescriptor
-          properties:
-            id:
-              type: string
-              description: ID to identify the descriptor from Presentation Definition Input Descriptor it coresponds to.
-            path:
-              type: string
-              description: The path where the verifiable credential is located in the presentation submission json
-            path_nested:
-              $ref: '#/components/schemas/descriptor'
-            format:
-              type: string
-              description: The Proof or JWT algorithm that the proof is in
-            cryptosuite:
-              type: null
-              description: The DataIntegrityProof cryptosuite
-
-          required:
-            - id
-            - path
-            - format
-          additionalProperties: false
-
-        - type: object
-          title: DataIntegrityDescriptor
-          properties:
-            id:
-              type: string
-              description: ID to identify the descriptor from Presentation Definition Input Descriptor it corresponds to.
-            path:
-              type: string
-              description: The path where the verifiable credential is located in the presentation submission json
-            path_nested:
-              $ref: '#/components/schemas/descriptor'
-            format:
-              description: The Proof format (DataIntegrityProof)
-              enum:
-              - DataIntegrityProof
-            cryptosuite:
-              type: string
-              description: The DataIntegrityProof cryptosuite
-          required:
-            - id
-            - path
-            - format
-            - cryptosuite
-          additionalProperties: false
+      properties:
+        id:
+          type: string
+          description: ID to identify the descriptor from Presentation Definition Input Descriptor it coresponds to.
+        path:
+          type: string
+          description: The path where the verifiable credential is located in the presentation submission json
+        path_nested:
+          $ref: '#/components/schemas/descriptor'
+        format:
+          type: string
+          description: The Proof or JWT algorithm that the proof is in
+        cryptosuite:
+          type: string
+          description: The data integrity cryptosuite
+      required:
+        - id
+        - path
+        - format
+      additionalProperties: false
 
 
     directives:
