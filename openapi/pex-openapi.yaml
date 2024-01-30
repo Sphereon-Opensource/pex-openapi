@@ -762,23 +762,22 @@ components:
 
     di_object:
       type: object
-      description: Which type of DataIntegrityProof type is supported
+      description: Which Proof type is supported
       properties:
         proof_type:
           type: array
-          description: The Proof type DataIntegrityProof
+          description: List of names of the proof types
           minItems: 1
-          maxItems: 1
           items:
             type: string
-            description: The Proof type (DataIntegrityProof)
+            description: Name of the the proof type
         cryptosuite:
-          type: string
-          description: The DataIntegrityProof cryptosuite
+          type: array
+          description: The data integrity cryptosuites
           minItems: 1
           items:
             type: string
-            description: The names of the cryptosuites
+            description: List of names of the data integrity cryptosuites
       required:
         - proof_type
         - cryptosuite
