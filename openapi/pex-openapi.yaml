@@ -339,29 +339,62 @@ components:
       title: Descriptor
       description: descriptor map laying out the structure of the presentation submission.
       type: object
-      properties:
-        id:
-          type: string
-          description: ID to identify the descriptor from Presentation Definition Input Descriptor it coresponds to.
-        path:
-          type: string
-          description: The path where the verifiable credential is located in the presentation submission json
-        path_nested:
-          $ref: '#/components/schemas/descriptor'
-        format:
-          type: string
-          description: The Proof or JWT algorithm that the proof is in
-      required:
-        - id
-        - path
-        - format
-      additionalProperties: false
+      oneOf:
+        - type: object
+          title: StandardDescriptor
+          properties:
+            id:
+              type: string
+              description: ID to identify the descriptor from Presentation Definition Input Descriptor it coresponds to.
+            path:
+              type: string
+              description: The path where the verifiable credential is located in the presentation submission json
+            path_nested:
+              $ref: '#/components/schemas/descriptor'
+            format:
+              type: string
+              description: The Proof or JWT algorithm that the proof is in
+            cryptosuite:
+              type: null
+              description: The DataIntegrityProof cryptosuite
+
+          required:
+            - id
+            - path
+            - format
+          additionalProperties: false
+
+        - type: object
+          title: DataIntegrityDescriptor
+          properties:
+            id:
+              type: string
+              description: ID to identify the descriptor from Presentation Definition Input Descriptor it corresponds to.
+            path:
+              type: string
+              description: The path where the verifiable credential is located in the presentation submission json
+            path_nested:
+              $ref: '#/components/schemas/descriptor'
+            format:
+              description: The Proof format (DataIntegrityProof)
+              enum:
+              - DataIntegrityProof
+            cryptosuite:
+              type: string
+              description: The DataIntegrityProof cryptosuite
+          required:
+            - id
+            - path
+            - format
+            - cryptosuite
+          additionalProperties: false
+
 
     directives:
       type: string
       description: >
         A directive is an instruction to the holder about what significance to give to the element it refers to.
-        
+
         * `required` - The item 'must' be presented
         * `allowed` - The item 'can' be presented
         * `disallowed` - The item 'must NOT' be presented
@@ -571,6 +604,12 @@ components:
           $ref: '#/components/schemas/ldp_object'
         ldp_vp:
           $ref: '#/components/schemas/ldp_object'
+        di:
+          $ref: '#/components/schemas/di_object'
+        di_vc:
+          $ref: '#/components/schemas/di_object'
+        di_vp:
+          $ref: '#/components/schemas/di_object'
         vc+sd-jwt:
           $ref: '#/components/schemas/sd_jwt_object'
 
@@ -719,6 +758,30 @@ components:
             description: Name of the the proof type
       required:
         - proof_type
+      additionalProperties: false
+
+    di_object:
+      type: object
+      description: Which type of DataIntegrityProof type is supported
+      properties:
+        proof_type:
+          type: array
+          description: The Proof type DataIntegrityProof
+          minItems: 1
+          maxItems: 1
+          items:
+            type: string
+            description: The Proof type (DataIntegrityProof)
+        cryptosuite:
+          type: string
+          description: The DataIntegrityProof cryptosuite
+          minItems: 1
+          items:
+            type: string
+            description: The names of the cryptosuites
+      required:
+        - proof_type
+        - cryptosuite
       additionalProperties: false
 
     one_of_number_string:
