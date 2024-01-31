@@ -351,15 +351,11 @@ components:
         format:
           type: string
           description: The Proof or JWT algorithm that the proof is in
-        cryptosuite:
-          type: string
-          description: The data integrity cryptosuite
       required:
         - id
         - path
         - format
       additionalProperties: false
-
 
     directives:
       type: string
