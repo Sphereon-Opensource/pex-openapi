@@ -361,7 +361,7 @@ components:
       type: string
       description: >
         A directive is an instruction to the holder about what significance to give to the element it refers to.
-        
+
         * `required` - The item 'must' be presented
         * `allowed` - The item 'can' be presented
         * `disallowed` - The item 'must NOT' be presented
@@ -571,6 +571,12 @@ components:
           $ref: '#/components/schemas/ldp_object'
         ldp_vp:
           $ref: '#/components/schemas/ldp_object'
+        di:
+          $ref: '#/components/schemas/di_object'
+        di_vc:
+          $ref: '#/components/schemas/di_object'
+        di_vp:
+          $ref: '#/components/schemas/di_object'
         vc+sd-jwt:
           $ref: '#/components/schemas/sd_jwt_object'
 
@@ -719,6 +725,29 @@ components:
             description: Name of the the proof type
       required:
         - proof_type
+      additionalProperties: false
+
+    di_object:
+      type: object
+      description: Which Proof type is supported
+      properties:
+        proof_type:
+          type: array
+          description: List of names of the proof types
+          minItems: 1
+          items:
+            type: string
+            description: Name of the the proof type
+        cryptosuite:
+          type: array
+          description: The data integrity cryptosuites
+          minItems: 1
+          items:
+            type: string
+            description: List of names of the data integrity cryptosuites
+      required:
+        - proof_type
+        - cryptosuite
       additionalProperties: false
 
     one_of_number_string:
