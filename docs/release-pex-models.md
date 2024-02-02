@@ -27,11 +27,11 @@ is not effective. Keeping it aligned would still be beneficial though.
 
 NOTE: The following changes need to be made manually currently in the Typescript packages. A template fix will follow
 shortly
-> vc+sd-jwt (currently encoded as vcsd_jwt). For TS this should be ['vc+sd-jwt']
+> vc+sd-jwt (currently encoded as vcsd_jwt). For TS this should be vcsd_jwt -> ['vc+sd-jwt']
 > 
-> sd-jwt_alg_values (currently encoded as sd_jwt_alg_values; this should be ['sd-jwt_alg_values']
+> sd-jwt_alg_values (currently encoded as sd_jwt_alg_values; this should be sd_jwt_alg_values -> ['sd-jwt_alg_values']
 > 
-> kb-jwt_alg_values (currently encoded as kb_jwt_alg_values) ['kb-jwt_alg_values']
+> kb-jwt_alg_values (currently encoded as kb_jwt_alg_values) kb_jwt_alg_values -> ['kb-jwt_alg_values']
 
 ```
 mvn clean
