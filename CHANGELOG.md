@@ -1,5 +1,10 @@
 # Release Notes
 
+## v2.1.6 - 2024-02-02
+
+- Feature
+  - Add support for Verifiable Credential Data Integrity 1.0
+
 ## v2.1.5 - 2024-01-14
 
 - Fix
