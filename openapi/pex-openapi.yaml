@@ -565,6 +565,8 @@ components:
           $ref: '#/components/schemas/jwt_object'
         jwt_vp:
           $ref: '#/components/schemas/jwt_object'
+        jwt_vp_json:
+          $ref: '#/components/schemas/jwt_object'
         ldp:
           $ref: '#/components/schemas/ldp_object'
         ldp_vc:
