@@ -1,5 +1,9 @@
 # Release Notes
 
+## v2.2.1 - 2024-02-29
+- Fix
+  - Format did not include `jwt_vp_json` 
+  
 ## v2.2.0 - 2024-02-02
 
 - Feature
