@@ -1,6 +1,6 @@
 # Release Notes
 
-## v2.2.1 - 2024-02-29
+## v2.2.2 - 2024-02-29
 - Fix
   - Format did not include `jwt_vp_json` 
   
@@ -14,7 +14,7 @@
 - Fix
   - `Schema` object was renamed to `DefintionSchema` by accident
 
-## v2.1.3 - 2024-01-14
+## v2.1.4 - 2024-01-14
 Do not use
  
 ## v2.1.3 - 2024-01-14
