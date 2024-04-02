@@ -440,12 +440,12 @@ components:
       description: This is the filter that can be applied on the field's value to know if the available credential with a specifici field is acceptable or not.
       properties:
         const:
-          $ref: '#/components/schemas/one_of_number_string'
+          $ref: '#/components/schemas/one_of_number_string_boolean'
         "enum":
           type: array
           description: Fixed listed values which are acceptable in this variable.
           items:
-            $ref: '#/components/schemas/one_of_number_string'
+            $ref: '#/components/schemas/one_of_number_string_boolean'
         exclusiveMinimum:
           $ref: '#/components/schemas/one_of_number_string'
         exclusiveMaximum:
@@ -494,12 +494,12 @@ components:
       description: This is the filter that can be applied on the field's value to know if the available credential with a specifici field is acceptable or not.
       properties:
         "const":
-          $ref: '#/components/schemas/one_of_number_string'
+          $ref: '#/components/schemas/one_of_number_string_boolean'
         "enum":
           type: array
           description: Fixed listed values which are acceptable in this variable.
           items:
-            $ref: '#/components/schemas/one_of_number_string'
+            $ref: '#/components/schemas/one_of_number_string_boolean'
         exclusiveMinimum:
           $ref: '#/components/schemas/one_of_number_string'
         exclusiveMaximum:
@@ -757,6 +757,14 @@ components:
       oneOf:
         - type: number
         - type: string
+      additionalProperties: false
+
+    one_of_number_string_boolean:
+      title: One of number, string or boolean
+      oneOf:
+        - type: number
+        - type: string
+        - type: boolean
       additionalProperties: false
 
     optionality:
