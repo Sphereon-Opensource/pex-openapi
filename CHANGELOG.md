@@ -1,5 +1,9 @@
 # Release Notes
 
+## v2.2.3 - 2024-04-24
+- Fix
+  - Add boolean const as valid filter value
+  
 ## v2.2.2 - 2024-02-29
 - Fix
   - Format did not include `jwt_vp_json` 
