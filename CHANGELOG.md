@@ -1,5 +1,9 @@
 # Release Notes
 
+## v2.2.4 - 2024-04-24
+- Fix
+  - Add boolean 'optional' property in v2 Fields,
+
 ## v2.2.3 - 2024-04-24
 - Fix
   - Add boolean const as valid filter value

@@ -430,6 +430,9 @@ components:
         name:
           type: string
           description: human-friendly name that describes what the target field represents
+        optional:
+          type: boolean
+          description: The value of this property MUST be a boolean, wherein true indicates the field is optional, and false or non-presence of the property indicates the field is required.
       required:
         - path
       additionalProperties: false
