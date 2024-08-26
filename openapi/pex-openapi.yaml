@@ -584,6 +584,8 @@ components:
           $ref: '#/components/schemas/di_object'
         vc+sd-jwt:
           $ref: '#/components/schemas/sd_jwt_object'
+        mso_mdoc:
+          $ref: '#/components/schemas/mso_mdoc_object'
 
     holder_subject:
       title: Holder Subject
@@ -996,6 +998,21 @@ components:
           items:
             type: string
       additionalProperties: false
+
+    mso_mdoc_object:
+      type: object
+      description: Indicate support for ISO 18013-5 Mdoc
+      properties:
+        alg:
+          type: array
+          description: List of names of the the MSO Mdoc Algorithms
+          minItems: 1
+          items:
+            type: string
+      required:
+        - alg
+      additionalProperties: false
+
 
     status:
       type: string

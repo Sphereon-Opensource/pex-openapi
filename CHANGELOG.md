@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.3.0 - 2024-08-27
+- Fix
+    - Add support for mso_mdoc format
+
+## v2.2.4 - 2024-04-24
+- Fix
+    - Add boolean 'optional' property in v2 Fields,
+
 ## v2.2.4 - 2024-04-24
 - Fix
   - Add boolean 'optional' property in v2 Fields,
@@ -52,6 +60,12 @@ Do not use
 
 - Fix
     - Remove wrong export path
+
+## v2.0.1 - 2023-09-29
+
+- Feature
+  - Add support for `items` and `contains` in filter
+  - Add support for `jwt_vc_json` format
 
 ## v2.0.0 - 2023-04-30
 
