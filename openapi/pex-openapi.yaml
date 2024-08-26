@@ -427,6 +427,8 @@ components:
           $ref: '#/components/schemas/filter_v2'
         predicate:
           $ref: '#/components/schemas/optionality'
+        intent_to_retain:
+          type: boolean
         name:
           type: string
           description: human-friendly name that describes what the target field represents

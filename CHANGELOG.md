@@ -1,7 +1,11 @@
 # Release Notes
 
+## v2.3.1 - 2024-08-27
+- Feature
+  - Add intent_to_retain to Field v2
+
 ## v2.3.0 - 2024-08-27
-- Fix
+- Feature
     - Add support for mso_mdoc format
 
 ## v2.2.4 - 2024-04-24
