@@ -1,5 +1,10 @@
 # Release Notes
 
+
+## v2.3.2 - 2024-11-25
+- Fix
+  - Make type optional in filter v2
+
 ## v2.3.1 - 2024-08-27
 - Feature
   - Add intent_to_retain to Field v2
