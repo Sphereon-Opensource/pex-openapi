@@ -573,6 +573,8 @@ components:
           $ref: '#/components/schemas/di_object'
         vc+sd-jwt:
           $ref: '#/components/schemas/sd_jwt_object'
+        dc+sd-jwt:
+          $ref: '#/components/schemas/sd_jwt_object'
         mso_mdoc:
           $ref: '#/components/schemas/mso_mdoc_object'
 
